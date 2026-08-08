@@ -96,3 +96,18 @@
     frames.forEach(function (f, i) { f.addEventListener('click', function () { open(i); }); });
   }
 })();
+
+// Buy Now buttons — redirect to each painting's Stripe Payment Link.
+// Until a real link is pasted into data-stripe-link, the button is inert (no dead click errors).
+(function () {
+  document.querySelectorAll('.buy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      var link = btn.getAttribute('data-stripe-link');
+      if (link) {
+        window.location.href = link;
+      } else {
+        e.preventDefault();
+      }
+    });
+  });
+})();
