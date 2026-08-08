@@ -134,16 +134,9 @@
 })();
 
 // Sold paintings — mark any <article class="work is-sold"> and the rest updates itself:
-// badge on the image, Buy Now swapped for a disabled "Sold" pill. No other edits needed per sale.
+// Buy Now swapped for a disabled "Sold" pill. No other edits needed per sale.
 (function () {
   document.querySelectorAll('.work.is-sold').forEach(function (work) {
-    var frame = work.querySelector('.work__frame');
-    if (frame && !frame.querySelector('.work__sold')) {
-      var badge = document.createElement('span');
-      badge.className = 'work__sold';
-      badge.textContent = 'Sold';
-      frame.appendChild(badge);
-    }
     var buy = work.querySelector('.buy-btn');
     if (buy) {
       buy.textContent = 'Sold';
