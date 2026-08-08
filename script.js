@@ -112,6 +112,27 @@
   });
 })();
 
+// Mobile "See all paintings" — on phones the works grid starts collapsed to the first 4
+// so visitors reach the artist/contact sections quickly; desktop always shows the full grid.
+(function () {
+  var toggle = document.querySelector('.works-toggle');
+  var works = document.querySelector('.works');
+  if (!toggle || !works) return;
+  works.classList.add('is-collapsed');
+  var MORE = toggle.getAttribute('data-label-more') || 'See all paintings';
+  var LESS = toggle.getAttribute('data-label-less') || 'Show fewer paintings';
+  toggle.addEventListener('click', function () {
+    var collapsed = works.classList.toggle('is-collapsed');
+    toggle.textContent = collapsed ? MORE : LESS;
+    toggle.setAttribute('aria-expanded', String(!collapsed));
+    if (!collapsed) {
+      works.querySelectorAll('.work--extra.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+    } else {
+      toggle.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+  });
+})();
+
 // Sold paintings — mark any <article class="work is-sold"> and the rest updates itself:
 // badge on the image, Buy Now swapped for a disabled "Sold" pill. No other edits needed per sale.
 (function () {
