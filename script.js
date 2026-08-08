@@ -111,3 +111,48 @@
     });
   });
 })();
+
+// Sold paintings — mark any <article class="work is-sold"> and the rest updates itself:
+// badge on the image, Buy Now swapped for a disabled "Sold" pill. No other edits needed per sale.
+(function () {
+  document.querySelectorAll('.work.is-sold').forEach(function (work) {
+    var frame = work.querySelector('.work__frame');
+    if (frame && !frame.querySelector('.work__sold')) {
+      var badge = document.createElement('span');
+      badge.className = 'work__sold';
+      badge.textContent = 'Sold';
+      frame.appendChild(badge);
+    }
+    var buy = work.querySelector('.buy-btn');
+    if (buy) {
+      buy.textContent = 'Sold';
+      buy.classList.add('is-disabled');
+      buy.removeAttribute('href');
+      buy.setAttribute('aria-disabled', 'true');
+    }
+    var ask = work.querySelector('.work__ask');
+    if (ask) { ask.textContent = 'Ask about a similar piece'; }
+  });
+})();
+
+// Commission form — inline AJAX submit via formsubmit.co, falls back to a normal POST if fetch fails.
+(function () {
+  var form = document.querySelector('form.commission-form');
+  if (!form || !window.fetch) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (r) { if (!r.ok) throw new Error('bad'); return r.json().catch(function () { return {}; }); })
+      .then(function () {
+        var ok = document.createElement('div');
+        ok.className = 'form-success';
+        ok.innerHTML = '<div class="form-success__check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>'
+          + '<h3>Thanks — message sent</h3><p>I’ll get back to you shortly to talk through the commission.</p>';
+        form.replaceWith(ok);
+      })
+      .catch(function () { if (btn) { btn.disabled = false; btn.textContent = label; } form.submit(); });
+  });
+})();

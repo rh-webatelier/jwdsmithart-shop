@@ -136,6 +136,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
 .work__buy .buy-btn{white-space:nowrap}
 .work__ask{font-size:.76rem;color:var(--muted);text-decoration:underline;text-underline-offset:2px}
 .work__ask:hover{color:var(--gold-600)}
+.buy-btn.is-disabled{background:#d8d2c4;color:#8b8371;cursor:default;pointer-events:none;border-color:transparent}
 @media(max-width:640px){
   .work__foot{flex-wrap:wrap}
   .work__buy{align-items:flex-start;width:100%}
@@ -173,6 +174,24 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
 .feature__list li{padding:7px 0 7px 26px;position:relative;color:var(--ink-soft);font-size:.96rem}
 .feature__list li::before{content:"";position:absolute;left:0;top:15px;width:10px;height:10px;border:1.5px solid var(--gold);border-radius:50%}
 
+.commission-form{display:flex;flex-direction:column;gap:12px;margin-bottom:14px}
+.commission-form .form-row{display:flex;gap:12px}
+.commission-form input,.commission-form textarea{
+  font:inherit;font-size:.95rem;padding:12px 14px;border:1px solid rgba(27,25,21,.18);
+  border-radius:6px;background:#fff;color:var(--ink);width:100%}
+.commission-form input:focus,.commission-form textarea:focus{outline:none;border-color:var(--gold)}
+.commission-form textarea{resize:vertical}
+.commission-form button{align-self:flex-start}
+.feature__alt-link{font-size:.85rem;color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.feature__alt-link:hover{color:var(--gold-600)}
+.form-success{padding:20px 0}
+.form-success__check{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;
+  align-items:center;justify-content:center;margin-bottom:14px}
+.form-success__check svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.form-success h3{margin:0 0 6px}
+.form-success p{color:var(--muted);margin:0}
+@media(max-width:520px){.commission-form .form-row{flex-direction:column}}
+
 /* contact */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 @media(max-width:820px){.contact{grid-template-columns:1fr;gap:36px}}
@@ -193,6 +212,14 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
 .site-footer{background:#141210;color:rgba(247,243,234,.6);padding:40px 0;font-size:.85rem}
 .footer__inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .footer__brand{font-family:var(--font-head);font-size:1.3rem;color:var(--cream)}
+.footer__legal a{color:inherit;text-decoration:underline;text-underline-offset:2px;opacity:.85}
+.footer__legal a:hover{opacity:1;color:var(--gold)}
+
+.policy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+@media(max-width:900px){.policy-grid{grid-template-columns:1fr;gap:24px}}
+.policy-card h3{font-family:var(--font-head);font-size:1.25rem;margin:0 0 10px}
+.policy-card p{color:var(--muted);font-size:.94rem;margin:0}
+.policy-card a{color:var(--gold-600);text-decoration:underline;text-underline-offset:2px}
 
 /* lightbox */
 .lightbox{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;

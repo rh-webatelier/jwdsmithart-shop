@@ -42,6 +42,7 @@
         <a href="#about" class="nav__link">The Artist</a>
         <a href="#commissions" class="nav__link">Commissions</a>
         <a href="#prints" class="nav__link">Prints</a>
+        <a href="#delivery" class="nav__link">Delivery</a>
         <a href="#contact" class="nav__link">Contact</a>
       </nav>
       <div class="header__cta">
@@ -132,7 +133,7 @@
           </div>
           </div>
         </article>
-        <article class="work reveal">
+        <article class="work reveal is-sold">
           <div class="work__frame" data-lightbox data-title="Byland Abbey, Sunset" data-meta="Oil on canvas · 60 × 45 cm &middot; &pound;700">
             <img src="images/byland-abbey-sunset.jpg" alt="Byland Abbey, Sunset — original oil painting by Jonathan Smith" loading="lazy" />
             <span class="work__zoom" aria-hidden="true">&#9906;</span>
@@ -342,7 +343,17 @@
               <li>I work from your photos or visit the location where I can</li>
               <li>You see progress before it&#39;s finished &mdash; no surprises</li>
             </ul>
-            <a href="mailto:jwdsmithart@mail.co.uk?subject=Commission%20enquiry" class="btn btn--primary">Enquire About a Commission</a>
+            <form class="commission-form" action="https://formsubmit.co/jwdsmithart@mail.co.uk" method="POST">
+              <input type="hidden" name="_subject" value="Commission enquiry — JWD Smith Art" />
+              <input type="hidden" name="_captcha" value="false" />
+              <div class="form-row">
+                <input type="text" name="Name" placeholder="Your name" required />
+                <input type="email" name="Email" placeholder="Your email" required />
+              </div>
+              <textarea name="Tell me about the scene" placeholder="Tell me about the place, size you'd like, and rough budget" rows="3" required></textarea>
+              <button type="submit" class="btn btn--primary">Send Enquiry</button>
+            </form>
+            <a class="feature__alt-link" href="mailto:jwdsmithart@mail.co.uk?subject=Commission%20enquiry">or email me directly</a>
           </div>
         </div>
       </div>
@@ -364,6 +375,30 @@
             <a href="mailto:jwdsmithart@mail.co.uk?subject=Print%20enquiry" class="btn btn--primary">Ask About Prints</a>
           </div>
           <div class="feature__img" style="background-image:url('images/summer-track.jpg')"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DELIVERY & RETURNS -->
+    <section class="section section--cream" id="delivery">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Buying With Confidence</p>
+          <h2>Delivery &amp; Returns</h2>
+        </div>
+        <div class="policy-grid reveal">
+          <div class="policy-card">
+            <h3>Packaging &amp; delivery</h3>
+            <p>Every original is carefully wrapped and packed by hand before it leaves Otley. Local collection can also be arranged &mdash; just mention it when you order.</p>
+          </div>
+          <div class="policy-card">
+            <h3>Not quite right?</h3>
+            <p>If a painting doesn&#39;t work out, get in touch within a few days of receiving it and we&#39;ll sort out a return &mdash; please get in touch before sending anything back.</p>
+          </div>
+          <div class="policy-card">
+            <h3>Questions before buying</h3>
+            <p>Want more photos, exact colours or a size check against your wall? Ask before you buy &mdash; <a href="mailto:jwdsmithart@mail.co.uk">email me</a> any time.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -402,6 +437,7 @@
     <div class="container footer__inner">
       <span class="footer__brand">JWD Smith Art</span>
       <span>&copy; Jonathan Smith &middot; Original oil paintings of the Yorkshire Dales &middot; Otley</span>
+      <span class="footer__legal"><a href="#delivery">Delivery &amp; Returns</a></span>
     </div>
   </footer>
   <script src="script.js"></script>
