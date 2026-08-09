@@ -212,7 +212,8 @@ function initSoldState() {
 
   fetch('content/paintings.json')
     .then(function (r) { return r.json(); })
-    .then(function (paintings) {
+    .then(function (data) {
+      var paintings = data.paintings || [];
       var html = paintings.map(cardHTML).join('');
       if (paintings.length > 4) {
         var n = paintings.length;

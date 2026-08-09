@@ -34,9 +34,21 @@ collections:
         file: "content/site.json"
         description: "Edit the wording on the homepage. Photos and paintings are edited separately."
         fields:
+          - { label: "Hero — badge (top pill)", name: "hero_badge", widget: "string" }
           - { label: "Hero — title", name: "hero_title", widget: "string" }
           - { label: "Hero — intro paragraph", name: "hero_lead", widget: "text" }
           - { label: "Artist's statement (quote)", name: "statement_quote", widget: "text" }
+          - { label: "Paintings section — intro paragraph", name: "paintings_intro", widget: "text" }
           - { label: "About — paragraph 1", name: "about_p1", widget: "text" }
           - { label: "About — paragraph 2", name: "about_p2", widget: "text" }
           - { label: "Commissions — intro", name: "commissions_intro", widget: "text" }
+          - { label: "Commissions — bullet 1", name: "commissions_li1", widget: "string" }
+          - { label: "Commissions — bullet 2", name: "commissions_li2", widget: "string" }
+          - { label: "Commissions — bullet 3", name: "commissions_li3", widget: "string" }
+          - { label: "Prints — intro", name: "prints_intro", widget: "text" }
+          - { label: "Prints — bullet 1", name: "prints_li1", widget: "string" }
+          - { label: "Prints — bullet 2", name: "prints_li2", widget: "string" }
+          - { label: "Prints — bullet 3", name: "prints_li3", widget: "string" }
+          - { label: "Delivery FAQ — packaging answer", name: "faq_delivery_a", widget: "text" }
+          - { label: "Delivery FAQ — returns answer", name: "faq_returns_a", widget: "text" }
+          - { label: "Contact — intro paragraph", name: "contact_lead", widget: "text" }
