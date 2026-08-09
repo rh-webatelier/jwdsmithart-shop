@@ -97,7 +97,7 @@
       "stripe_link": ""
     },
     {
-      "sold": false,
+      "sold": true,
       "title": "Test picture",
       "medium": "Oil on canvas · 60 × 45 cm",
       "price": 350,
