@@ -5,8 +5,8 @@ backend:
 media_folder: "images"
 public_folder: "images"
 
-site_url: https://jwdsmithart.co.uk
-display_url: https://jwdsmithart.co.uk
+site_url: https://whimsical-kashata-a78505.netlify.app
+display_url: https://whimsical-kashata-a78505.netlify.app
 
 collections:
   - name: "paintings"
@@ -19,7 +19,7 @@ collections:
         fields:
           - { label: "Paintings", name: "paintings", widget: "list", collapsed: true, summary: "{{title}} — £{{price}}", fields: [
               { label: "Title", name: "title", widget: "string" },
-              { label: "Photo", name: "image", widget: "image" },
+              { label: "Photo", name: "image", widget: "image", hint: "Keep the file under ~1MB (resize to about 1600px wide) — very large phone photos can fail to upload." },
               { label: "Medium & size", name: "medium", widget: "string", hint: "e.g. Oil on canvas · 60 × 45 cm" },
               { label: "Price (£)", name: "price", widget: "number", value_type: "int" },
               { label: "Sold", name: "sold", widget: "boolean", default: false },
