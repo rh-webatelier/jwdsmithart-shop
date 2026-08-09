@@ -219,8 +219,11 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
 .footer__legal a{color:inherit;text-decoration:underline;text-underline-offset:2px;opacity:.85}
 .footer__legal a:hover{opacity:1;color:var(--gold)}
 
-.faq{max-width:760px}
+.faq{max-width:760px;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);padding:6px 26px}
+@media(max-width:640px){.faq{padding:4px 18px}}
 .faq-item{border-bottom:1px solid var(--line)}
+.faq-item:last-child{border-bottom:none}
 .faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
   gap:20px;padding:22px 4px;font-family:var(--font-head);font-size:1.15rem;font-weight:600;color:var(--ink)}
 .faq-item summary::-webkit-details-marker{display:none}
