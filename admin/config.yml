@@ -1,0 +1,42 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "images"
+
+site_url: https://jwdsmithart.co.uk
+display_url: https://jwdsmithart.co.uk
+
+collections:
+  - name: "paintings"
+    label: "Paintings"
+    files:
+      - name: "paintings"
+        label: "Paintings for Sale"
+        file: "content/paintings.json"
+        description: "Add, remove, reorder or mark a painting as sold. Changes go live in a minute or two."
+        fields:
+          - { label: "Paintings", name: "paintings", widget: "list", collapsed: true, summary: "{{title}} — £{{price}}", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Photo", name: "image", widget: "image" },
+              { label: "Medium & size", name: "medium", widget: "string", hint: "e.g. Oil on canvas · 60 × 45 cm" },
+              { label: "Price (£)", name: "price", widget: "number", value_type: "int" },
+              { label: "Sold", name: "sold", widget: "boolean", default: false },
+              { label: "Stripe Buy Link", name: "stripe_link", widget: "string", required: false, hint: "Paste the Stripe Payment Link for this painting. Leave blank until Stripe is set up." }
+            ] }
+
+  - name: "site_text"
+    label: "Site Text"
+    files:
+      - name: "site_text"
+        label: "Homepage Text"
+        file: "content/site.json"
+        description: "Edit the wording on the homepage. Photos and paintings are edited separately."
+        fields:
+          - { label: "Hero — title", name: "hero_title", widget: "string" }
+          - { label: "Hero — intro paragraph", name: "hero_lead", widget: "text" }
+          - { label: "Artist's statement (quote)", name: "statement_quote", widget: "text" }
+          - { label: "About — paragraph 1", name: "about_p1", widget: "text" }
+          - { label: "About — paragraph 2", name: "about_p2", widget: "text" }
+          - { label: "Commissions — intro", name: "commissions_intro", widget: "text" }
