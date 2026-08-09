@@ -123,12 +123,43 @@ function initLightbox() {
   frames.forEach(function (f, i) { f.addEventListener('click', function () { open(i); }); });
 }
 
-// Buy Now buttons — go straight to each painting's Stripe Payment Link.
+// Buy Now buttons.
+// If a manual Stripe Payment Link was pasted into the CMS for this painting, use it as-is.
+// Otherwise, ask our Netlify Function to create a Checkout Session on the fly from the
+// painting's current title/price/photo — nothing to keep in sync in Stripe by hand.
 function initBuyButtons() {
   document.querySelectorAll('.buy-btn').forEach(function (btn) {
+    if (btn.classList.contains('is-disabled')) return;
     btn.addEventListener('click', function (e) {
-      var link = btn.getAttribute('data-stripe-link');
-      if (!link) e.preventDefault();
+      e.preventDefault();
+      var manualLink = btn.getAttribute('data-stripe-link');
+      if (manualLink) { window.location.href = manualLink; return; }
+
+      var original = btn.textContent;
+      btn.textContent = 'Loading…';
+      btn.classList.add('is-disabled');
+
+      fetch('/.netlify/functions/create-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: btn.getAttribute('data-painting'),
+          price: btn.getAttribute('data-price'),
+          image: btn.getAttribute('data-image')
+        })
+      })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+        .then(function (res) {
+          if (res.ok && res.data.url) { window.location.href = res.data.url; return; }
+          throw new Error(res.data && res.data.error || 'checkout_unavailable');
+        })
+        .catch(function () {
+          btn.textContent = original;
+          btn.classList.remove('is-disabled');
+          var work = btn.closest('.work');
+          var ask = work && work.querySelector('.work__ask');
+          if (ask) window.location.href = ask.href;
+        });
     });
   });
 }
@@ -201,7 +232,7 @@ function initSoldState() {
           '<div class="work__foot">' +
             '<div class="work__price"><small>Original</small>£' + p.price + '</div>' +
             '<div class="work__buy">' +
-              '<a class="btn btn--sm buy-btn" href="' + escapeHtml(href) + '" data-stripe-link="' + escapeHtml(stripeLink) + '" data-painting="' + title + '">Buy Now</a>' +
+              '<a class="btn btn--sm buy-btn" href="' + escapeHtml(href) + '" data-stripe-link="' + escapeHtml(stripeLink) + '" data-painting="' + title + '" data-price="' + p.price + '" data-image="' + escapeHtml(p.image) + '">Buy Now</a>' +
               '<a class="work__ask" href="mailto:jwdsmithart@mail.co.uk?subject=Question:%20' + subject + '">Ask a question</a>' +
             '</div>' +
           '</div>' +

@@ -1,0 +1,59 @@
+// Creates a Stripe Checkout Session on the fly from the painting's current CMS data
+// (title, price, photo) — no product has to be pre-created or kept in sync in Stripe.
+// Requires the STRIPE_SECRET_KEY environment variable to be set in Netlify.
+// Until then, this returns a 503 and the Buy button falls back to the "Ask a question" link.
+
+exports.handler = async function (event) {
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Method Not Allowed' };
+  }
+
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return { statusCode: 503, body: JSON.stringify({ error: 'stripe_not_connected' }) };
+  }
+
+  let payload;
+  try {
+    payload = JSON.parse(event.body || '{}');
+  } catch (e) {
+    return { statusCode: 400, body: JSON.stringify({ error: 'bad_json' }) };
+  }
+
+  const title = String(payload.title || '').slice(0, 200);
+  const price = Number(payload.price);
+  const image = String(payload.image || '');
+
+  if (!title || !price || price <= 0) {
+    return { statusCode: 400, body: JSON.stringify({ error: 'missing_fields' }) };
+  }
+
+  const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+  const origin = event.headers.origin || `https://${event.headers.host}`;
+
+  try {
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price_data: {
+            currency: 'gbp',
+            product_data: {
+              name: title,
+              images: image ? [`${origin}/${image}`] : undefined,
+            },
+            unit_amount: Math.round(price * 100),
+          },
+          quantity: 1,
+        },
+      ],
+      shipping_address_collection: { allowed_countries: ['GB'] },
+      success_url: `${origin}/?purchase=success#paintings`,
+      cancel_url: `${origin}/#paintings`,
+    });
+
+    return { statusCode: 200, body: JSON.stringify({ url: session.url }) };
+  } catch (err) {
+    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
+  }
+};
