@@ -1,6 +1,7 @@
 {
   "paintings": [
     {
+      "slug": "the-sandbeds-otley",
       "title": "The Sandbeds, Otley",
       "image": "images/sandbeds-otley.jpg",
       "medium": "Oil on canvas · 80 × 60 cm",
@@ -9,6 +10,7 @@
       "stripe_link": ""
     },
     {
+      "slug": "barden-tower",
       "title": "Barden Tower",
       "image": "images/barden-tower.jpg",
       "medium": "Oil on canvas · 61 × 46 cm",
@@ -17,6 +19,7 @@
       "stripe_link": ""
     },
     {
+      "slug": "byland-abbey-sunset",
       "title": "Byland Abbey, Sunset",
       "image": "images/byland-abbey-sunset.jpg",
       "medium": "Oil on canvas · 60 × 45 cm",
@@ -25,6 +28,7 @@
       "stripe_link": ""
     },
     {
+      "slug": "pockstones-moor",
       "title": "Pockstones Moor",
       "image": "images/pockstones-moor.jpg",
       "medium": "Oil on canvas · 80 × 40 cm",
@@ -33,6 +37,7 @@
       "stripe_link": ""
     },
     {
+      "slug": "hebden-ghyll-misty-morning",
       "title": "Hebden Ghyll, Misty Morning",
       "image": "images/hebden-ghyll-misty.jpg",
       "medium": "Oil on canvas · 61 × 46 cm",
@@ -41,6 +46,7 @@
       "stripe_link": ""
     },
     {
+      "slug": "frost-morning",
       "title": "Frost Morning",
       "image": "images/frost-morning.jpg",
       "medium": "Oil on canvas · 61 × 46 cm",
@@ -49,6 +55,7 @@
       "stripe_link": ""
     },
     {
+      "slug": "sycamore-hebden-ghyll",
       "title": "Sycamore, Hebden Ghyll",
       "image": "images/sycamore-hebden-ghyll.jpg",
       "medium": "Oil on canvas · 40 × 50 cm",
@@ -57,6 +64,7 @@
       "stripe_link": ""
     },
     {
+      "slug": "gill-house",
       "title": "Gill House",
       "image": "images/gill-house.jpg",
       "medium": "Oil on canvas · 50 × 40 cm",
@@ -65,6 +73,7 @@
       "stripe_link": ""
     },
     {
+      "slug": "hanging-wood-lane-thruscross",
       "title": "Hanging Wood Lane, Thruscross",
       "image": "images/hanging-wood-lane.jpg",
       "medium": "Oil on canvas · 40.5 × 51 cm",
@@ -73,6 +82,7 @@
       "stripe_link": ""
     },
     {
+      "slug": "still-winters-morning",
       "title": "Still Winter's Morning",
       "image": "images/still-winters-morning.jpg",
       "medium": "Oil on canvas · 40 × 50 cm",
@@ -81,6 +91,7 @@
       "stripe_link": ""
     },
     {
+      "slug": "summer-track",
       "title": "Summer Track",
       "image": "images/summer-track.jpg",
       "medium": "Oil on canvas · 50 × 40 cm",
@@ -89,6 +100,7 @@
       "stripe_link": ""
     },
     {
+      "slug": "woodland-clearing",
       "title": "Woodland Clearing",
       "image": "images/woodland-clearing.jpg",
       "medium": "Oil on canvas · 50 × 40 cm",

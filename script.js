@@ -145,7 +145,8 @@ function initBuyButtons() {
         body: JSON.stringify({
           title: btn.getAttribute('data-painting'),
           price: btn.getAttribute('data-price'),
-          image: btn.getAttribute('data-image')
+          image: btn.getAttribute('data-image'),
+          slug: btn.getAttribute('data-slug')
         })
       })
         .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
@@ -211,6 +212,12 @@ function initSoldState() {
     });
   }
 
+  // Fallback so a painting added via the CMS without a manually-set slug still gets a
+  // working Buy button and can still be found by the Stripe webhook after a sale.
+  function slugify(s) {
+    return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+
   function cardHTML(p, i) {
     var extraClass = i >= 4 ? ' work--extra' : '';
     var soldClass = p.sold ? ' is-sold' : '';
@@ -220,6 +227,7 @@ function initSoldState() {
     var subject = encodeURIComponent(p.title || '');
     var stripeLink = p.stripe_link || '';
     var href = stripeLink || '#';
+    var slug = p.slug || slugify(p.title || '');
     return (
       '<article class="work reveal' + extraClass + soldClass + '">' +
         '<div class="work__frame" data-lightbox data-title="' + title + '" data-meta="' + escapeHtml(meta) + '">' +
@@ -232,7 +240,7 @@ function initSoldState() {
           '<div class="work__foot">' +
             '<div class="work__price"><small>Original</small>£' + p.price + '</div>' +
             '<div class="work__buy">' +
-              '<a class="btn btn--sm buy-btn" href="' + escapeHtml(href) + '" data-stripe-link="' + escapeHtml(stripeLink) + '" data-painting="' + title + '" data-price="' + p.price + '" data-image="' + escapeHtml(p.image) + '">Buy Now</a>' +
+              '<a class="btn btn--sm buy-btn" href="' + escapeHtml(href) + '" data-stripe-link="' + escapeHtml(stripeLink) + '" data-painting="' + title + '" data-price="' + p.price + '" data-image="' + escapeHtml(p.image) + '" data-slug="' + escapeHtml(slug) + '">Buy Now</a>' +
               '<a class="work__ask" href="mailto:jwdsmithart@mail.co.uk?subject=Question:%20' + subject + '">Ask a question</a>' +
             '</div>' +
           '</div>' +
@@ -268,6 +276,47 @@ function initSoldState() {
       grid.innerHTML = '<p class="works-loading">Couldn\'t load paintings right now — please refresh, or ' +
         '<a href="mailto:jwdsmithart@mail.co.uk">email me</a> and I\'ll send photos directly.</p>';
     });
+})();
+
+// Sold Works gallery — same content/paintings.json, filtered to sold:true. Recently-sold
+// paintings (bought through Buy Now) land here automatically once the Stripe webhook
+// flips their "sold" flag; older sold works can be seeded in directly via the CMS.
+(function () {
+  var section = document.getElementById('sold-works');
+  var grid = document.getElementById('sold-grid');
+  if (!section || !grid) return;
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function soldCardHTML(p) {
+    var title = escapeHtml(p.title || '');
+    var medium = escapeHtml(p.medium || '');
+    return (
+      '<figure class="sold-card reveal">' +
+        '<img src="' + escapeHtml(p.image) + '" alt="' + title + ' — sold original oil painting by Jonathan Smith" loading="lazy" />' +
+        '<span class="sold-card__tag">Sold</span>' +
+        '<figcaption><b>' + title + '</b><span>' + medium + '</span></figcaption>' +
+      '</figure>'
+    );
+  }
+
+  fetch('content/paintings.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var sold = (data.paintings || []).filter(function (p) { return p.sold; });
+      if (!sold.length) { section.hidden = true; return; }
+      section.hidden = false;
+      grid.innerHTML = sold.map(soldCardHTML).join('');
+      grid.querySelectorAll('.reveal').forEach(function (el) {
+        if (window.observeReveal) window.observeReveal(el); else el.classList.add('is-visible');
+      });
+      if (window.wireLazyFade) window.wireLazyFade(grid);
+    })
+    .catch(function () { section.hidden = true; });
 })();
 
 // Commission form — inline AJAX submit via formsubmit.co, falls back to a normal POST if fetch fails.

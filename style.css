@@ -151,6 +151,18 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
   font-size:.78rem;color:var(--muted);padding-top:14px;border-top:1px solid var(--line,rgba(0,0,0,.08))}
 .shop-trust span{display:inline-flex;align-items:center;gap:.4em}
 
+/* sold works */
+.sold-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+@media(max-width:900px){.sold-grid{grid-template-columns:repeat(3,1fr);gap:14px}}
+@media(max-width:640px){.sold-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+.sold-card{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
+.sold-card img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.75) brightness(.92)}
+.sold-card__tag{position:absolute;top:10px;left:10px;background:var(--ink);color:var(--cream);
+  font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:3px}
+.sold-card figcaption{padding:10px 2px 0}
+.sold-card figcaption b{display:block;font-family:var(--font-head);font-size:.95rem;line-height:1.2}
+.sold-card figcaption span{display:block;font-size:.72rem;color:var(--muted);margin-top:2px}
+
 /* about */
 .about{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
 @media(max-width:900px){.about{grid-template-columns:1fr;gap:40px}}

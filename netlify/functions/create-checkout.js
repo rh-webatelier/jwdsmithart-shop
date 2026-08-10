@@ -3,6 +3,42 @@
 // Requires the STRIPE_SECRET_KEY environment variable to be set in Netlify.
 // Until then, this returns a 503 and the Buy button falls back to the "Ask a question" link.
 
+const SHIPPING_OPTIONS = [
+  {
+    shipping_rate_data: {
+      type: 'fixed_amount',
+      fixed_amount: { amount: 0, currency: 'gbp' },
+      display_name: 'Collection from Otley (free)',
+      delivery_estimate: {
+        minimum: { unit: 'business_day', value: 1 },
+        maximum: { unit: 'business_day', value: 7 },
+      },
+    },
+  },
+  {
+    shipping_rate_data: {
+      type: 'fixed_amount',
+      fixed_amount: { amount: 1500, currency: 'gbp' },
+      display_name: 'UK Shipping',
+      delivery_estimate: {
+        minimum: { unit: 'business_day', value: 2 },
+        maximum: { unit: 'business_day', value: 5 },
+      },
+    },
+  },
+  {
+    shipping_rate_data: {
+      type: 'fixed_amount',
+      fixed_amount: { amount: 4500, currency: 'gbp' },
+      display_name: 'Worldwide Shipping',
+      delivery_estimate: {
+        minimum: { unit: 'business_day', value: 7 },
+        maximum: { unit: 'business_day', value: 21 },
+      },
+    },
+  },
+];
+
 exports.handler = async function (event) {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
@@ -22,8 +58,9 @@ exports.handler = async function (event) {
   const title = String(payload.title || '').slice(0, 200);
   const price = Number(payload.price);
   const image = String(payload.image || '');
+  const slug = String(payload.slug || '').slice(0, 200);
 
-  if (!title || !price || price <= 0) {
+  if (!title || !price || price <= 0 || !slug) {
     return { statusCode: 400, body: JSON.stringify({ error: 'missing_fields' }) };
   }
 
@@ -47,7 +84,24 @@ exports.handler = async function (event) {
           quantity: 1,
         },
       ],
-      shipping_address_collection: { allowed_countries: ['GB'] },
+      // Worldwide list kept explicit (rather than "everywhere") so unsupported/high-risk
+      // territories don't silently show up as a shippable option.
+      shipping_address_collection: {
+        allowed_countries: [
+          'GB', 'IE', 'US', 'CA', 'AU', 'NZ', 'FR', 'DE', 'ES', 'IT', 'NL', 'BE',
+          'PT', 'SE', 'NO', 'DK', 'FI', 'CH', 'AT', 'PL', 'JP', 'SG', 'AE',
+        ],
+      },
+      shipping_options: SHIPPING_OPTIONS,
+      custom_fields: [
+        {
+          key: 'collection_time',
+          label: { type: 'custom', custom: 'Preferred collection day/time (only if collecting in person)' },
+          type: 'text',
+          optional: true,
+        },
+      ],
+      metadata: { painting_slug: slug },
       success_url: `${origin}/?purchase=success#paintings`,
       cancel_url: `${origin}/#paintings`,
     });
