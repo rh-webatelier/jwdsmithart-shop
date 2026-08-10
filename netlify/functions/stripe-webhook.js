@@ -110,22 +110,59 @@ async function sendOrderEmails(painting, session) {
   var shipping = shippingLabel(session);
   var collectionTime = collectionTimeNote(session);
   var amountPaid = typeof session.amount_total === 'number' ? (session.amount_total / 100).toFixed(2) : painting.price;
+  var origin = 'https://whimsical-kashata-a78505.netlify.app';
+  var imageUrl = painting.image ? origin + '/' + painting.image : '';
 
-  var sellerHtml =
-    '<h2>New sale: ' + painting.title + '</h2>' +
-    '<p><b>Price paid:</b> £' + amountPaid + '</p>' +
-    '<p><b>Delivery:</b> ' + shipping + '</p>' +
-    (collectionTime ? '<p><b>Preferred collection time:</b> ' + collectionTime + '</p>' : '') +
-    '<p><b>Buyer:</b> ' + buyerName + (buyerEmail ? ' — ' + buyerEmail : '') + '</p>' +
-    '<p>Full shipping address and payment details are in your Stripe Dashboard.</p>';
+  function wrapEmail(bodyHtml) {
+    return (
+      '<div style="background:#f7f3ea;padding:32px 16px;font-family:Georgia,\'Times New Roman\',serif;">' +
+        '<div style="max-width:480px;margin:0 auto;background:#fff;border-radius:6px;overflow:hidden;border:1px solid #e2d9c6;">' +
+          '<div style="background:#1b1915;padding:20px 28px;">' +
+            '<span style="color:#f7f3ea;font-size:20px;letter-spacing:.02em;">JWD Smith Art</span>' +
+          '</div>' +
+          (imageUrl ? '<img src="' + imageUrl + '" alt="" style="width:100%;display:block;max-height:260px;object-fit:cover;" />' : '') +
+          '<div style="padding:28px;color:#2c2822;font-size:15px;line-height:1.6;">' + bodyHtml + '</div>' +
+          '<div style="padding:16px 28px;background:#efe8da;color:#6c6353;font-size:12px;">' +
+            'JWD Smith Art &middot; Otley, West Yorkshire' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
 
-  var buyerHtml =
-    '<h2>Thanks for your order — ' + painting.title + '</h2>' +
-    '<p>Your payment of £' + amountPaid + ' has gone through and the painting is now reserved for you.</p>' +
-    '<p><b>Delivery:</b> ' + shipping + '</p>' +
-    (collectionTime ? '<p><b>Your preferred collection time:</b> ' + collectionTime + '</p>' : '') +
-    '<p>Jonathan will be in touch shortly to confirm ' + (shipping.indexOf('Collection') === 0 ? 'a collection time' : 'delivery') + '.</p>' +
-    '<p>Any questions, just reply to this email or contact jwdsmithart@mail.co.uk.</p>';
+  function row(label, value) {
+    return (
+      '<tr>' +
+        '<td style="padding:6px 0;color:#6c6353;font-size:13px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;padding-right:14px;">' + label + '</td>' +
+        '<td style="padding:6px 0;font-size:15px;">' + value + '</td>' +
+      '</tr>'
+    );
+  }
+
+  var sellerHtml = wrapEmail(
+    '<h2 style="margin:0 0 4px;font-size:22px;">New sale</h2>' +
+    '<p style="margin:0 0 18px;color:#a9762e;font-weight:bold;">' + painting.title + '</p>' +
+    '<table style="border-collapse:collapse;width:100%;">' +
+      row('Price paid', '£' + amountPaid) +
+      row('Delivery', shipping) +
+      (collectionTime ? row('Collection time', collectionTime) : '') +
+      row('Buyer', buyerName + (buyerEmail ? '<br><span style="color:#6c6353;">' + buyerEmail + '</span>' : '')) +
+    '</table>' +
+    '<p style="margin:20px 0 0;color:#6c6353;font-size:13px;">Full shipping address and payment details are in your Stripe Dashboard.</p>'
+  );
+
+  var buyerHtml = wrapEmail(
+    '<h2 style="margin:0 0 4px;font-size:22px;">Thank you for your order</h2>' +
+    '<p style="margin:0 0 18px;color:#a9762e;font-weight:bold;">' + painting.title + '</p>' +
+    '<p style="margin:0 0 18px;">Your payment of <b>£' + amountPaid + '</b> has gone through and this original is now reserved for you.</p>' +
+    '<table style="border-collapse:collapse;width:100%;">' +
+      row('Delivery', shipping) +
+      (collectionTime ? row('Your collection time', collectionTime) : '') +
+    '</table>' +
+    '<p style="margin:20px 0 0;">Jonathan will be in touch shortly to confirm ' +
+      (shipping.indexOf('Collection') === 0 ? 'a collection time' : 'delivery') + '.</p>' +
+    '<p style="margin:12px 0 0;color:#6c6353;font-size:13px;">Any questions, just reply to this email or contact jwdsmithart@mail.co.uk.</p>'
+  );
 
   await Promise.all([
     sendEmail(SELLER_EMAIL, 'New sale: ' + painting.title, sellerHtml),
