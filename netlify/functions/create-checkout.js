@@ -96,7 +96,7 @@ exports.handler = async function (event) {
       custom_fields: [
         {
           key: 'collection_time',
-          label: { type: 'custom', custom: 'Preferred collection day/time (only if collecting in person)' },
+          label: { type: 'custom', custom: 'Preferred collection time (if collecting)' },
           type: 'text',
           optional: true,
         },
