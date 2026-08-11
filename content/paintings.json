@@ -15,7 +15,7 @@
       "image": "images/barden-tower.jpg",
       "medium": "Oil on canvas · 61 × 46 cm",
       "price": 700,
-      "sold": false,
+      "sold": true,
       "stripe_link": ""
     },
     {
