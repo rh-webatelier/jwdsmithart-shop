@@ -185,21 +185,6 @@ function initWorksToggle() {
   });
 }
 
-// Sold paintings — <article class="work is-sold"> gets its Buy Now swapped for a disabled "Sold" pill.
-function initSoldState() {
-  document.querySelectorAll('.work.is-sold').forEach(function (work) {
-    var buy = work.querySelector('.buy-btn');
-    if (buy) {
-      buy.textContent = 'Sold';
-      buy.classList.add('is-disabled');
-      buy.removeAttribute('href');
-      buy.setAttribute('aria-disabled', 'true');
-    }
-    var ask = work.querySelector('.work__ask');
-    if (ask) { ask.textContent = 'Ask about a similar piece'; }
-  });
-}
-
 // Paintings grid — rendered from content/paintings.json so the Netlify CMS admin
 // (add / edit / remove / reorder / mark sold) is reflected on the live site with no code changes.
 (function () {
@@ -220,7 +205,6 @@ function initSoldState() {
 
   function cardHTML(p, i) {
     var extraClass = i >= 4 ? ' work--extra' : '';
-    var soldClass = p.sold ? ' is-sold' : '';
     var title = escapeHtml(p.title || '');
     var medium = escapeHtml(p.medium || '');
     var meta = medium + ' · £' + p.price;
@@ -229,7 +213,7 @@ function initSoldState() {
     var href = stripeLink || '#';
     var slug = p.slug || slugify(p.title || '');
     return (
-      '<article class="work reveal' + extraClass + soldClass + '">' +
+      '<article class="work reveal' + extraClass + '">' +
         '<div class="work__frame" data-lightbox data-title="' + title + '" data-meta="' + escapeHtml(meta) + '">' +
           '<img src="' + escapeHtml(p.image) + '" alt="' + title + ' — original oil painting by Jonathan Smith" loading="lazy" />' +
           '<span class="work__zoom" aria-hidden="true">&#9906;</span>' +
@@ -252,7 +236,9 @@ function initSoldState() {
   fetch('content/paintings.json')
     .then(function (r) { return r.json(); })
     .then(function (data) {
-      var paintings = data.paintings || [];
+      // Sold paintings live only in the Sold Works section below — once bought, a piece
+      // comes off the For Sale catalogue entirely rather than lingering there as "Sold".
+      var paintings = (data.paintings || []).filter(function (p) { return !p.sold; });
       var html = paintings.map(cardHTML).join('');
       if (paintings.length > 4) {
         var n = paintings.length;
@@ -270,7 +256,6 @@ function initSoldState() {
       initLightbox();
       initBuyButtons();
       initWorksToggle();
-      initSoldState();
     })
     .catch(function () {
       grid.innerHTML = '<p class="works-loading">Couldn\'t load paintings right now — please refresh, or ' +
