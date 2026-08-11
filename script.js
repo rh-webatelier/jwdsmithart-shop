@@ -77,50 +77,70 @@ var revealObserver = null;
     .catch(function () { /* keep the baked-in text already in the HTML */ });
 })();
 
-// Lightbox over the paintings — re-attached whenever the paintings grid (re)renders.
+// Lightbox over the paintings — a single shared instance. initLightbox() is called again
+// whenever a grid (For Sale, Sold Works) finishes rendering, so it re-scans for any new
+// [data-lightbox] frames and binds only the ones it hasn't seen yet — this is what lets sold
+// paintings open in the same lightbox without creating duplicate overlays or click handlers.
+var lightboxState = { box: null, frames: [], idx: 0 };
+
+function buildLightboxBox() {
+  var box = document.createElement('div');
+  box.className = 'lightbox';
+  box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true');
+  box.innerHTML = '<button class="lightbox__close" aria-label="Close">×</button>'
+    + '<button class="lightbox__nav lightbox__nav--prev" aria-label="Previous">‹</button>'
+    + '<img alt=""><div class="lightbox__cap"></div>'
+    + '<button class="lightbox__nav lightbox__nav--next" aria-label="Next">›</button>';
+  document.body.appendChild(box);
+  box.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
+  box.querySelector('.lightbox__nav--prev').addEventListener('click', function (e) { e.stopPropagation(); showLightbox(lightboxState.idx - 1); });
+  box.querySelector('.lightbox__nav--next').addEventListener('click', function (e) { e.stopPropagation(); showLightbox(lightboxState.idx + 1); });
+  box.addEventListener('click', function (e) { if (e.target === box) closeLightbox(); });
+  var x0 = null;
+  box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 45) showLightbox(lightboxState.idx + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lightboxState.box || !lightboxState.box.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowRight') showLightbox(lightboxState.idx + 1);
+    else if (e.key === 'ArrowLeft') showLightbox(lightboxState.idx - 1);
+  });
+  lightboxState.box = box;
+}
+
+function showLightbox(i) {
+  var frames = lightboxState.frames;
+  lightboxState.idx = (i + frames.length) % frames.length;
+  var f = frames[lightboxState.idx];
+  var img = f.querySelector('img');
+  lightboxState.box.querySelector('img').src = img.getAttribute('src');
+  lightboxState.box.querySelector('.lightbox__cap').innerHTML =
+    '<b>' + (f.getAttribute('data-title') || '') + '</b><span>' + (f.getAttribute('data-meta') || '') + '</span>';
+}
+
+function openLightbox(frame) {
+  if (!lightboxState.box) buildLightboxBox();
+  showLightbox(lightboxState.frames.indexOf(frame));
+  lightboxState.box.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  if (lightboxState.box) { lightboxState.box.classList.remove('is-open'); document.body.style.overflow = ''; }
+}
+
 function initLightbox() {
-  var frames = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
-  if (!frames.length) return;
-  var idx = 0, box = null;
-  function build() {
-    box = document.createElement('div');
-    box.className = 'lightbox';
-    box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true');
-    box.innerHTML = '<button class="lightbox__close" aria-label="Close">×</button>'
-      + '<button class="lightbox__nav lightbox__nav--prev" aria-label="Previous">‹</button>'
-      + '<img alt=""><div class="lightbox__cap"></div>'
-      + '<button class="lightbox__nav lightbox__nav--next" aria-label="Next">›</button>';
-    document.body.appendChild(box);
-    box.querySelector('.lightbox__close').addEventListener('click', close);
-    box.querySelector('.lightbox__nav--prev').addEventListener('click', function (e) { e.stopPropagation(); show(idx - 1); });
-    box.querySelector('.lightbox__nav--next').addEventListener('click', function (e) { e.stopPropagation(); show(idx + 1); });
-    box.addEventListener('click', function (e) { if (e.target === box) close(); });
-    var x0 = null;
-    box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-    box.addEventListener('touchend', function (e) {
-      if (x0 === null) return;
-      var dx = e.changedTouches[0].clientX - x0;
-      if (Math.abs(dx) > 45) show(idx + (dx < 0 ? 1 : -1));
-      x0 = null;
-    });
-    document.addEventListener('keydown', function (e) {
-      if (!box || !box.classList.contains('is-open')) return;
-      if (e.key === 'Escape') close();
-      else if (e.key === 'ArrowRight') show(idx + 1);
-      else if (e.key === 'ArrowLeft') show(idx - 1);
-    });
-  }
-  function show(i) {
-    idx = (i + frames.length) % frames.length;
-    var f = frames[idx];
-    var img = f.querySelector('img');
-    box.querySelector('img').src = img.getAttribute('src');
-    box.querySelector('.lightbox__cap').innerHTML =
-      '<b>' + (f.getAttribute('data-title') || '') + '</b><span>' + (f.getAttribute('data-meta') || '') + '</span>';
-  }
-  function open(i) { if (!box) build(); show(i); box.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
-  function close() { if (box) { box.classList.remove('is-open'); document.body.style.overflow = ''; } }
-  frames.forEach(function (f, i) { f.addEventListener('click', function () { open(i); }); });
+  lightboxState.frames = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
+  lightboxState.frames.forEach(function (f) {
+    if (f.dataset.lightboxBound) return;
+    f.dataset.lightboxBound = 'true';
+    f.addEventListener('click', function () { openLightbox(f); });
+  });
 }
 
 // Buy Now buttons.
@@ -165,20 +185,25 @@ function initBuyButtons() {
   });
 }
 
-// Mobile "See all paintings" — collapses to the first 4 on phones; desktop always shows the full grid.
-function initWorksToggle() {
-  var toggle = document.querySelector('.works-toggle');
-  var works = document.querySelector('.works');
-  if (!toggle || !works) return;
-  works.classList.add('is-collapsed');
-  var MORE = toggle.getAttribute('data-label-more') || 'See all paintings';
-  var LESS = toggle.getAttribute('data-label-less') || 'Show fewer paintings';
+// Caps how many cards show before a "See more" toggle: fewer on phones (limited width),
+// more on desktop (wide grid) — used by both the For Sale catalogue and the Sold Works gallery
+// so neither turns into an endless scroll once there are lots of paintings.
+var MOBILE_CAP = 4;
+var DESKTOP_CAP = 12;
+
+// Generic "See more" toggle: collapses a grid down to whatever CSS hides via the
+// *-extra / *-extra-desktop classes, and reveals everything on click.
+function initGridToggle(grid, toggle) {
+  if (!toggle || !grid) return;
+  grid.classList.add('is-collapsed');
+  var MORE = toggle.getAttribute('data-label-more') || 'See more';
+  var LESS = toggle.getAttribute('data-label-less') || 'Show fewer';
   toggle.addEventListener('click', function () {
-    var collapsed = works.classList.toggle('is-collapsed');
+    var collapsed = grid.classList.toggle('is-collapsed');
     toggle.textContent = collapsed ? MORE : LESS;
     toggle.setAttribute('aria-expanded', String(!collapsed));
     if (!collapsed) {
-      works.querySelectorAll('.work--extra.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+      grid.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
     } else {
       toggle.scrollIntoView({ block: 'center', behavior: 'smooth' });
     }
@@ -204,7 +229,7 @@ function initWorksToggle() {
   }
 
   function cardHTML(p, i) {
-    var extraClass = i >= 4 ? ' work--extra' : '';
+    var extraClass = (i >= MOBILE_CAP ? ' work--extra' : '') + (i >= DESKTOP_CAP ? ' work--extra-desktop' : '');
     var title = escapeHtml(p.title || '');
     var medium = escapeHtml(p.medium || '');
     var meta = medium + ' · £' + p.price;
@@ -240,9 +265,10 @@ function initWorksToggle() {
       // comes off the For Sale catalogue entirely rather than lingering there as "Sold".
       var paintings = (data.paintings || []).filter(function (p) { return !p.sold; });
       var html = paintings.map(cardHTML).join('');
-      if (paintings.length > 4) {
-        var n = paintings.length;
-        html += '<button type="button" class="works-toggle" data-label-more="See all ' + n + ' paintings" '
+      var n = paintings.length;
+      if (n > MOBILE_CAP) {
+        var desktopClass = n > DESKTOP_CAP ? ' is-needed-desktop' : '';
+        html += '<button type="button" class="works-toggle' + desktopClass + '" data-label-more="See all ' + n + ' paintings" '
           + 'data-label-less="Show fewer paintings" aria-expanded="false">See all ' + n + ' paintings</button>';
       }
       grid.innerHTML = html;
@@ -255,7 +281,7 @@ function initWorksToggle() {
 
       initLightbox();
       initBuyButtons();
-      initWorksToggle();
+      initGridToggle(grid, grid.querySelector('.works-toggle'));
     })
     .catch(function () {
       grid.innerHTML = '<p class="works-loading">Couldn\'t load paintings right now — please refresh, or ' +
@@ -277,13 +303,17 @@ function initWorksToggle() {
     });
   }
 
-  function soldCardHTML(p) {
+  function soldCardHTML(p, i) {
+    var extraClass = (i >= MOBILE_CAP ? ' sold-card--extra' : '') + (i >= DESKTOP_CAP ? ' sold-card--extra-desktop' : '');
     var title = escapeHtml(p.title || '');
     var medium = escapeHtml(p.medium || '');
+    var meta = medium + ' · £' + p.price + ' (Sold)';
     return (
-      '<figure class="sold-card reveal">' +
-        '<img src="' + escapeHtml(p.image) + '" alt="' + title + ' — sold original oil painting by Jonathan Smith" loading="lazy" />' +
-        '<span class="sold-card__tag">Sold</span>' +
+      '<figure class="sold-card reveal' + extraClass + '">' +
+        '<div class="sold-card__frame" data-lightbox data-title="' + title + '" data-meta="' + escapeHtml(meta) + '">' +
+          '<img src="' + escapeHtml(p.image) + '" alt="' + title + ' — sold original oil painting by Jonathan Smith" loading="lazy" />' +
+          '<span class="sold-card__tag">Sold</span>' +
+        '</div>' +
         '<figcaption><b>' + title + '</b><span>' + medium + '</span></figcaption>' +
       '</figure>'
     );
@@ -295,11 +325,20 @@ function initWorksToggle() {
       var sold = (data.paintings || []).filter(function (p) { return p.sold; });
       if (!sold.length) { section.hidden = true; return; }
       section.hidden = false;
-      grid.innerHTML = sold.map(soldCardHTML).join('');
+      var html = sold.map(soldCardHTML).join('');
+      var n = sold.length;
+      if (n > MOBILE_CAP) {
+        var desktopClass = n > DESKTOP_CAP ? ' is-needed-desktop' : '';
+        html += '<button type="button" class="sold-toggle' + desktopClass + '" data-label-more="See all ' + n + ' sold works" '
+          + 'data-label-less="Show fewer" aria-expanded="false">See all ' + n + ' sold works</button>';
+      }
+      grid.innerHTML = html;
       grid.querySelectorAll('.reveal').forEach(function (el) {
         if (window.observeReveal) window.observeReveal(el); else el.classList.add('is-visible');
       });
       if (window.wireLazyFade) window.wireLazyFade(grid);
+      initLightbox();
+      initGridToggle(grid, grid.querySelector('.sold-toggle'));
     })
     .catch(function () { section.hidden = true; });
 })();

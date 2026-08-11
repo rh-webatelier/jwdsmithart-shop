@@ -106,13 +106,25 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
 @media(max-width:900px){.works{grid-template-columns:repeat(2,1fr);gap:40px 26px}}
 @media(max-width:640px){.works{grid-template-columns:1fr;gap:46px}}
 
-.works-toggle{display:none;grid-column:1/-1}
+.works-toggle,.sold-toggle{display:none;grid-column:1/-1}
 @media(max-width:640px){
-  .works-toggle{display:block;margin:-4px auto 4px;background:transparent;border:1.5px solid var(--gold);
+  .works-toggle,.sold-toggle{display:block;margin:-4px auto 4px;background:transparent;border:1.5px solid var(--gold);
     color:var(--gold-600);padding:13px 30px;border-radius:999px;font:inherit;font-size:.92rem;font-weight:600;
     cursor:pointer;transition:background .25s,color .25s}
-  .works-toggle:active{background:var(--gold);color:#fff}
+  .works-toggle:active,.sold-toggle:active{background:var(--gold);color:#fff}
   .works.is-collapsed .work--extra{display:none}
+  .sold-grid.is-collapsed .sold-card--extra{display:none}
+}
+/* Desktop pagination: only shown once a catalogue actually exceeds DESKTOP_CAP (12) —
+   otherwise the button stays hidden (default display:none above) and nothing is capped. */
+@media(min-width:641px){
+  .works-toggle.is-needed-desktop,.sold-toggle.is-needed-desktop{
+    display:block;margin:8px auto 4px;background:transparent;border:1.5px solid var(--gold);
+    color:var(--gold-600);padding:14px 34px;border-radius:999px;font:inherit;font-size:.95rem;font-weight:600;
+    cursor:pointer;transition:background .25s,color .25s}
+  .works-toggle.is-needed-desktop:hover,.sold-toggle.is-needed-desktop:hover{background:var(--gold);color:#fff}
+  .works.is-collapsed .work--extra-desktop{display:none}
+  .sold-grid.is-collapsed .sold-card--extra-desktop{display:none}
 }
 .work{display:flex;flex-direction:column}
 .work__frame{position:relative;overflow:hidden;
@@ -159,8 +171,11 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
 .sold-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
 @media(max-width:900px){.sold-grid{grid-template-columns:repeat(3,1fr);gap:14px}}
 @media(max-width:640px){.sold-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
-.sold-card{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
-.sold-card img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.75) brightness(.92)}
+.sold-card{margin:0}
+.sold-card__frame{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);
+  cursor:zoom-in;transition:box-shadow .3s,transform .3s}
+.sold-card__frame:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.sold-card__frame img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.75) brightness(.92)}
 .sold-card__tag{position:absolute;top:10px;left:10px;background:var(--ink);color:var(--cream);
   font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:3px}
 .sold-card figcaption{padding:10px 2px 0}

@@ -70,7 +70,10 @@ exports.handler = async function (event) {
   try {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
-      payment_method_types: ['card'],
+      // No payment_method_types here on purpose — leaving it unset lets Stripe use whatever
+      // is enabled in the Dashboard (Settings → Payment methods) and, crucially, promotes
+      // Apple Pay / Google Pay into the prominent "Express checkout" button above the card
+      // form when the browser/device supports them, instead of listing it as a second option.
       line_items: [
         {
           price_data: {

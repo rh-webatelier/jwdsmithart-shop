@@ -171,6 +171,7 @@ async function sendOrderEmails(painting, session) {
     '<table style="border-collapse:collapse;width:100%;">' +
       row('Delivery', shipping) +
       (collectionTime ? row('Your collection time', collectionTime) : '') +
+      (address && shipping.indexOf('Collection') !== 0 ? row('Delivery address', address) : '') +
     '</table>' +
     '<p style="margin:20px 0 0;">I\'ll be in touch shortly to confirm ' +
       (shipping.indexOf('Collection') === 0 ? 'a collection time' : 'delivery') + '.</p>' +
