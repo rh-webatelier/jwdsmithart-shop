@@ -78,7 +78,7 @@
       "image": "images/hanging-wood-lane.jpg",
       "medium": "Oil on canvas · 40.5 × 51 cm",
       "price": 500,
-      "sold": false,
+      "sold": true,
       "stripe_link": ""
     },
     {
