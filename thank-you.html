@@ -29,17 +29,47 @@
         </div>
         <p class="eyebrow">Order Confirmed</p>
         <h1>Thank you — your painting is reserved</h1>
+        <img id="order-image" class="thank-you__painting" alt="" hidden />
+        <p id="order-title" class="thank-you__painting-title" hidden></p>
         <p class="thank-you__lead">
-          Your payment has gone through successfully. A confirmation email is on its way to you now,
-          and Jonathan will be in touch shortly to arrange delivery or collection.
+          Your payment has gone through successfully. A confirmation email is on its way to you now —
+          <b>if you don't see it in a minute or two, please check your spam/junk folder</b> too.
+          I'll be in touch shortly to arrange delivery or collection.
         </p>
         <div class="thank-you__actions">
           <a href="/#paintings" class="btn btn--gold">Back to Paintings</a>
-          <a href="mailto:jwdsmithart@mail.co.uk" class="btn btn--ghost">Contact Jonathan</a>
+          <a href="mailto:jwdsmithart@mail.co.uk" class="btn btn--ghost">Contact Me</a>
         </div>
       </div>
     </section>
   </main>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var sessionId = params.get('session_id');
+      if (!sessionId) return;
+      fetch('/.netlify/functions/get-order?session_id=' + encodeURIComponent(sessionId))
+        .then(function (r) { return r.json(); })
+        .then(function (order) {
+          if (!order.slug) return;
+          return fetch('/content/paintings.json')
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              var painting = (data.paintings || []).find(function (p) { return p.slug === order.slug; });
+              if (!painting) return;
+              var img = document.getElementById('order-image');
+              var title = document.getElementById('order-title');
+              img.src = painting.image;
+              img.alt = painting.title + ' — original oil painting by Jonathan Smith';
+              img.hidden = false;
+              title.textContent = painting.title;
+              title.hidden = false;
+            });
+        })
+        .catch(function () { /* image is a nice-to-have — page still works without it */ });
+    })();
+  </script>
 
   <footer class="site-footer">
     <div class="container footer__inner">

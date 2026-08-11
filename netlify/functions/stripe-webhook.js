@@ -104,11 +104,23 @@ async function sendEmail(to, subject, html) {
   }
 }
 
+function formatAddress(session) {
+  var addr = (session.shipping_details && session.shipping_details.address) ||
+    (session.customer_details && session.customer_details.address);
+  if (!addr) return '';
+  var name = (session.shipping_details && session.shipping_details.name) ||
+    (session.customer_details && session.customer_details.name) || '';
+  var lines = [name, addr.line1, addr.line2, [addr.city, addr.postal_code].filter(Boolean).join(' '), addr.country]
+    .filter(Boolean);
+  return lines.join('<br>');
+}
+
 async function sendOrderEmails(painting, session) {
   var buyerEmail = session.customer_details && session.customer_details.email;
   var buyerName = (session.customer_details && session.customer_details.name) || 'the buyer';
   var shipping = shippingLabel(session);
   var collectionTime = collectionTimeNote(session);
+  var address = formatAddress(session);
   var amountPaid = typeof session.amount_total === 'number' ? (session.amount_total / 100).toFixed(2) : painting.price;
   var origin = 'https://whimsical-kashata-a78505.netlify.app';
   var imageUrl = painting.image ? origin + '/' + painting.image : '';
@@ -147,8 +159,9 @@ async function sendOrderEmails(painting, session) {
       row('Delivery', shipping) +
       (collectionTime ? row('Collection time', collectionTime) : '') +
       row('Buyer', buyerName + (buyerEmail ? '<br><span style="color:#6c6353;">' + buyerEmail + '</span>' : '')) +
+      (address ? row('Address', address) : '') +
     '</table>' +
-    '<p style="margin:20px 0 0;color:#6c6353;font-size:13px;">Full shipping address and payment details are in your Stripe Dashboard.</p>'
+    '<p style="margin:20px 0 0;color:#6c6353;font-size:13px;">Full payment details are in your Stripe Dashboard.</p>'
   );
 
   var buyerHtml = wrapEmail(
@@ -159,9 +172,10 @@ async function sendOrderEmails(painting, session) {
       row('Delivery', shipping) +
       (collectionTime ? row('Your collection time', collectionTime) : '') +
     '</table>' +
-    '<p style="margin:20px 0 0;">Jonathan will be in touch shortly to confirm ' +
+    '<p style="margin:20px 0 0;">I\'ll be in touch shortly to confirm ' +
       (shipping.indexOf('Collection') === 0 ? 'a collection time' : 'delivery') + '.</p>' +
-    '<p style="margin:12px 0 0;color:#6c6353;font-size:13px;">Any questions, just reply to this email or contact jwdsmithart@mail.co.uk.</p>'
+    '<p style="margin:12px 0 0;color:#6c6353;font-size:13px;">Any questions, just reply to this email or contact jwdsmithart@mail.co.uk.' +
+      ' (Can\'t find this email later? Check your spam/junk folder and mark it as not spam.)</p>'
   );
 
   await Promise.all([

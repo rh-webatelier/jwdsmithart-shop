@@ -102,7 +102,7 @@ exports.handler = async function (event) {
         },
       ],
       metadata: { painting_slug: slug },
-      success_url: `${origin}/thank-you.html`,
+      success_url: `${origin}/thank-you.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/#paintings`,
     });
 
