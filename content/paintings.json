@@ -87,7 +87,7 @@
       "image": "images/still-winters-morning.jpg",
       "medium": "Oil on canvas · 40 × 50 cm",
       "price": 500,
-      "sold": false,
+      "sold": true,
       "stripe_link": ""
     },
     {
