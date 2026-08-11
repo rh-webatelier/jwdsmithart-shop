@@ -105,7 +105,7 @@
       "image": "images/woodland-clearing.jpg",
       "medium": "Oil on canvas · 50 × 40 cm",
       "price": 500,
-      "sold": false,
+      "sold": true,
       "stripe_link": ""
     }
   ]
