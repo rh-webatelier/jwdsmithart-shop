@@ -1,6 +1,13 @@
 {
   "paintings": [
     {
+      "slug": "frost-morning",
+      "title": "Frost Morning",
+      "image": "images/frost-morning.jpg",
+      "medium": "Oil on canvas · 61 × 46 cm",
+      "price": 700
+    },
+    {
       "slug": "barden-tower",
       "title": "Barden Tower",
       "image": "images/barden-tower.jpg",
