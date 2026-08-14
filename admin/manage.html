@@ -11,6 +11,9 @@
     p.sub { color: #6c6353; font-size: 14px; margin: 0 0 28px; }
     .col { max-width: 640px; margin: 0 auto 40px; }
     .col-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e2d9c6; padding-bottom: 8px; }
+    .top-bar { max-width: 640px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .edit-link { display: inline-block; background: #1b1915; color: #f7f3ea; font: 600 13px system-ui, sans-serif; padding: 9px 16px; border-radius: 5px; text-decoration: none; white-space: nowrap; }
+    .edit-link:hover { background: #2c2822; }
     h2 { font-size: 16px; text-transform: uppercase; letter-spacing: .06em; color: #6c6353; margin: 0; }
     .bulk-btn { background: #a9762e; color: #fff; border: none; border-radius: 4px; padding: 6px 12px; font-size: 12px; cursor: pointer; }
     .bulk-btn:disabled { opacity: .4; cursor: default; }
@@ -38,8 +41,13 @@
   </div>
 
   <div id="app">
-    <h1>Manage Paintings</h1>
-    <p class="sub">Tick as many paintings as you like, then move them all at once. Changes go live in a minute or two. <a href="/admin/">Edit photos, prices &amp; text →</a></p>
+    <div class="top-bar">
+      <div>
+        <h1>Manage Paintings</h1>
+        <p class="sub">Tick as many paintings as you like, then move them all at once. Changes go live in a minute or two.</p>
+      </div>
+      <a class="edit-link" href="/admin/">Edit photos, prices &amp; text →</a>
+    </div>
     <div id="status"></div>
 
     <div class="col">
