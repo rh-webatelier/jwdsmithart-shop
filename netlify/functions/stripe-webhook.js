@@ -20,8 +20,7 @@
 
 const GITHUB_REPO = process.env.GITHUB_REPO || 'rh-webatelier/jwdsmithart-shop';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
-const FOR_SALE_PATH = 'content/paintings.json';
-const SOLD_PATH = 'content/paintings-sold.json';
+const FILE_PATH = 'content/paintings.json';
 const SELLER_EMAIL = process.env.SELLER_EMAIL || 'jwdsmithart@mail.co.uk';
 const EMAIL_FROM = process.env.EMAIL_FROM || 'JWD Smith Art <onboarding@resend.dev>';
 
@@ -31,53 +30,41 @@ function slugify(s) {
   return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
-async function readJsonFile(path) {
-  const apiUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`;
+async function markPaintingSold(slug) {
+  const apiUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${FILE_PATH}`;
   const headers = {
     Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
     Accept: 'application/vnd.github+json',
     'User-Agent': 'jwdsmithart-shop-webhook',
   };
-  const getRes = await fetch(`${apiUrl}?ref=${GITHUB_BRANCH}`, { headers });
-  if (!getRes.ok) throw new Error(`GitHub read failed for ${path}: ${getRes.status}`);
-  const file = await getRes.json();
-  const content = JSON.parse(Buffer.from(file.content, 'base64').toString('utf8'));
-  return { apiUrl, headers, sha: file.sha, content };
-}
 
-async function writeJsonFile(apiUrl, headers, sha, content, message) {
+  const getRes = await fetch(`${apiUrl}?ref=${GITHUB_BRANCH}`, { headers });
+  if (!getRes.ok) throw new Error(`GitHub read failed: ${getRes.status}`);
+  const file = await getRes.json();
+
+  const content = JSON.parse(Buffer.from(file.content, 'base64').toString('utf8'));
+  const painting = (content.paintings || []).find((p) => (p.slug || slugify(p.title)) === slug);
+  if (!painting) throw new Error(`No painting found with slug "${slug}"`);
+  if (painting.sold) return { alreadySold: true, painting };
+
+  painting.sold = true;
+
   const updatedContent = Buffer.from(JSON.stringify(content, null, 2) + '\n', 'utf8').toString('base64');
+
   const putRes = await fetch(apiUrl, {
     method: 'PUT',
     headers: { ...headers, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message, content: updatedContent, sha, branch: GITHUB_BRANCH }),
+    body: JSON.stringify({
+      message: `Mark "${painting.title}" as sold (via Stripe payment)`,
+      content: updatedContent,
+      sha: file.sha,
+      branch: GITHUB_BRANCH,
+    }),
   });
   if (!putRes.ok) {
     const errText = await putRes.text();
     throw new Error(`GitHub write failed: ${putRes.status} ${errText}`);
   }
-}
-
-// Moves a painting from the "for sale" file to the "sold" file — the two files back the two
-// separate CMS sections (Paintings for Sale / Sold Works), so a sale keeps the editor tidy
-// instead of leaving a growing pile of "sold" checkboxes mixed in with what's still available.
-async function markPaintingSold(slug) {
-  const sold = await readJsonFile(SOLD_PATH);
-  const alreadyMoved = (sold.content.paintings || []).find((p) => (p.slug || slugify(p.title)) === slug);
-  if (alreadyMoved) return { alreadySold: true, painting: alreadyMoved };
-
-  const forSale = await readJsonFile(FOR_SALE_PATH);
-  const list = forSale.content.paintings || [];
-  const idx = list.findIndex((p) => (p.slug || slugify(p.title)) === slug);
-  if (idx === -1) throw new Error(`No painting found with slug "${slug}"`);
-  const [painting] = list.splice(idx, 1);
-
-  await writeJsonFile(forSale.apiUrl, forSale.headers, forSale.sha, forSale.content,
-    `Remove "${painting.title}" from For Sale (sold via Stripe)`);
-
-  sold.content.paintings = [painting].concat(sold.content.paintings || []);
-  await writeJsonFile(sold.apiUrl, sold.headers, sold.sha, sold.content,
-    `Add "${painting.title}" to Sold Works (via Stripe payment)`);
 
   return { alreadySold: false, painting };
 }

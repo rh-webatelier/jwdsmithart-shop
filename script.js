@@ -261,7 +261,9 @@ function initGridToggle(grid, toggle) {
   fetch('content/paintings.json')
     .then(function (r) { return r.json(); })
     .then(function (data) {
-      var paintings = data.paintings || [];
+      // Sold paintings live only in the Sold Works section below — once bought, a piece
+      // comes off the For Sale catalogue entirely rather than lingering there as "Sold".
+      var paintings = (data.paintings || []).filter(function (p) { return !p.sold; });
       var html = paintings.map(cardHTML).join('');
       var n = paintings.length;
       if (n > MOBILE_CAP) {
@@ -317,10 +319,10 @@ function initGridToggle(grid, toggle) {
     );
   }
 
-  fetch('content/paintings-sold.json')
+  fetch('content/paintings.json')
     .then(function (r) { return r.json(); })
     .then(function (data) {
-      var sold = data.paintings || [];
+      var sold = (data.paintings || []).filter(function (p) { return p.sold; });
       if (!sold.length) { section.hidden = true; return; }
       section.hidden = false;
       var html = sold.map(soldCardHTML).join('');

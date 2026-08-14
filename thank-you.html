@@ -53,14 +53,10 @@
         .then(function (r) { return r.json(); })
         .then(function (order) {
           if (!order.slug) return;
-          // The Stripe webhook may already have moved this painting into the Sold Works
-          // file by the time this page loads, so check both.
-          return Promise.all([
-            fetch('/content/paintings.json').then(function (r) { return r.json(); }),
-            fetch('/content/paintings-sold.json').then(function (r) { return r.json(); }),
-          ]).then(function (results) {
-              var all = (results[0].paintings || []).concat(results[1].paintings || []);
-              var painting = all.find(function (p) { return p.slug === order.slug; });
+          return fetch('/content/paintings.json')
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              var painting = (data.paintings || []).find(function (p) { return p.slug === order.slug; });
               if (!painting) return;
               var img = document.getElementById('order-image');
               var title = document.getElementById('order-title');
