@@ -15,7 +15,7 @@ collections:
       - name: "paintings"
         label: "Paintings for Sale"
         file: "content/paintings.json"
-        description: "Add, remove, reorder or mark a painting as sold. Changes go live in a minute or two."
+        description: "Add, remove or reorder paintings that are currently available. When one sells through the site, it moves itself to Sold Works automatically. To mark one sold by hand, delete it here and add it under Sold Works instead."
         fields:
           - { label: "Paintings", name: "paintings", widget: "list", collapsed: true, summary: "{{title}} — £{{price}}", fields: [
               { label: "Title", name: "title", widget: "string" },
@@ -23,8 +23,19 @@ collections:
               { label: "Photo", name: "image", widget: "image", hint: "Keep the file under ~1MB (resize to about 1600px wide) — very large phone photos can fail to upload." },
               { label: "Medium & size", name: "medium", widget: "string", hint: "e.g. Oil on canvas · 60 × 45 cm" },
               { label: "Price (£)", name: "price", widget: "number", value_type: "int" },
-              { label: "Sold", name: "sold", widget: "boolean", default: false },
               { label: "Stripe Buy Link", name: "stripe_link", widget: "string", required: false, hint: "Paste the Stripe Payment Link for this painting. Leave blank until Stripe is set up." }
+            ] }
+      - name: "paintings_sold"
+        label: "Sold Works"
+        file: "content/paintings-sold.json"
+        description: "Paintings that have already sold. New sales land here on their own after a Stripe payment — use this list only to seed in older sold pieces or fix one by hand."
+        fields:
+          - { label: "Sold paintings", name: "paintings", widget: "list", collapsed: true, summary: "{{title}} — £{{price}}", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Slug", name: "slug", widget: "string", required: false },
+              { label: "Photo", name: "image", widget: "image" },
+              { label: "Medium & size", name: "medium", widget: "string" },
+              { label: "Price (£)", name: "price", widget: "number", value_type: "int" }
             ] }
 
   - name: "site_text"
