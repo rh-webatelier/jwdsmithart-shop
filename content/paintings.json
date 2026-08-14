@@ -1,6 +1,13 @@
 {
   "paintings": [
     {
+      "slug": "sycamore-hebden-ghyll",
+      "title": "Sycamore, Hebden Ghyll",
+      "image": "images/sycamore-hebden-ghyll.jpg",
+      "medium": "Oil on canvas · 40 × 50 cm",
+      "price": 500
+    },
+    {
       "slug": "pockstones-moor",
       "title": "Pockstones Moor",
       "image": "images/pockstones-moor.jpg",
