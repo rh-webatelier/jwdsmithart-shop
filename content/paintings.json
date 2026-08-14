@@ -1,6 +1,13 @@
 {
   "paintings": [
     {
+      "slug": "woodland-clearing",
+      "title": "Woodland Clearing",
+      "image": "images/woodland-clearing.jpg",
+      "medium": "Oil on canvas · 50 × 40 cm",
+      "price": 500
+    },
+    {
       "slug": "hanging-wood-lane-thruscross",
       "title": "Hanging Wood Lane, Thruscross",
       "image": "images/hanging-wood-lane.jpg",
