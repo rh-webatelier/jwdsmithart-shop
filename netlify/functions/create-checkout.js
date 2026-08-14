@@ -96,6 +96,11 @@ exports.handler = async function (event) {
         ],
       },
       shipping_options: SHIPPING_OPTIONS,
+      custom_text: {
+        shipping_address: {
+          message: "Collecting in person from Otley? You can still fill this in — it's only used if you choose postal delivery below.",
+        },
+      },
       custom_fields: [
         {
           key: 'collection_time',
