@@ -1,13 +1,6 @@
 {
   "paintings": [
     {
-      "slug": "still-winters-morning",
-      "title": "Still Winter's Morning",
-      "image": "images/still-winters-morning.jpg",
-      "medium": "Oil on canvas · 40 × 50 cm",
-      "price": 500
-    },
-    {
       "slug": "summer-track",
       "title": "Summer Track",
       "image": "images/summer-track.jpg",
