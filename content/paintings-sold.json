@@ -1,13 +1,6 @@
 {
   "paintings": [
     {
-      "slug": "summer-track",
-      "title": "Summer Track",
-      "image": "images/summer-track.jpg",
-      "medium": "Oil on canvas · 50 × 40 cm",
-      "price": 500
-    },
-    {
       "slug": "woodland-clearing",
       "title": "Woodland Clearing",
       "image": "images/woodland-clearing.jpg",
