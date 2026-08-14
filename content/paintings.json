@@ -1,6 +1,13 @@
 {
   "paintings": [
     {
+      "slug": "barden-tower",
+      "title": "Barden Tower",
+      "image": "images/barden-tower.jpg",
+      "medium": "Oil on canvas · 61 × 46 cm",
+      "price": 700
+    },
+    {
       "slug": "the-sandbeds-otley",
       "title": "The Sandbeds, Otley",
       "image": "images/sandbeds-otley.jpg",
