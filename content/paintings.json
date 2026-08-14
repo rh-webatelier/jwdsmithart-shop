@@ -1,6 +1,13 @@
 {
   "paintings": [
     {
+      "slug": "hanging-wood-lane-thruscross",
+      "title": "Hanging Wood Lane, Thruscross",
+      "image": "images/hanging-wood-lane.jpg",
+      "medium": "Oil on canvas · 40.5 × 51 cm",
+      "price": 500
+    },
+    {
       "slug": "gill-house",
       "title": "Gill House",
       "image": "images/gill-house.jpg",
