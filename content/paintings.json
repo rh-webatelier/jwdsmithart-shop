@@ -6,7 +6,7 @@
       "image": "images/sandbeds-otley.jpg",
       "medium": "Oil on canvas · 80 × 60 cm",
       "price": 800,
-      "sold": false,
+      "sold": true,
       "stripe_link": ""
     },
     {
