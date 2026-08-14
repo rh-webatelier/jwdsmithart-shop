@@ -1,13 +1,6 @@
 {
   "paintings": [
     {
-      "slug": "barden-tower",
-      "title": "Barden Tower",
-      "image": "images/barden-tower.jpg",
-      "medium": "Oil on canvas · 61 × 46 cm",
-      "price": 700
-    },
-    {
       "slug": "pockstones-moor",
       "title": "Pockstones Moor",
       "image": "images/pockstones-moor.jpg",
