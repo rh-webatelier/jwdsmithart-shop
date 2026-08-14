@@ -10,21 +10,24 @@
     h1 { font-size: 22px; margin: 0 0 4px; }
     p.sub { color: #6c6353; font-size: 14px; margin: 0 0 28px; }
     .col { max-width: 640px; margin: 0 auto 40px; }
-    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: .06em; color: #6c6353; border-bottom: 1px solid #e2d9c6; padding-bottom: 8px; }
-    .row { display: flex; align-items: center; gap: 14px; padding: 10px 0; border-bottom: 1px solid #e2d9c6; }
+    .col-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e2d9c6; padding-bottom: 8px; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: .06em; color: #6c6353; margin: 0; }
+    .bulk-btn { background: #a9762e; color: #fff; border: none; border-radius: 4px; padding: 6px 12px; font-size: 12px; cursor: pointer; }
+    .bulk-btn:disabled { opacity: .4; cursor: default; }
+    .row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #e2d9c6; }
+    .row input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; }
     .row img { width: 56px; height: 56px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
     .row .info { flex: 1; }
     .row .title { font-weight: bold; }
     .row .meta { color: #6c6353; font-size: 13px; }
-    button.action { background: #a9762e; color: #fff; border: none; border-radius: 4px; padding: 8px 14px; font-size: 13px; cursor: pointer; white-space: nowrap; }
-    button.action:hover { background: #946428; }
-    button.action:disabled { opacity: .5; cursor: default; }
+    .row.is-moving { opacity: .5; }
     #gate { max-width: 400px; margin: 80px auto; text-align: center; }
     #gate button { background: #1b1915; color: #f7f3ea; border: none; border-radius: 4px; padding: 12px 20px; font-size: 15px; cursor: pointer; }
     #app { display: none; }
     .empty { color: #6c6353; font-size: 14px; padding: 12px 0; }
     #status { max-width: 640px; margin: 0 auto 20px; padding: 10px 14px; border-radius: 4px; font-size: 14px; display: none; }
     #status.error { display: block; background: #fbe6e0; color: #8a2e14; border: 1px solid #e4a98f; }
+    #status.progress { display: block; background: #efe8da; color: #6c6353; border: 1px solid #e2d9c6; }
   </style>
 </head>
 <body>
@@ -36,23 +39,29 @@
 
   <div id="app">
     <h1>Manage Paintings</h1>
-    <p class="sub">Move a painting between For Sale and Sold Works with one click. Changes go live in a minute or two.</p>
+    <p class="sub">Tick as many paintings as you like, then move them all at once. Changes go live in a minute or two.</p>
     <div id="status"></div>
 
     <div class="col">
-      <h2>For Sale</h2>
+      <div class="col-head">
+        <h2>For Sale</h2>
+        <button type="button" class="bulk-btn" id="bulk-sell" disabled>Mark selected sold (0)</button>
+      </div>
       <div id="for-sale-list"></div>
     </div>
 
     <div class="col">
-      <h2>Sold Works</h2>
+      <div class="col-head">
+        <h2>Sold Works</h2>
+        <button type="button" class="bulk-btn" id="bulk-unsell" disabled>Move selected back (0)</button>
+      </div>
       <div id="sold-list"></div>
     </div>
   </div>
 
   <script>
     var user = null;
-    var busy = false; // blocks every button while any move is in flight, to avoid two
+    var busy = false; // blocks every checkbox/button while a batch is running, to avoid
                        // concurrent GitHub writes racing on the same file's sha
 
     netlifyIdentity.on('init', function (u) {
@@ -72,12 +81,12 @@
       loadLists();
     }
 
-    function showError(msg) {
+    function showStatus(msg, isError) {
       var el = document.getElementById('status');
       el.textContent = msg;
-      el.className = 'error';
+      el.className = isError ? 'error' : 'progress';
     }
-    function clearError() {
+    function clearStatus() {
       var el = document.getElementById('status');
       el.className = '';
       el.textContent = '';
@@ -89,14 +98,14 @@
       });
     }
 
-    function rowHTML(p, direction, buttonLabel) {
+    function rowHTML(p) {
       var title = escapeHtml(p.title || '');
       var meta = escapeHtml((p.medium || '') + ' · £' + p.price);
       return (
         '<div class="row" data-slug="' + escapeHtml(p.slug) + '">' +
+          '<input type="checkbox" />' +
           '<img src="/' + escapeHtml(p.image) + '" alt="" />' +
           '<div class="info"><div class="title">' + title + '</div><div class="meta">' + meta + '</div></div>' +
-          '<button class="action" data-direction="' + direction + '">' + buttonLabel + '</button>' +
         '</div>'
       );
     }
@@ -106,57 +115,99 @@
         fetch('/content/paintings.json').then(function (r) { return r.json(); }),
         fetch('/content/paintings-sold.json').then(function (r) { return r.json(); }),
       ]).then(function (results) {
-        renderList('for-sale-list', results[0].paintings || [], 'sell', 'Mark sold');
-        renderList('sold-list', results[1].paintings || [], 'unsell', 'Move back to For Sale');
-        setAllButtonsDisabled(busy);
+        renderList('for-sale-list', results[0].paintings || []);
+        renderList('sold-list', results[1].paintings || []);
+        updateBulkButtons();
+        setControlsDisabled(busy);
       });
     }
 
-    function setAllButtonsDisabled(disabled) {
-      document.querySelectorAll('button.action').forEach(function (b) { b.disabled = disabled; });
-    }
-
-    function renderList(elId, paintings, direction, buttonLabel) {
+    function renderList(elId, paintings) {
       var el = document.getElementById(elId);
       if (!paintings.length) { el.innerHTML = '<p class="empty">Nothing here right now.</p>'; return; }
-      el.innerHTML = paintings.map(function (p) { return rowHTML(p, direction, buttonLabel); }).join('');
-      el.querySelectorAll('.action').forEach(function (btn) {
-        var label = btn.textContent;
-        btn.addEventListener('click', function () {
-          if (busy) return;
-          busy = true;
-          clearError();
-          setAllButtonsDisabled(true);
-          btn.textContent = 'Moving…';
-          var row = btn.closest('.row');
-          var slug = row.getAttribute('data-slug');
-
-          user.jwt().then(function (token) {
-            return fetch('/.netlify/functions/move-painting', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
-              body: JSON.stringify({ slug: slug, direction: btn.getAttribute('data-direction') }),
-            });
-          }).then(function (r) {
-            return r.json().then(function (data) { return { ok: r.ok, data: data }; });
-          }).then(function (res) {
-            busy = false;
-            if (!res.ok) {
-              showError((res.data && res.data.error) || 'Something went wrong — please try again.');
-              setAllButtonsDisabled(false);
-              btn.textContent = label;
-              return;
-            }
-            loadLists();
-          }).catch(function () {
-            busy = false;
-            showError('Network error — check your connection and try again.');
-            setAllButtonsDisabled(false);
-            btn.textContent = label;
-          });
-        });
+      el.innerHTML = paintings.map(rowHTML).join('');
+      el.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+        cb.addEventListener('change', updateBulkButtons);
       });
     }
+
+    function selectedSlugs(elId) {
+      return Array.prototype.slice.call(document.querySelectorAll('#' + elId + ' .row'))
+        .filter(function (row) { return row.querySelector('input').checked; })
+        .map(function (row) { return row.getAttribute('data-slug'); });
+    }
+
+    function updateBulkButtons() {
+      var sellCount = selectedSlugs('for-sale-list').length;
+      var unsellCount = selectedSlugs('sold-list').length;
+      var sellBtn = document.getElementById('bulk-sell');
+      var unsellBtn = document.getElementById('bulk-unsell');
+      sellBtn.textContent = 'Mark selected sold (' + sellCount + ')';
+      sellBtn.disabled = busy || sellCount === 0;
+      unsellBtn.textContent = 'Move selected back (' + unsellCount + ')';
+      unsellBtn.disabled = busy || unsellCount === 0;
+    }
+
+    function setControlsDisabled(disabled) {
+      document.querySelectorAll('input[type="checkbox"]').forEach(function (cb) { cb.disabled = disabled; });
+      updateBulkButtons();
+    }
+
+    function moveOne(slug, direction, token) {
+      return fetch('/.netlify/functions/move-painting', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+        body: JSON.stringify({ slug: slug, direction: direction }),
+      }).then(function (r) {
+        return r.json().then(function (data) { return { ok: r.ok, data: data, slug: slug }; });
+      });
+    }
+
+    // Runs the moves one at a time (not in parallel) — each one is its own GitHub commit,
+    // and doing them in parallel would race on the same file's sha and fail.
+    function runBatch(slugs, direction) {
+      if (busy || !slugs.length) return;
+      busy = true;
+      clearStatus();
+      setControlsDisabled(true);
+
+      user.jwt().then(function (token) {
+        var done = 0;
+        var failed = [];
+
+        function next() {
+          if (done >= slugs.length) {
+            busy = false;
+            if (failed.length) {
+              showStatus('Moved ' + (slugs.length - failed.length) + ' of ' + slugs.length + '. Failed: ' + failed.join(', '), true);
+            } else {
+              clearStatus();
+            }
+            loadLists();
+            return;
+          }
+          var slug = slugs[done];
+          showStatus('Moving ' + (done + 1) + ' of ' + slugs.length + '…', false);
+          moveOne(slug, direction, token).then(function (res) {
+            if (!res.ok) failed.push(slug + ' (' + ((res.data && res.data.error) || 'error') + ')');
+            done++;
+            next();
+          }).catch(function () {
+            failed.push(slug + ' (network error)');
+            done++;
+            next();
+          });
+        }
+        next();
+      });
+    }
+
+    document.getElementById('bulk-sell').addEventListener('click', function () {
+      runBatch(selectedSlugs('for-sale-list'), 'sell');
+    });
+    document.getElementById('bulk-unsell').addEventListener('click', function () {
+      runBatch(selectedSlugs('sold-list'), 'unsell');
+    });
   </script>
 </body>
 </html>
