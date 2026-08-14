@@ -39,7 +39,7 @@
 
   <div id="app">
     <h1>Manage Paintings</h1>
-    <p class="sub">Tick as many paintings as you like, then move them all at once. Changes go live in a minute or two.</p>
+    <p class="sub">Tick as many paintings as you like, then move them all at once. Changes go live in a minute or two. <a href="/admin/">Edit photos, prices &amp; text →</a></p>
     <div id="status"></div>
 
     <div class="col">
@@ -163,6 +163,28 @@
       });
     }
 
+    // The commits land on GitHub instantly, but the site itself (and these /content/*.json
+    // files) only reflect them once Netlify finishes rebuilding — a handful of seconds.
+    // Poll until the moved paintings actually show up in their new list, instead of
+    // reloading once immediately and looking like nothing happened.
+    function waitForDeployThenReload(movedSlugs, expectInFile) {
+      var attempts = 0;
+      showStatus('Saved — waiting for the site to update…', false);
+      (function poll() {
+        attempts++;
+        fetch(expectInFile, { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (data) {
+          var slugsThere = (data.paintings || []).map(function (p) { return p.slug; });
+          var allThere = movedSlugs.every(function (s) { return slugsThere.indexOf(s) !== -1; });
+          if (allThere || attempts >= 10) {
+            clearStatus();
+            loadLists();
+          } else {
+            setTimeout(poll, 3000);
+          }
+        }).catch(function () { loadLists(); });
+      })();
+    }
+
     // Runs the moves one at a time (not in parallel) — each one is its own GitHub commit,
     // and doing them in parallel would race on the same file's sha and fail.
     function runBatch(slugs, direction) {
@@ -174,22 +196,25 @@
       user.jwt().then(function (token) {
         var done = 0;
         var failed = [];
+        var moved = [];
 
         function next() {
           if (done >= slugs.length) {
             busy = false;
             if (failed.length) {
-              showStatus('Moved ' + (slugs.length - failed.length) + ' of ' + slugs.length + '. Failed: ' + failed.join(', '), true);
+              showStatus('Moved ' + moved.length + ' of ' + slugs.length + '. Failed: ' + failed.join(', '), true);
+              loadLists();
             } else {
-              clearStatus();
+              var destFile = direction === 'sell' ? '/content/paintings-sold.json' : '/content/paintings.json';
+              waitForDeployThenReload(moved, destFile);
             }
-            loadLists();
             return;
           }
           var slug = slugs[done];
           showStatus('Moving ' + (done + 1) + ' of ' + slugs.length + '…', false);
           moveOne(slug, direction, token).then(function (res) {
             if (!res.ok) failed.push(slug + ' (' + ((res.data && res.data.error) || 'error') + ')');
+            else moved.push(slug);
             done++;
             next();
           }).catch(function () {
