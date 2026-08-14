@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manage Paintings — JWD Smith Art</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f7f3ea; color: #1b1915; margin: 0; padding: 24px 16px 64px; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    p.sub { color: #6c6353; font-size: 14px; margin: 0 0 28px; }
+    .col { max-width: 640px; margin: 0 auto 40px; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: .06em; color: #6c6353; border-bottom: 1px solid #e2d9c6; padding-bottom: 8px; }
+    .row { display: flex; align-items: center; gap: 14px; padding: 10px 0; border-bottom: 1px solid #e2d9c6; }
+    .row img { width: 56px; height: 56px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
+    .row .info { flex: 1; }
+    .row .title { font-weight: bold; }
+    .row .meta { color: #6c6353; font-size: 13px; }
+    button.action { background: #a9762e; color: #fff; border: none; border-radius: 4px; padding: 8px 14px; font-size: 13px; cursor: pointer; white-space: nowrap; }
+    button.action:hover { background: #946428; }
+    button.action:disabled { opacity: .5; cursor: default; }
+    #gate { max-width: 400px; margin: 80px auto; text-align: center; }
+    #gate button { background: #1b1915; color: #f7f3ea; border: none; border-radius: 4px; padding: 12px 20px; font-size: 15px; cursor: pointer; }
+    #app { display: none; }
+    .empty { color: #6c6353; font-size: 14px; padding: 12px 0; }
+  </style>
+</head>
+<body>
+  <div id="gate">
+    <h1>Manage Paintings</h1>
+    <p class="sub">Log in with the same account you use for the site editor.</p>
+    <button onclick="netlifyIdentity.open('login')">Log in</button>
+  </div>
+
+  <div id="app">
+    <h1>Manage Paintings</h1>
+    <p class="sub">Move a painting between For Sale and Sold Works with one click. Changes go live in a minute or two.</p>
+
+    <div class="col">
+      <h2>For Sale</h2>
+      <div id="for-sale-list"></div>
+    </div>
+
+    <div class="col">
+      <h2>Sold Works</h2>
+      <div id="sold-list"></div>
+    </div>
+  </div>
+
+  <script>
+    var user = null;
+
+    netlifyIdentity.on('init', function (u) {
+      user = u;
+      if (u) showApp();
+    });
+    netlifyIdentity.on('login', function (u) {
+      user = u;
+      netlifyIdentity.close();
+      showApp();
+    });
+    netlifyIdentity.init();
+
+    function showApp() {
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      loadLists();
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function rowHTML(p, direction, buttonLabel) {
+      var title = escapeHtml(p.title || '');
+      var meta = escapeHtml((p.medium || '') + ' · £' + p.price);
+      return (
+        '<div class="row" data-slug="' + escapeHtml(p.slug) + '">' +
+          '<img src="/' + escapeHtml(p.image) + '" alt="" />' +
+          '<div class="info"><div class="title">' + title + '</div><div class="meta">' + meta + '</div></div>' +
+          '<button class="action" data-direction="' + direction + '">' + buttonLabel + '</button>' +
+        '</div>'
+      );
+    }
+
+    function loadLists() {
+      Promise.all([
+        fetch('/content/paintings.json').then(function (r) { return r.json(); }),
+        fetch('/content/paintings-sold.json').then(function (r) { return r.json(); }),
+      ]).then(function (results) {
+        renderList('for-sale-list', results[0].paintings || [], 'sell', 'Mark sold');
+        renderList('sold-list', results[1].paintings || [], 'unsell', 'Move back to For Sale');
+      });
+    }
+
+    function renderList(elId, paintings, direction, buttonLabel) {
+      var el = document.getElementById(elId);
+      if (!paintings.length) { el.innerHTML = '<p class="empty">Nothing here right now.</p>'; return; }
+      el.innerHTML = paintings.map(function (p) { return rowHTML(p, direction, buttonLabel); }).join('');
+      el.querySelectorAll('.action').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var row = btn.closest('.row');
+          var slug = row.getAttribute('data-slug');
+          btn.disabled = true;
+          btn.textContent = 'Moving…';
+          user.jwt().then(function (token) {
+            return fetch('/.netlify/functions/move-painting', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+              body: JSON.stringify({ slug: slug, direction: btn.getAttribute('data-direction') }),
+            });
+          }).then(function (r) {
+            if (!r.ok) throw new Error('failed');
+            row.remove();
+            // Reload both columns after a short delay so the moved painting shows up
+            // in its new list too, not just disappears from the old one.
+            setTimeout(loadLists, 600);
+          }).catch(function () {
+            btn.disabled = false;
+            btn.textContent = buttonLabel;
+            alert('Something went wrong — please try again.');
+          });
+        });
+      });
+    }
+  </script>
+</body>
+</html>
