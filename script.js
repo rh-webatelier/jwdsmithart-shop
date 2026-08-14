@@ -185,24 +185,33 @@ function initBuyButtons() {
   });
 }
 
-// How many cards show up front — fewer on phones (limited width), more on desktop (wide
-// grid) — and how many more each "Load more" click reveals. Used by both the For Sale
+// How many cards show up front, and how many more each "Load more" click reveals —
+// both bigger on desktop (wide grid, more room) than on phones. Used by both the For Sale
 // catalogue and the Sold Works gallery so neither turns into a giant wall of cards at once.
 var MOBILE_CAP = 4;
 var DESKTOP_CAP = 12;
-var LOAD_BATCH = 10;
+var LOAD_BATCH_MOBILE = 10;
+var LOAD_BATCH_DESKTOP = 18;
 
-// Incremental "Load more": reveals LOAD_BATCH more cards per click (not everything at
-// once), keeps the button's label showing how many are still hidden, and once every card
-// is visible the same button turns into "Show fewer" to collapse back to the initial count.
+// Incremental "Load more": reveals a batch of cards per click (not everything at once),
+// keeps the button's label showing how many are still hidden, and shows a separate
+// "Show fewer" link — as soon as more than the initial count is visible, not only once
+// everything has been loaded — so a visitor can collapse back at any point.
 function initGridToggle(grid, toggle, itemLabel) {
   if (!toggle || !grid) return;
   var cards = Array.prototype.slice.call(grid.children).filter(function (el) {
     return el.classList.contains('reveal');
   });
-  var initial = window.matchMedia('(max-width: 640px)').matches ? MOBILE_CAP : DESKTOP_CAP;
-  initial = Math.min(initial, cards.length);
+  var isMobile = window.matchMedia('(max-width: 640px)').matches;
+  var initial = Math.min(isMobile ? MOBILE_CAP : DESKTOP_CAP, cards.length);
+  var batch = isMobile ? LOAD_BATCH_MOBILE : LOAD_BATCH_DESKTOP;
   var visible = initial;
+
+  var collapse = document.createElement('button');
+  collapse.type = 'button';
+  collapse.className = 'grid-collapse';
+  collapse.textContent = 'Show fewer';
+  toggle.insertAdjacentElement('afterend', collapse);
 
   function render() {
     cards.forEach(function (card, i) {
@@ -210,28 +219,20 @@ function initGridToggle(grid, toggle, itemLabel) {
       if (i < visible && window.observeReveal) window.observeReveal(card);
     });
     var hidden = cards.length - visible;
-    if (hidden > 0) {
-      toggle.hidden = false;
-      toggle.textContent = 'Load more (' + hidden + ' more ' + itemLabel + ')';
-      toggle.setAttribute('aria-expanded', 'false');
-    } else if (visible > initial) {
-      toggle.hidden = false;
-      toggle.textContent = 'Show fewer';
-      toggle.setAttribute('aria-expanded', 'true');
-    } else {
-      toggle.hidden = true;
-    }
+    toggle.hidden = hidden <= 0;
+    toggle.textContent = 'Load more (' + hidden + ' more ' + itemLabel + ')';
+    collapse.hidden = visible <= initial;
   }
 
   toggle.addEventListener('click', function () {
-    if (visible < cards.length) {
-      visible = Math.min(visible + LOAD_BATCH, cards.length);
-      render();
-    } else {
-      visible = initial;
-      render();
-      toggle.scrollIntoView({ block: 'center', behavior: 'smooth' });
-    }
+    visible = Math.min(visible + batch, cards.length);
+    render();
+  });
+
+  collapse.addEventListener('click', function () {
+    visible = initial;
+    render();
+    grid.scrollIntoView({ block: 'start', behavior: 'smooth' });
   });
 
   render();

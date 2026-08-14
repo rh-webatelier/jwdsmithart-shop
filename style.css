@@ -114,6 +114,11 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
   font-size:.92rem;font-weight:600;cursor:pointer;transition:background .25s,color .25s}
 .works-toggle:hover,.sold-toggle:hover,.works-toggle:active,.sold-toggle:active{background:var(--gold);color:#fff}
 @media(min-width:641px){.works-toggle,.sold-toggle{padding:14px 34px;font-size:.95rem}}
+/* Small secondary link next to Load More — collapses back to the initial count at any
+   point, not just once everything has been loaded. */
+.grid-collapse{grid-column:1/-1;justify-self:center;margin:-2px auto 4px;background:none;border:none;
+  color:var(--muted);font:inherit;font-size:.85rem;text-decoration:underline;cursor:pointer;padding:6px}
+.grid-collapse:hover{color:var(--gold-600)}
 .work{display:flex;flex-direction:column}
 .work__frame{position:relative;overflow:hidden;
   background:linear-gradient(160deg,#fdfaf3,#efe6d4);border-radius:3px;
