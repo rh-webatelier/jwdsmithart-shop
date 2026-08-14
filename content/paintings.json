@@ -1,6 +1,13 @@
 {
   "paintings": [
     {
+      "slug": "still-winters-morning",
+      "title": "Still Winter's Morning",
+      "image": "images/still-winters-morning.jpg",
+      "medium": "Oil on canvas · 40 × 50 cm",
+      "price": 500
+    },
+    {
       "slug": "hanging-wood-lane-thruscross",
       "title": "Hanging Wood Lane, Thruscross",
       "image": "images/hanging-wood-lane.jpg",
