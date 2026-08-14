@@ -185,29 +185,56 @@ function initBuyButtons() {
   });
 }
 
-// Caps how many cards show before a "See more" toggle: fewer on phones (limited width),
-// more on desktop (wide grid) — used by both the For Sale catalogue and the Sold Works gallery
-// so neither turns into an endless scroll once there are lots of paintings.
+// How many cards show up front — fewer on phones (limited width), more on desktop (wide
+// grid) — and how many more each "Load more" click reveals. Used by both the For Sale
+// catalogue and the Sold Works gallery so neither turns into a giant wall of cards at once.
 var MOBILE_CAP = 4;
 var DESKTOP_CAP = 12;
+var LOAD_BATCH = 10;
 
-// Generic "See more" toggle: collapses a grid down to whatever CSS hides via the
-// *-extra / *-extra-desktop classes, and reveals everything on click.
-function initGridToggle(grid, toggle) {
+// Incremental "Load more": reveals LOAD_BATCH more cards per click (not everything at
+// once), keeps the button's label showing how many are still hidden, and once every card
+// is visible the same button turns into "Show fewer" to collapse back to the initial count.
+function initGridToggle(grid, toggle, itemLabel) {
   if (!toggle || !grid) return;
-  grid.classList.add('is-collapsed');
-  var MORE = toggle.getAttribute('data-label-more') || 'See more';
-  var LESS = toggle.getAttribute('data-label-less') || 'Show fewer';
-  toggle.addEventListener('click', function () {
-    var collapsed = grid.classList.toggle('is-collapsed');
-    toggle.textContent = collapsed ? MORE : LESS;
-    toggle.setAttribute('aria-expanded', String(!collapsed));
-    if (!collapsed) {
-      grid.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+  var cards = Array.prototype.slice.call(grid.children).filter(function (el) {
+    return el.classList.contains('reveal');
+  });
+  var initial = window.matchMedia('(max-width: 640px)').matches ? MOBILE_CAP : DESKTOP_CAP;
+  initial = Math.min(initial, cards.length);
+  var visible = initial;
+
+  function render() {
+    cards.forEach(function (card, i) {
+      card.style.display = i < visible ? '' : 'none';
+      if (i < visible && window.observeReveal) window.observeReveal(card);
+    });
+    var hidden = cards.length - visible;
+    if (hidden > 0) {
+      toggle.hidden = false;
+      toggle.textContent = 'Load more (' + hidden + ' more ' + itemLabel + ')';
+      toggle.setAttribute('aria-expanded', 'false');
+    } else if (visible > initial) {
+      toggle.hidden = false;
+      toggle.textContent = 'Show fewer';
+      toggle.setAttribute('aria-expanded', 'true');
     } else {
+      toggle.hidden = true;
+    }
+  }
+
+  toggle.addEventListener('click', function () {
+    if (visible < cards.length) {
+      visible = Math.min(visible + LOAD_BATCH, cards.length);
+      render();
+    } else {
+      visible = initial;
+      render();
       toggle.scrollIntoView({ block: 'center', behavior: 'smooth' });
     }
   });
+
+  render();
 }
 
 // Paintings grid — rendered from content/paintings.json so the Netlify CMS admin
@@ -229,7 +256,6 @@ function initGridToggle(grid, toggle) {
   }
 
   function cardHTML(p, i) {
-    var extraClass = (i >= MOBILE_CAP ? ' work--extra' : '') + (i >= DESKTOP_CAP ? ' work--extra-desktop' : '');
     var title = escapeHtml(p.title || '');
     var medium = escapeHtml(p.medium || '');
     var meta = medium + ' · £' + p.price;
@@ -238,7 +264,7 @@ function initGridToggle(grid, toggle) {
     var href = stripeLink || '#';
     var slug = p.slug || slugify(p.title || '');
     return (
-      '<article class="work reveal' + extraClass + '">' +
+      '<article class="work reveal">' +
         '<div class="work__frame" data-lightbox data-title="' + title + '" data-meta="' + escapeHtml(meta) + '">' +
           '<img src="' + escapeHtml(p.image) + '" alt="' + title + ' — original oil painting by Jonathan Smith" loading="lazy" />' +
           '<span class="work__zoom" aria-hidden="true">&#9906;</span>' +
@@ -262,24 +288,16 @@ function initGridToggle(grid, toggle) {
     .then(function (r) { return r.json(); })
     .then(function (data) {
       var paintings = data.paintings || [];
-      var html = paintings.map(cardHTML).join('');
-      var n = paintings.length;
-      if (n > MOBILE_CAP) {
-        var desktopClass = n > DESKTOP_CAP ? ' is-needed-desktop' : '';
-        html += '<button type="button" class="works-toggle' + desktopClass + '" data-label-more="See all ' + n + ' paintings" '
-          + 'data-label-less="Show fewer paintings" aria-expanded="false">See all ' + n + ' paintings</button>';
-      }
+      var html = paintings.map(cardHTML).join('') +
+        '<button type="button" class="works-toggle" hidden></button>';
       grid.innerHTML = html;
       grid.removeAttribute('data-loading');
 
-      grid.querySelectorAll('.reveal').forEach(function (el) {
-        if (window.observeReveal) window.observeReveal(el); else el.classList.add('is-visible');
-      });
       if (window.wireLazyFade) window.wireLazyFade(grid);
 
       initLightbox();
       initBuyButtons();
-      initGridToggle(grid, grid.querySelector('.works-toggle'));
+      initGridToggle(grid, grid.querySelector('.works-toggle'), 'paintings');
     })
     .catch(function () {
       grid.innerHTML = '<p class="works-loading">Couldn\'t load paintings right now — please refresh, or ' +
@@ -302,17 +320,17 @@ function initGridToggle(grid, toggle) {
   }
 
   function soldCardHTML(p, i) {
-    var extraClass = (i >= MOBILE_CAP ? ' sold-card--extra' : '') + (i >= DESKTOP_CAP ? ' sold-card--extra-desktop' : '');
     var title = escapeHtml(p.title || '');
     var medium = escapeHtml(p.medium || '');
-    var meta = medium + ' · £' + p.price + ' (Sold)';
+    var details = [medium, p.price ? '£' + p.price : ''].filter(Boolean).join(' · ');
+    var meta = (details ? details + ' ' : '') + '(Sold)';
     return (
-      '<figure class="sold-card reveal' + extraClass + '">' +
+      '<figure class="sold-card reveal">' +
         '<div class="sold-card__frame" data-lightbox data-title="' + title + '" data-meta="' + escapeHtml(meta) + '">' +
           '<img src="' + escapeHtml(p.image) + '" alt="' + title + ' — sold original oil painting by Jonathan Smith" loading="lazy" />' +
           '<span class="sold-card__tag">Sold</span>' +
         '</div>' +
-        '<figcaption><b>' + title + '</b><span>' + medium + '</span></figcaption>' +
+        '<figcaption><b>' + title + '</b>' + (medium ? '<span>' + medium + '</span>' : '') + '</figcaption>' +
       '</figure>'
     );
   }
@@ -323,20 +341,12 @@ function initGridToggle(grid, toggle) {
       var sold = data.paintings || [];
       if (!sold.length) { section.hidden = true; return; }
       section.hidden = false;
-      var html = sold.map(soldCardHTML).join('');
-      var n = sold.length;
-      if (n > MOBILE_CAP) {
-        var desktopClass = n > DESKTOP_CAP ? ' is-needed-desktop' : '';
-        html += '<button type="button" class="sold-toggle' + desktopClass + '" data-label-more="See all ' + n + ' sold works" '
-          + 'data-label-less="Show fewer" aria-expanded="false">See all ' + n + ' sold works</button>';
-      }
+      var html = sold.map(soldCardHTML).join('') +
+        '<button type="button" class="sold-toggle" hidden></button>';
       grid.innerHTML = html;
-      grid.querySelectorAll('.reveal').forEach(function (el) {
-        if (window.observeReveal) window.observeReveal(el); else el.classList.add('is-visible');
-      });
       if (window.wireLazyFade) window.wireLazyFade(grid);
       initLightbox();
-      initGridToggle(grid, grid.querySelector('.sold-toggle'));
+      initGridToggle(grid, grid.querySelector('.sold-toggle'), 'sold works');
     })
     .catch(function () { section.hidden = true; });
 })();

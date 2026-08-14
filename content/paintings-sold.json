@@ -20,6 +20,231 @@
       "image": "images/woodland-clearing.jpg",
       "medium": "Oil on canvas · 50 × 40 cm",
       "price": 500
+    },
+    {
+      "slug": "byland-abbey",
+      "title": "Byland Abbey",
+      "image": "images/sold/byland-abbey.jpg"
+    },
+    {
+      "slug": "farnley-high-summer",
+      "title": "Farnley - High Summer",
+      "image": "images/sold/farnley-high-summer.jpg"
+    },
+    {
+      "slug": "denton-moor-in-the-mist",
+      "title": "Denton Moor in the Mist",
+      "image": "images/sold/denton-moor-in-the-mist.jpg"
+    },
+    {
+      "slug": "gallows-hill-otley-spring",
+      "title": "Gallows Hill, Otley - Spring",
+      "image": "images/sold/gallows-hill-otley-spring.jpg"
+    },
+    {
+      "slug": "last-light-on-denton-moor",
+      "title": "Last Light on Denton Moor",
+      "image": "images/sold/last-light-on-denton-moor.jpg"
+    },
+    {
+      "slug": "holy-island-sands",
+      "title": "Holy Island Sands",
+      "image": "images/sold/holy-island-sands.jpg"
+    },
+    {
+      "slug": "northumbrian-dunes",
+      "title": "Northumbrian Dunes",
+      "image": "images/sold/northumbrian-dunes.jpg"
+    },
+    {
+      "slug": "red-gate-timble",
+      "title": "Red Gate - Timble",
+      "image": "images/sold/red-gate-timble.jpg"
+    },
+    {
+      "slug": "dob-park-bridge",
+      "title": "Dob Park Bridge",
+      "image": "images/sold/dob-park-bridge.jpg"
+    },
+    {
+      "slug": "evening-shore",
+      "title": "Evening Shore",
+      "image": "images/sold/evening-shore.jpg"
+    },
+    {
+      "slug": "the-beech-in-autumn",
+      "title": "The Beech in Autumn",
+      "image": "images/sold/the-beech-in-autumn.jpg"
+    },
+    {
+      "slug": "gawk-hall-gate-from-the-east",
+      "title": "Gawk Hall Gate from the East",
+      "image": "images/sold/gawk-hall-gate-from-the-east.jpg"
+    },
+    {
+      "slug": "the-cairn-denton-moor",
+      "title": "The Cairn - Denton Moor",
+      "image": "images/sold/the-cairn-denton-moor.jpg"
+    },
+    {
+      "slug": "washburn-valley-in-winter",
+      "title": "Washburn Valley in Winter",
+      "image": "images/sold/washburn-valley-in-winter.jpg"
+    },
+    {
+      "slug": "the-shooting-lodge",
+      "title": "The Shooting Lodge",
+      "image": "images/sold/the-shooting-lodge.jpg"
+    },
+    {
+      "slug": "mist-clearing-on-denton-moor",
+      "title": "Mist Clearing on Denton Moor",
+      "image": "images/sold/mist-clearing-on-denton-moor.jpg"
+    },
+    {
+      "slug": "snow-at-blubberhouses",
+      "title": "Snow at Blubberhouses",
+      "image": "images/sold/snow-at-blubberhouses.jpg"
+    },
+    {
+      "slug": "morning-mist",
+      "title": "Morning Mist",
+      "image": "images/sold/morning-mist.jpg"
+    },
+    {
+      "slug": "nature-study-1-rock",
+      "title": "Nature Study 1 - Rock",
+      "image": "images/sold/nature-study-1-rock.jpg"
+    },
+    {
+      "slug": "nature-study-3-dry-stone-wall",
+      "title": "Nature Study 3 - Dry Stone Wall",
+      "image": "images/sold/nature-study-3-dry-stone-wall.jpg"
+    },
+    {
+      "slug": "snow-at-blubberhouses-2",
+      "title": "Snow at Blubberhouses",
+      "image": "images/sold/snow-at-blubberhouses-2.jpg"
+    },
+    {
+      "slug": "snow-in-the-washburn-valley",
+      "title": "Snow In The Washburn Valley",
+      "image": "images/sold/snow-in-the-washburn-valley.jpg"
+    },
+    {
+      "slug": "sunrise-after-snow",
+      "title": "Sunrise After Snow",
+      "image": "images/sold/sunrise-after-snow.jpg"
+    },
+    {
+      "slug": "the-channel-staveley",
+      "title": "The Channel - Staveley",
+      "image": "images/sold/the-channel-staveley.jpg"
+    },
+    {
+      "slug": "the-iron-bridge",
+      "title": "The Iron Bridge",
+      "image": "images/sold/the-iron-bridge.jpg"
+    },
+    {
+      "slug": "through-the-trees",
+      "title": "Through The Trees",
+      "image": "images/sold/through-the-trees.jpg"
+    },
+    {
+      "slug": "timble-forest-boundary",
+      "title": "Timble Forest Boundary",
+      "image": "images/sold/timble-forest-boundary.jpg"
+    },
+    {
+      "slug": "willows",
+      "title": "Willows",
+      "image": "images/sold/willows.jpg"
+    },
+    {
+      "slug": "winter-at-nesfield",
+      "title": "Winter at Nesfield",
+      "image": "images/sold/winter-at-nesfield.jpg"
+    },
+    {
+      "slug": "summer-storm-bamburgh",
+      "title": "Summer Storm, Bamburgh",
+      "image": "images/sold/summer-storm-bamburgh.jpg"
+    },
+    {
+      "slug": "misty-morning-otley",
+      "title": "Misty Morning Otley",
+      "image": "images/sold/misty-morning-otley.jpg"
+    },
+    {
+      "slug": "runswick-bay",
+      "title": "Runswick Bay",
+      "image": "images/sold/runswick-bay.jpg"
+    },
+    {
+      "slug": "long-dike-timble",
+      "title": "Long Dike, Timble",
+      "image": "images/sold/long-dike-timble.jpg"
+    },
+    {
+      "slug": "cloud-study-thruscross",
+      "title": "Cloud Study - Thruscross",
+      "image": "images/sold/cloud-study-thruscross.jpg"
+    },
+    {
+      "slug": "saltburn-towards-huntcliffe",
+      "title": "Saltburn - Towards Huntcliffe",
+      "image": "images/sold/saltburn-towards-huntcliffe.jpg"
+    },
+    {
+      "slug": "saltburn-huntcliffe-from-marske",
+      "title": "Saltburn - Huntcliffe from Marske",
+      "image": "images/sold/saltburn-huntcliffe-from-marske.jpg"
+    },
+    {
+      "slug": "malham-cove",
+      "title": "Malham Cove",
+      "image": "images/sold/malham-cove.jpg"
+    },
+    {
+      "slug": "river-wharfe-in-summer",
+      "title": "River Wharfe in Summer",
+      "image": "images/sold/river-wharfe-in-summer.jpg"
+    },
+    {
+      "slug": "cow-and-calf-ilkley-moor",
+      "title": "Cow and Calf, Ilkley Moor",
+      "image": "images/sold/cow-and-calf-ilkley-moor.jpg"
+    },
+    {
+      "slug": "bamburgh-castle-from-the-dunes",
+      "title": "Bamburgh Castle from the Dunes",
+      "image": "images/sold/bamburgh-castle-from-the-dunes.jpg"
+    },
+    {
+      "slug": "dunstanburgh-castle-in-the-mist",
+      "title": "Dunstanburgh Castle in the Mist",
+      "image": "images/sold/dunstanburgh-castle-in-the-mist.jpg"
+    },
+    {
+      "slug": "whitby-harbour",
+      "title": "Whitby Harbour",
+      "image": "images/sold/whitby-harbour.jpg"
+    },
+    {
+      "slug": "almscliffe-crag-from-the-east",
+      "title": "Almscliffe Crag from the East",
+      "image": "images/sold/almscliffe-crag-from-the-east.jpg"
+    },
+    {
+      "slug": "the-dying-ash",
+      "title": "The Dying Ash",
+      "image": "images/sold/the-dying-ash.jpg"
+    },
+    {
+      "slug": "dunstanburgh-castle-from-embleton",
+      "title": "Dunstanburgh castle from Embleton",
+      "image": "images/sold/dunstanburgh-castle-from-embleton.jpg"
     }
   ]
 }
