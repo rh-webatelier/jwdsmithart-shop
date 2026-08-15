@@ -102,17 +102,29 @@ function buildLightboxBox() {
   // Click/tap the painting to zoom in on that spot; the image then tracks the pointer
   // so moving the mouse (or dragging a finger) pans around like a magnifying glass.
   // Click/tap again to zoom back out.
+  // The reference rect is captured once, right before the image scales up, and reused
+  // for the whole zoomed session — re-querying getBoundingClientRect() on an already
+  // -scaled element feeds its own previous move back into the next one (the box grows
+  // and shifts with transform-origin), which made the magnifier drift/invert near edges.
+  var zoomBaseRect = null;
   function setZoomOrigin(clientX, clientY) {
-    var r = img.getBoundingClientRect();
+    var r = zoomBaseRect || img.getBoundingClientRect();
     var px = Math.max(0, Math.min(1, (clientX - r.left) / r.width)) * 100;
     var py = Math.max(0, Math.min(1, (clientY - r.top) / r.height)) * 100;
     img.style.transformOrigin = px + '% ' + py + '%';
   }
   img.addEventListener('click', function (e) {
     e.stopPropagation();
-    var zoomed = img.classList.toggle('is-zoomed');
-    if (zoomed) setZoomOrigin(e.clientX, e.clientY);
-    else img.style.transformOrigin = '';
+    var zoomed = !img.classList.contains('is-zoomed');
+    if (zoomed) {
+      zoomBaseRect = img.getBoundingClientRect();
+      setZoomOrigin(e.clientX, e.clientY);
+      img.classList.add('is-zoomed');
+    } else {
+      img.classList.remove('is-zoomed');
+      img.style.transformOrigin = '';
+      zoomBaseRect = null;
+    }
   });
   img.addEventListener('mousemove', function (e) {
     if (img.classList.contains('is-zoomed')) setZoomOrigin(e.clientX, e.clientY);
