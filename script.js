@@ -310,10 +310,32 @@ function initGridToggle(grid, toggle, itemLabel) {
     .then(function (data) {
       var paintings = data.paintings || [];
       var sortSelect = document.getElementById('works-sort-select');
+      var categorySelect = document.getElementById('works-category-select');
+      var categoryGroup = document.getElementById('works-category-group');
+
+      // Categories are whatever free-text values are currently on the paintings —
+      // there's no separate list to keep in sync, so renaming/adding/removing a
+      // category in the CMS just changes what shows up here automatically.
+      var categories = [];
+      paintings.forEach(function (p) {
+        if (p.category && categories.indexOf(p.category) === -1) categories.push(p.category);
+      });
+      if (categorySelect && categories.length > 1) {
+        categories.sort();
+        categories.forEach(function (c) {
+          var opt = document.createElement('option');
+          opt.value = c;
+          opt.textContent = c;
+          categorySelect.appendChild(opt);
+        });
+        categoryGroup.hidden = false;
+      }
 
       function renderGrid() {
         var mode = sortSelect ? sortSelect.value : 'curated';
-        var ordered = sortPaintings(paintings, mode);
+        var cat = categorySelect ? categorySelect.value : '';
+        var filtered = cat ? paintings.filter(function (p) { return p.category === cat; }) : paintings;
+        var ordered = sortPaintings(filtered, mode);
         var html = ordered.map(cardHTML).join('') +
           '<button type="button" class="works-toggle" hidden></button>';
         grid.innerHTML = html;
@@ -328,6 +350,7 @@ function initGridToggle(grid, toggle, itemLabel) {
 
       renderGrid();
       if (sortSelect) sortSelect.addEventListener('change', renderGrid);
+      if (categorySelect) categorySelect.addEventListener('change', renderGrid);
     })
     .catch(function () {
       grid.innerHTML = '<p class="works-loading">Couldn\'t load paintings right now — please refresh, or ' +

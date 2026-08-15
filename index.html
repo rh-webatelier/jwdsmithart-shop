@@ -99,8 +99,15 @@
           <span>One click to buy &mdash; no account needed</span>
         </div>
         <div class="works-sort reveal">
-          <label for="works-sort-select">Sort by</label>
-          <select id="works-sort-select">
+          <div class="works-sort__group" id="works-category-group" hidden>
+            <label for="works-category-select">Category</label>
+            <select id="works-category-select">
+              <option value="">All categories</option>
+            </select>
+          </div>
+          <div class="works-sort__group">
+            <label for="works-sort-select">Sort by</label>
+            <select id="works-sort-select">
             <option value="curated">Featured</option>
             <option value="newest">Newest first</option>
             <option value="oldest">Oldest first</option>
@@ -108,7 +115,8 @@
             <option value="price-asc">Price: low to high</option>
             <option value="size-desc">Size: largest first</option>
             <option value="size-asc">Size: smallest first</option>
-          </select>
+            </select>
+          </div>
         </div>
         <div class="works" id="works-grid" data-loading="true">
           <p class="works-loading">Loading paintings…</p>

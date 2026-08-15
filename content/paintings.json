@@ -7,7 +7,8 @@
       "medium": "Original oil painting · 60 × 45cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53402647
+      "product_id": 53402647,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "derwentwater",
@@ -16,7 +17,8 @@
       "medium": "Original oil painting · 50 × 40cm",
       "price": 250,
       "stripe_link": "",
-      "product_id": 53393758
+      "product_id": 53393758,
+      "category": "The Lakes"
     },
     {
       "slug": "troller-s-ghyll",
@@ -25,7 +27,8 @@
       "medium": "Original oil on canvas · 54 × 73cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393783
+      "product_id": 53393783,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "the-boggle-holes-runswick-bay",
@@ -34,7 +37,8 @@
       "medium": "Original oil painting · 50 × 40cm",
       "price": 450,
       "stripe_link": "",
-      "product_id": 53393759
+      "product_id": 53393759,
+      "category": "Yorkshire Coast"
     },
     {
       "slug": "timble-ings-sunrise",
@@ -43,7 +47,8 @@
       "medium": "Original oil painting · 36 × 25.5cm",
       "price": 170,
       "stripe_link": "",
-      "product_id": 53393793
+      "product_id": 53393793,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "the-sandbeds-otley",
@@ -52,7 +57,8 @@
       "medium": "Original oil painting · 80 × 60cm",
       "price": 800,
       "stripe_link": "",
-      "product_id": 53393756
+      "product_id": 53393756,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "the-conifer-forest",
@@ -61,7 +67,8 @@
       "medium": "Original oil painting on linen · 70 × 50cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393776
+      "product_id": 53393776,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "stag-rocks-from-bamburgh-castle",
@@ -70,7 +77,8 @@
       "medium": "Original oil painting · 60 × 45cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53402646
+      "product_id": 53402646,
+      "category": "Northumberland"
     },
     {
       "slug": "last-of-the-snow",
@@ -79,7 +87,8 @@
       "medium": "Original oil painting · 30 × 40cm",
       "price": 170,
       "stripe_link": "",
-      "product_id": 53393795
+      "product_id": 53393795,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "pockstones-moor",
@@ -88,7 +97,8 @@
       "medium": "Original oil painting · 80 × 40cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393757
+      "product_id": 53393757,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "beech-tree-by-the-wharfe",
@@ -97,7 +107,8 @@
       "medium": "Original oil painting · 60 × 50cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393786
+      "product_id": 53393786,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "runswick-bay",
@@ -106,7 +117,8 @@
       "medium": "Original oil painting · 50 × 40cm",
       "price": 500,
       "stripe_link": "",
-      "product_id": 53393760
+      "product_id": 53393760,
+      "category": "Yorkshire Coast"
     },
     {
       "slug": "harnessing-the-storm",
@@ -115,7 +127,8 @@
       "medium": "Original oil on canvas · 80 × 60cm",
       "price": 800,
       "stripe_link": "",
-      "product_id": 53393772
+      "product_id": 53393772,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "fountains-abbey",
@@ -124,7 +137,8 @@
       "medium": "Original oil painting · 28 × 36cm",
       "price": 250,
       "stripe_link": "",
-      "product_id": 53393767
+      "product_id": 53393767,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "frost-morning",
@@ -133,7 +147,8 @@
       "medium": "Original oil painting · 61 × 46cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393761
+      "product_id": 53393761,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "sunrise-at-thruscross-reservoir",
@@ -142,7 +157,8 @@
       "medium": "Original oil painting · 40 × 50cm",
       "price": 270,
       "stripe_link": "",
-      "product_id": 53393797
+      "product_id": 53393797,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "east-lagoon-at-staveley",
@@ -151,7 +167,8 @@
       "medium": "Original oil painting on linen · 80 × 60cm",
       "price": 800,
       "stripe_link": "",
-      "product_id": 53393788
+      "product_id": 53393788,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "beech-trees-at-thruscross",
@@ -160,7 +177,8 @@
       "medium": "Original oil painting · 60 × 50cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393787
+      "product_id": 53393787,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "the-gathering-storm-wharfedale",
@@ -169,7 +187,8 @@
       "medium": "Original oil painting · 80 × 40cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393765
+      "product_id": 53393765,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "still-winter-s-morning",
@@ -178,7 +197,8 @@
       "medium": "Original oil painting · 40 × 50cm",
       "price": 500,
       "stripe_link": "",
-      "product_id": 53445601
+      "product_id": 53445601,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "lindisfarne-first-light",
@@ -187,7 +207,8 @@
       "medium": "Original oil painting · 38 × 28cm",
       "price": 250,
       "stripe_link": "",
-      "product_id": 53434883
+      "product_id": 53434883,
+      "category": "Northumberland"
     },
     {
       "slug": "hanging-wood-lane-thruscross",
@@ -196,7 +217,8 @@
       "medium": "Original oil painting · 40.5 × 51cm",
       "price": 500,
       "stripe_link": "",
-      "product_id": 53440358
+      "product_id": 53440358,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "respite-storm-eunice-from-snowden-crags",
@@ -205,7 +227,8 @@
       "medium": "Original oil on canvas · 80 × 40cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393778
+      "product_id": 53393778,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "covey-hall-farm",
@@ -214,7 +237,8 @@
       "medium": "Original oil painting · 61 × 46cm",
       "price": 600,
       "stripe_link": "",
-      "product_id": 53393773
+      "product_id": 53393773,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "saltburn-beach-in-winter",
@@ -223,7 +247,8 @@
       "medium": "Original oil painting · 50 × 40cm",
       "price": 500,
       "stripe_link": "",
-      "product_id": 53393790
+      "product_id": 53393790,
+      "category": "Yorkshire Coast"
     },
     {
       "slug": "woodland-clearing",
@@ -232,7 +257,8 @@
       "medium": "Original oil painting · 50 × 40cm",
       "price": 500,
       "stripe_link": "",
-      "product_id": 53393763
+      "product_id": 53393763,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "early-morning-rain-timble",
@@ -241,7 +267,8 @@
       "medium": "Original oil painting on canvas · 70 × 50cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393764
+      "product_id": 53393764,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "evening-light-at-marske",
@@ -250,7 +277,8 @@
       "medium": "Original oil on canvas · 50 × 40cm",
       "price": 500,
       "stripe_link": "",
-      "product_id": 53393766
+      "product_id": 53393766,
+      "category": "Yorkshire Coast"
     },
     {
       "slug": "the-clearing",
@@ -259,7 +287,8 @@
       "medium": "Oil on canvas · 65 × 50 cm",
       "price": 650,
       "stripe_link": "",
-      "product_id": 53393768
+      "product_id": 53393768,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "spring-light",
@@ -268,7 +297,8 @@
       "medium": "Original oil painting on canvas · 60 × 50cm",
       "price": 600,
       "stripe_link": "",
-      "product_id": 53393769
+      "product_id": 53393769,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "harvest-east-park-at-farnley",
@@ -277,7 +307,8 @@
       "medium": "Original oil on canvas · 73 × 54cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393775
+      "product_id": 53393775,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "woodland-track-timble",
@@ -286,7 +317,8 @@
       "medium": "Original oil on linen · 80 × 60cm",
       "price": 800,
       "stripe_link": "",
-      "product_id": 53393777
+      "product_id": 53393777,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "winter-sunrise-at-staveley",
@@ -295,7 +327,8 @@
       "medium": "Original oil on canvas · 61 × 46cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393784
+      "product_id": 53393784,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "poplar-in-winter",
@@ -304,7 +337,8 @@
       "medium": "Original oil on canvas · 61 × 46cm",
       "price": 300,
       "stripe_link": "",
-      "product_id": 53393789
+      "product_id": 53393789,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "ripon-minster-from-studley-royal",
@@ -313,7 +347,8 @@
       "medium": "Original oil painting · 50 × 40cm",
       "price": 300,
       "stripe_link": "",
-      "product_id": 53393791
+      "product_id": 53393791,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "dunstanburgh-castle",
@@ -322,7 +357,8 @@
       "medium": "Original oil painting · 60 × 45cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393792
+      "product_id": 53393792,
+      "category": "Northumberland"
     },
     {
       "slug": "a-quiet-evening",
@@ -331,7 +367,8 @@
       "medium": "Oil on canvas",
       "price": 250,
       "stripe_link": "",
-      "product_id": 53393796
+      "product_id": 53393796,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "fields-at-hambleton",
@@ -340,7 +377,8 @@
       "medium": "Original oil painting · 36 × 28cm",
       "price": 250,
       "stripe_link": "",
-      "product_id": 53434884
+      "product_id": 53434884,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "wheatfields-at-hambleton",
@@ -349,7 +387,8 @@
       "medium": "Original oil painting · 36 × 28cm",
       "price": 250,
       "stripe_link": "",
-      "product_id": 53434885
+      "product_id": 53434885,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "the-devil-s-arrows",
@@ -358,7 +397,8 @@
       "medium": "Original oil, painting · 36 × 28cm",
       "price": 250,
       "stripe_link": "",
-      "product_id": 53434886
+      "product_id": 53434886,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "sunrise-on-thruscross-moor",
@@ -367,7 +407,8 @@
       "medium": "Original oil painting · 36 × 28cm",
       "price": 250,
       "stripe_link": "",
-      "product_id": 53434897
+      "product_id": 53434897,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "country-lane-at-east-keswick",
@@ -376,7 +417,8 @@
       "medium": "Original oil painting · 36 × 28cm",
       "price": 250,
       "stripe_link": "",
-      "product_id": 53434908
+      "product_id": 53434908,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "napes-hill-leathley",
@@ -385,7 +427,8 @@
       "medium": "Original oil ,painting · 36 × 28cm",
       "price": 250,
       "stripe_link": "",
-      "product_id": 53434909
+      "product_id": 53434909,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "sea-spray-at-saltburn",
@@ -394,7 +437,8 @@
       "medium": "Original oil painting · 61 × 46cm",
       "price": 600,
       "stripe_link": "",
-      "product_id": 53434910
+      "product_id": 53434910,
+      "category": "Yorkshire Coast"
     },
     {
       "slug": "barden-tower",
@@ -403,7 +447,8 @@
       "medium": "Original oil painting · 61 × 46cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53479750
+      "product_id": 53479750,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "hebden-ghyll-misty-morning",
@@ -412,7 +457,8 @@
       "medium": "Original oil painting · 61 × 46cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53479751
+      "product_id": 53479751,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "gill-house",
@@ -421,7 +467,8 @@
       "medium": "Original oil painting · 50 × 40cm",
       "price": 500,
       "stripe_link": "",
-      "product_id": 53534425
+      "product_id": 53534425,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "sycamore-hebden-ghyll",
@@ -430,7 +477,8 @@
       "medium": "Original oil painting · 40 × 50cm",
       "price": 500,
       "stripe_link": "",
-      "product_id": 53534426
+      "product_id": 53534426,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "high-garnshaw-house",
@@ -439,7 +487,8 @@
       "medium": "Original oil painting · 48 × 30cm",
       "price": 350,
       "stripe_link": "",
-      "product_id": 53534427
+      "product_id": 53534427,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "early-spring-morning-at-timble-ings",
@@ -448,7 +497,8 @@
       "medium": "Original oil painting · 61 × 46cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393779
+      "product_id": 53393779,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "farnley-park-early-autumn",
@@ -457,7 +507,8 @@
       "medium": "Original oil painting · 60 × 45cm",
       "price": 700,
       "stripe_link": "",
-      "product_id": 53393780
+      "product_id": 53393780,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "farnley-fields",
@@ -466,7 +517,8 @@
       "medium": "Original oil painting on canvas · 61 × 46cm",
       "price": 600,
       "stripe_link": "",
-      "product_id": 53393781
+      "product_id": 53393781,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "home-farm-farnley-from-the-fields",
@@ -475,7 +527,8 @@
       "medium": "Original oil on board · 35.5 × 28cm",
       "price": 250,
       "stripe_link": "",
-      "product_id": 53393782
+      "product_id": 53393782,
+      "category": "Yorkshire Dales & Moors"
     },
     {
       "slug": "dales-view",
@@ -484,7 +537,8 @@
       "medium": "Oil on canvas · 30 × 21 cm",
       "price": 75,
       "stripe_link": "",
-      "product_id": 53100623
+      "product_id": 53100623,
+      "category": "Plein Air Sketches"
     },
     {
       "slug": "alnwick-castle",
@@ -493,7 +547,8 @@
       "medium": "Oil on canvas · 42 × 30 cm",
       "price": 60,
       "stripe_link": "",
-      "product_id": 53394765
+      "product_id": 53394765,
+      "category": "Northumberland"
     },
     {
       "slug": "bamburgh-castle-from-the-wynd",
@@ -502,7 +557,8 @@
       "medium": "Oil on canvas · 42 × 30 cm",
       "price": 60,
       "stripe_link": "",
-      "product_id": 53394766
+      "product_id": 53394766,
+      "category": "Northumberland"
     },
     {
       "slug": "lindisfarne-castle",
@@ -511,7 +567,8 @@
       "medium": "Oil on canvas · 42 × 30 cm",
       "price": 60,
       "stripe_link": "",
-      "product_id": 53394767
+      "product_id": 53394767,
+      "category": "Northumberland"
     },
     {
       "slug": "nessend-holy-island",
@@ -520,7 +577,8 @@
       "medium": "Oil on canvas · 50 × 40 cm",
       "price": 70,
       "stripe_link": "",
-      "product_id": 53394768
+      "product_id": 53394768,
+      "category": "Northumberland"
     }
   ]
 }
