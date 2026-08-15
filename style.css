@@ -98,9 +98,18 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
 .statement__by{margin-top:26px;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 
 /* gallery / shop */
-.shop-note{display:flex;flex-wrap:wrap;gap:10px 26px;margin-bottom:34px;font-size:.9rem;color:var(--muted)}
-.shop-note span{display:inline-flex;align-items:center;gap:.5em}
-.shop-note b{color:var(--ink)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* One compact, single-line strip of trust badges — replaces two separate stacked blocks
+   that used to wrap onto several lines on narrow screens. Scrolls horizontally on mobile
+   instead of wrapping, so it never eats more than one line of vertical space. */
+.trust-strip{display:flex;align-items:center;gap:20px;margin-bottom:28px;padding-bottom:14px;
+  border-bottom:1px solid var(--line,rgba(0,0,0,.08));font-size:.82rem;color:var(--muted);
+  overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.trust-strip::-webkit-scrollbar{display:none}
+.trust-strip span{display:inline-flex;align-items:center;gap:.4em;white-space:nowrap;flex:none}
+.trust-strip b{color:var(--ink)}
+.trust-strip__icon{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .works{display:grid;grid-template-columns:repeat(3,1fr);gap:52px 36px;align-items:start}
 .works-loading{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0}
 @media(max-width:900px){.works{grid-template-columns:repeat(2,1fr);gap:40px 26px}}
@@ -134,8 +143,6 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
   .work__meta{font-size:.95rem}
   .work__ask{font-size:.85rem}
   .work__buy .buy-btn{padding:13px 22px;font-size:.92rem}
-  .shop-note{font-size:1rem}
-  .shop-trust{font-size:.88rem}
 }
 .work__zoom{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;
   background:rgba(27,25,21,.7);color:#fff;display:flex;align-items:center;justify-content:center;
@@ -155,16 +162,15 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
 .work__ask:hover{color:var(--gold-600)}
 .buy-btn.is-disabled{background:#d8d2c4;color:#8b8371;cursor:default;pointer-events:none;border-color:transparent}
 
-.shop-trust{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:14px 0 34px;
-  font-size:.78rem;color:var(--muted);padding-top:14px;border-top:1px solid var(--line,rgba(0,0,0,.08))}
-.shop-trust span{display:inline-flex;align-items:center;gap:.4em}
-.shop-trust__icon{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-
-.works-sort{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:18px;margin:0 0 18px;font-size:.85rem;color:var(--muted)}
-.works-sort__group{display:flex;align-items:center;gap:10px}
-.works-sort select{font:inherit;font-size:.9rem;color:var(--ink);background:var(--paper);border:1px solid var(--line,#e2d9c6);
-  border-radius:6px;padding:8px 12px;cursor:pointer}
+/* Category + Sort filter pills — always share one row, even on the narrowest phones,
+   instead of each stacking as a full-width labeled field. Labels are visually hidden
+   (.sr-only) since the select's own text already makes its purpose clear at a glance. */
+.works-sort{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin:0 0 18px;flex-wrap:wrap}
+.works-sort__group{display:flex;align-items:center;min-width:0}
+.works-sort select{font:inherit;font-size:.82rem;color:var(--ink);background:var(--paper);border:1px solid var(--line,#e2d9c6);
+  border-radius:999px;padding:8px 14px;cursor:pointer;max-width:46vw;text-overflow:ellipsis}
 .works-sort select:focus{outline:2px solid var(--gold);outline-offset:1px}
+@media(min-width:641px){.works-sort select{font-size:.88rem;max-width:none;border-radius:6px}}
 
 /* sold works */
 .sold-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
