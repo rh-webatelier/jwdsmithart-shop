@@ -285,20 +285,49 @@ function initGridToggle(grid, toggle, itemLabel) {
     );
   }
 
+  // Pulls the width×height out of the "medium" text (e.g. "Oil on canvas · 80 × 60 cm")
+  // so paintings can be sorted by size without a separate CMS field to keep in sync.
+  function sizeOf(p) {
+    var m = /([\d.]+)\s*×\s*([\d.]+)/.exec(p.medium || '');
+    return m ? parseFloat(m[1]) * parseFloat(m[2]) : 0;
+  }
+
+  function sortPaintings(list, mode) {
+    var sorted = list.slice();
+    if (mode === 'newest') sorted.sort(function (a, b) { return (b.product_id || 0) - (a.product_id || 0); });
+    else if (mode === 'oldest') sorted.sort(function (a, b) { return (a.product_id || 0) - (b.product_id || 0); });
+    else if (mode === 'price-desc') sorted.sort(function (a, b) { return (b.price || 0) - (a.price || 0); });
+    else if (mode === 'price-asc') sorted.sort(function (a, b) { return (a.price || 0) - (b.price || 0); });
+    else if (mode === 'size-desc') sorted.sort(function (a, b) { return sizeOf(b) - sizeOf(a); });
+    else if (mode === 'size-asc') sorted.sort(function (a, b) { return sizeOf(a) - sizeOf(b); });
+    // "curated" (the default): whatever order the paintings are in in the CMS —
+    // drag to reorder there and this is what visitors see first.
+    return sorted;
+  }
+
   fetch('content/paintings.json')
     .then(function (r) { return r.json(); })
     .then(function (data) {
       var paintings = data.paintings || [];
-      var html = paintings.map(cardHTML).join('') +
-        '<button type="button" class="works-toggle" hidden></button>';
-      grid.innerHTML = html;
-      grid.removeAttribute('data-loading');
+      var sortSelect = document.getElementById('works-sort-select');
 
-      if (window.wireLazyFade) window.wireLazyFade(grid);
+      function renderGrid() {
+        var mode = sortSelect ? sortSelect.value : 'curated';
+        var ordered = sortPaintings(paintings, mode);
+        var html = ordered.map(cardHTML).join('') +
+          '<button type="button" class="works-toggle" hidden></button>';
+        grid.innerHTML = html;
+        grid.removeAttribute('data-loading');
 
-      initLightbox();
-      initBuyButtons();
-      initGridToggle(grid, grid.querySelector('.works-toggle'), 'paintings');
+        if (window.wireLazyFade) window.wireLazyFade(grid);
+
+        initLightbox();
+        initBuyButtons();
+        initGridToggle(grid, grid.querySelector('.works-toggle'), 'paintings');
+      }
+
+      renderGrid();
+      if (sortSelect) sortSelect.addEventListener('change', renderGrid);
     })
     .catch(function () {
       grid.innerHTML = '<p class="works-loading">Couldn\'t load paintings right now — please refresh, or ' +
