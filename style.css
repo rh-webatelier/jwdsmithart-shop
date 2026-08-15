@@ -293,7 +293,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
 .lightbox__stage img{display:block;max-width:min(92vw,1180px);max-height:64vh;width:auto;height:auto;
   transform:scale(.96);transition:transform .3s;cursor:zoom-in}
 .lightbox.is-open .lightbox__stage img{transform:scale(1)}
-.lightbox__stage img.is-zoomed{transform:scale(2.4);transition:transform .15s;cursor:zoom-out}
+.lightbox.is-open .lightbox__stage img.is-zoomed{transform:scale(2.4);transition:transform .15s;cursor:zoom-out}
 .lightbox__zoom-hint{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);
   background:rgba(0,0,0,.55);color:#fff;font-size:.72rem;padding:5px 12px;border-radius:999px;
   pointer-events:none;opacity:0;transition:opacity .3s}
