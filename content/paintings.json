@@ -1,92 +1,467 @@
 {
   "paintings": [
     {
-      "slug": "woodland-clearing",
-      "title": "Woodland Clearing",
-      "image": "images/woodland-clearing.jpg",
-      "medium": "Oil on canvas · 50 × 40 cm",
-      "price": 500
-    },
-    {
-      "slug": "hanging-wood-lane-thruscross",
-      "title": "Hanging Wood Lane, Thruscross",
-      "image": "images/hanging-wood-lane.jpg",
-      "medium": "Oil on canvas · 40.5 × 51 cm",
-      "price": 500
-    },
-    {
-      "slug": "gill-house",
-      "title": "Gill House",
-      "image": "images/gill-house.jpg",
-      "medium": "Oil on canvas · 50 × 40 cm",
-      "price": 500
-    },
-    {
-      "slug": "summer-track",
-      "title": "Summer Track",
-      "image": "images/summer-track.jpg",
-      "medium": "Oil on canvas · 50 × 40 cm",
-      "price": 500
-    },
-    {
-      "slug": "still-winters-morning",
-      "title": "Still Winter's Morning",
-      "image": "images/still-winters-morning.jpg",
-      "medium": "Oil on canvas · 40 × 50 cm",
-      "price": 500
-    },
-    {
-      "slug": "sycamore-hebden-ghyll",
-      "title": "Sycamore, Hebden Ghyll",
-      "image": "images/sycamore-hebden-ghyll.jpg",
-      "medium": "Oil on canvas · 40 × 50 cm",
-      "price": 500
-    },
-    {
-      "slug": "pockstones-moor",
-      "title": "Pockstones Moor",
-      "image": "images/pockstones-moor.jpg",
-      "medium": "Oil on canvas · 80 × 40 cm",
-      "price": 700
-    },
-    {
-      "slug": "frost-morning",
-      "title": "Frost Morning",
-      "image": "images/frost-morning.jpg",
-      "medium": "Oil on canvas · 61 × 46 cm",
-      "price": 700,
-      "stripe_link": ""
-    },
-    {
-      "slug": "barden-tower",
-      "title": "Barden Tower",
-      "image": "images/barden-tower.jpg",
-      "medium": "Oil on canvas · 61 × 46 cm",
-      "price": 700,
+      "slug": "dales-view",
+      "title": "Dales View",
+      "image": "images/catalog/dales-view.jpg",
+      "medium": "Oil on canvas · 30 × 21 cm",
+      "price": 75,
       "stripe_link": ""
     },
     {
       "slug": "the-sandbeds-otley",
       "title": "The Sandbeds, Otley",
-      "image": "images/sandbeds-otley.jpg",
-      "medium": "Oil on canvas · 80 × 60 cm",
+      "image": "images/catalog/the-sandbeds-otley.jpg",
+      "medium": "Original oil painting · 80 × 60cm",
       "price": 800,
       "stripe_link": ""
     },
     {
+      "slug": "pockstones-moor",
+      "title": "Pockstones Moor",
+      "image": "images/catalog/pockstones-moor.jpg",
+      "medium": "Original oil painting · 80 × 40cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "derwentwater",
+      "title": "Derwentwater",
+      "image": "images/catalog/derwentwater.jpg",
+      "medium": "Original oil painting · 50 × 40cm",
+      "price": 250,
+      "stripe_link": ""
+    },
+    {
+      "slug": "the-boggle-holes-runswick-bay",
+      "title": "The Boggle Holes - Runswick Bay",
+      "image": "images/catalog/the-boggle-holes-runswick-bay.jpg",
+      "medium": "Original oil painting · 50 × 40cm",
+      "price": 450,
+      "stripe_link": ""
+    },
+    {
+      "slug": "runswick-bay",
+      "title": "Runswick Bay",
+      "image": "images/catalog/runswick-bay.jpg",
+      "medium": "Original oil painting · 50 × 40cm",
+      "price": 500,
+      "stripe_link": ""
+    },
+    {
+      "slug": "frost-morning",
+      "title": "Frost Morning",
+      "image": "images/catalog/frost-morning.jpg",
+      "medium": "Original oil painting · 61 × 46cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "woodland-clearing",
+      "title": "Woodland Clearing",
+      "image": "images/catalog/woodland-clearing.jpg",
+      "medium": "Original oil painting · 50 × 40cm",
+      "price": 500,
+      "stripe_link": ""
+    },
+    {
+      "slug": "early-morning-rain-timble",
+      "title": "Early  Morning Rain, Timble",
+      "image": "images/catalog/early-morning-rain-timble.jpg",
+      "medium": "Original oil painting on canvas · 70 × 50cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "the-gathering-storm-wharfedale",
+      "title": "The Gathering  Storm - Wharfedale",
+      "image": "images/catalog/the-gathering-storm-wharfedale.jpg",
+      "medium": "Original oil painting · 80 × 40cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "evening-light-at-marske",
+      "title": "Evening Light at Marske",
+      "image": "images/catalog/evening-light-at-marske.jpg",
+      "medium": "Original oil on canvas · 50 × 40cm",
+      "price": 500,
+      "stripe_link": ""
+    },
+    {
+      "slug": "fountains-abbey",
+      "title": "Fountains Abbey",
+      "image": "images/catalog/fountains-abbey.jpg",
+      "medium": "Original oil painting · 28 × 36cm",
+      "price": 250,
+      "stripe_link": ""
+    },
+    {
+      "slug": "the-clearing",
+      "title": "The Clearing",
+      "image": "images/catalog/the-clearing.jpg",
+      "medium": "Oil on canvas · 65 × 50 cm",
+      "price": 650,
+      "stripe_link": ""
+    },
+    {
+      "slug": "spring-light",
+      "title": "Spring Light",
+      "image": "images/catalog/spring-light.jpg",
+      "medium": "Original oil painting on canvas · 60 × 50cm",
+      "price": 600,
+      "stripe_link": ""
+    },
+    {
+      "slug": "harnessing-the-storm",
+      "title": "Harnessing the Storm",
+      "image": "images/catalog/harnessing-the-storm.jpg",
+      "medium": "Original oil on canvas · 80 × 60cm",
+      "price": 800,
+      "stripe_link": ""
+    },
+    {
+      "slug": "covey-hall-farm",
+      "title": "Covey Hall Farm",
+      "image": "images/catalog/covey-hall-farm.jpg",
+      "medium": "Original oil painting · 61 × 46cm",
+      "price": 600,
+      "stripe_link": ""
+    },
+    {
+      "slug": "harvest-east-park-at-farnley",
+      "title": "Harvest - East Park at Farnley",
+      "image": "images/catalog/harvest-east-park-at-farnley.jpg",
+      "medium": "Original oil on canvas · 73 × 54cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "the-conifer-forest",
+      "title": "The Conifer Forest",
+      "image": "images/catalog/the-conifer-forest.jpg",
+      "medium": "Original oil painting on linen · 70 × 50cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "woodland-track-timble",
+      "title": "Woodland Track - Timble",
+      "image": "images/catalog/woodland-track-timble.jpg",
+      "medium": "Original oil on linen · 80 × 60cm",
+      "price": 800,
+      "stripe_link": ""
+    },
+    {
+      "slug": "respite-storm-eunice-from-snowden-crags",
+      "title": "Respite - Storm Eunice from Snowden Crags",
+      "image": "images/catalog/respite-storm-eunice-from-snowden-crags.jpg",
+      "medium": "Original oil on canvas · 80 × 40cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "early-spring-morning-at-timble-ings",
+      "title": "Early Spring Morning at Timble Ings",
+      "image": "images/catalog/early-spring-morning-at-timble-ings.jpg",
+      "medium": "Original oil painting · 61 × 46cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "farnley-park-early-autumn",
+      "title": "Farnley Park - Early Autumn",
+      "image": "images/catalog/farnley-park-early-autumn.jpg",
+      "medium": "Original oil painting · 60 × 45cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "farnley-fields",
+      "title": "Farnley Fields",
+      "image": "images/catalog/farnley-fields.jpg",
+      "medium": "Original oil painting on canvas · 61 × 46cm",
+      "price": 600,
+      "stripe_link": ""
+    },
+    {
+      "slug": "home-farm-farnley-from-the-fields",
+      "title": "Home Farm, Farnley - from the Fields",
+      "image": "images/catalog/home-farm-farnley-from-the-fields.jpg",
+      "medium": "Original oil on board · 35.5 × 28cm",
+      "price": 250,
+      "stripe_link": ""
+    },
+    {
+      "slug": "troller-s-ghyll",
+      "title": "Troller's Ghyll",
+      "image": "images/catalog/troller-s-ghyll.jpg",
+      "medium": "Original oil on canvas · 54 × 73cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "winter-sunrise-at-staveley",
+      "title": "Winter Sunrise at Staveley",
+      "image": "images/catalog/winter-sunrise-at-staveley.jpg",
+      "medium": "Original oil on canvas · 61 × 46cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "beech-tree-by-the-wharfe",
+      "title": "Beech Tree by the Wharfe",
+      "image": "images/catalog/beech-tree-by-the-wharfe.jpg",
+      "medium": "Original oil painting · 60 × 50cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "beech-trees-at-thruscross",
+      "title": "Beech Trees at Thruscross",
+      "image": "images/catalog/beech-trees-at-thruscross.jpg",
+      "medium": "Original oil painting · 60 × 50cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "east-lagoon-at-staveley",
+      "title": "East Lagoon at Staveley",
+      "image": "images/catalog/east-lagoon-at-staveley.jpg",
+      "medium": "Original oil painting on linen · 80 × 60cm",
+      "price": 800,
+      "stripe_link": ""
+    },
+    {
+      "slug": "poplar-in-winter",
+      "title": "Poplar in Winter",
+      "image": "images/catalog/poplar-in-winter.jpg",
+      "medium": "Original oil on canvas · 61 × 46cm",
+      "price": 300,
+      "stripe_link": ""
+    },
+    {
+      "slug": "saltburn-beach-in-winter",
+      "title": "Saltburn Beach in Winter",
+      "image": "images/catalog/saltburn-beach-in-winter.jpg",
+      "medium": "Original oil painting · 50 × 40cm",
+      "price": 500,
+      "stripe_link": ""
+    },
+    {
+      "slug": "ripon-minster-from-studley-royal",
+      "title": "Ripon Minster from Studley Royal",
+      "image": "images/catalog/ripon-minster-from-studley-royal.jpg",
+      "medium": "Original oil painting · 50 × 40cm",
+      "price": 300,
+      "stripe_link": ""
+    },
+    {
+      "slug": "dunstanburgh-castle",
+      "title": "Dunstanburgh Castle",
+      "image": "images/catalog/dunstanburgh-castle.jpg",
+      "medium": "Original oil painting · 60 × 45cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "timble-ings-sunrise",
+      "title": "Timble Ings - Sunrise",
+      "image": "images/catalog/timble-ings-sunrise.jpg",
+      "medium": "Original oil painting · 36 × 25.5cm",
+      "price": 170,
+      "stripe_link": ""
+    },
+    {
+      "slug": "last-of-the-snow",
+      "title": "Last of the Snow",
+      "image": "images/catalog/last-of-the-snow.jpg",
+      "medium": "Original oil painting · 30 × 40cm",
+      "price": 170,
+      "stripe_link": ""
+    },
+    {
+      "slug": "a-quiet-evening",
+      "title": "A Quiet Evening",
+      "image": "images/catalog/a-quiet-evening.jpg",
+      "medium": "Oil on canvas",
+      "price": 250,
+      "stripe_link": ""
+    },
+    {
+      "slug": "sunrise-at-thruscross-reservoir",
+      "title": "Sunrise at Thruscross Reservoir",
+      "image": "images/catalog/sunrise-at-thruscross-reservoir.jpg",
+      "medium": "Original oil painting · 40 × 50cm",
+      "price": 270,
+      "stripe_link": ""
+    },
+    {
+      "slug": "alnwick-castle",
+      "title": "Alnwick Castle",
+      "image": "images/catalog/alnwick-castle.jpg",
+      "medium": "Oil on canvas · 42 × 30 cm",
+      "price": 60,
+      "stripe_link": ""
+    },
+    {
+      "slug": "bamburgh-castle-from-the-wynd",
+      "title": "Bamburgh Castle from the Wynd",
+      "image": "images/catalog/bamburgh-castle-from-the-wynd.jpg",
+      "medium": "Oil on canvas · 42 × 30 cm",
+      "price": 60,
+      "stripe_link": ""
+    },
+    {
+      "slug": "lindisfarne-castle",
+      "title": "Lindisfarne Castle",
+      "image": "images/catalog/lindisfarne-castle.jpg",
+      "medium": "Oil on canvas · 42 × 30 cm",
+      "price": 60,
+      "stripe_link": ""
+    },
+    {
+      "slug": "nessend-holy-island",
+      "title": "Nessend - Holy Island",
+      "image": "images/catalog/nessend-holy-island.jpg",
+      "medium": "Oil on canvas · 50 × 40 cm",
+      "price": 70,
+      "stripe_link": ""
+    },
+    {
+      "slug": "stag-rocks-from-bamburgh-castle",
+      "title": "Stag Rocks from Bamburgh Castle",
+      "image": "images/catalog/stag-rocks-from-bamburgh-castle.jpg",
+      "medium": "Original oil painting · 60 × 45cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
       "slug": "byland-abbey-sunset",
-      "title": "Byland Abbey, Sunset",
-      "image": "images/byland-abbey-sunset.jpg",
-      "medium": "Oil on canvas · 60 × 45 cm",
+      "title": "Byland Abbey - Sunset",
+      "image": "images/catalog/byland-abbey-sunset.jpg",
+      "medium": "Original oil painting · 60 × 45cm",
+      "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "lindisfarne-first-light",
+      "title": "Lindisfarne - First Light",
+      "image": "images/catalog/lindisfarne-first-light.jpg",
+      "medium": "Original oil painting · 38 × 28cm",
+      "price": 250,
+      "stripe_link": ""
+    },
+    {
+      "slug": "fields-at-hambleton",
+      "title": "Fields at Hambleton",
+      "image": "images/catalog/fields-at-hambleton.jpg",
+      "medium": "Original oil painting · 36 × 28cm",
+      "price": 250,
+      "stripe_link": ""
+    },
+    {
+      "slug": "wheatfields-at-hambleton",
+      "title": "Wheatfields at Hambleton",
+      "image": "images/catalog/wheatfields-at-hambleton.jpg",
+      "medium": "Original oil painting · 36 × 28cm",
+      "price": 250,
+      "stripe_link": ""
+    },
+    {
+      "slug": "the-devil-s-arrows",
+      "title": "The Devil's Arrows",
+      "image": "images/catalog/the-devil-s-arrows.jpg",
+      "medium": "Original oil, painting · 36 × 28cm",
+      "price": 250,
+      "stripe_link": ""
+    },
+    {
+      "slug": "sunrise-on-thruscross-moor",
+      "title": "Sunrise on Thruscross Moor",
+      "image": "images/catalog/sunrise-on-thruscross-moor.jpg",
+      "medium": "Original oil painting · 36 × 28cm",
+      "price": 250,
+      "stripe_link": ""
+    },
+    {
+      "slug": "country-lane-at-east-keswick",
+      "title": "Country Lane at East Keswick",
+      "image": "images/catalog/country-lane-at-east-keswick.jpg",
+      "medium": "Original oil painting · 36 × 28cm",
+      "price": 250,
+      "stripe_link": ""
+    },
+    {
+      "slug": "napes-hill-leathley",
+      "title": "Napes Hill - Leathley",
+      "image": "images/catalog/napes-hill-leathley.jpg",
+      "medium": "Original oil ,painting · 36 × 28cm",
+      "price": 250,
+      "stripe_link": ""
+    },
+    {
+      "slug": "sea-spray-at-saltburn",
+      "title": "Sea Spray at Saltburn",
+      "image": "images/catalog/sea-spray-at-saltburn.jpg",
+      "medium": "Original oil painting · 61 × 46cm",
+      "price": 600,
+      "stripe_link": ""
+    },
+    {
+      "slug": "hanging-wood-lane-thruscross",
+      "title": "Hanging Wood Lane, Thruscross",
+      "image": "images/catalog/hanging-wood-lane-thruscross.jpg",
+      "medium": "Original oil painting · 40.5 × 51cm",
+      "price": 500,
+      "stripe_link": ""
+    },
+    {
+      "slug": "still-winter-s-morning",
+      "title": "Still Winter's Morning",
+      "image": "images/catalog/still-winter-s-morning.jpg",
+      "medium": "Original oil painting · 40 × 50cm",
+      "price": 500,
+      "stripe_link": ""
+    },
+    {
+      "slug": "barden-tower",
+      "title": "Barden Tower",
+      "image": "images/catalog/barden-tower.jpg",
+      "medium": "Original oil painting · 61 × 46cm",
       "price": 700,
       "stripe_link": ""
     },
     {
       "slug": "hebden-ghyll-misty-morning",
-      "title": "Hebden Ghyll, Misty Morning",
-      "image": "images/hebden-ghyll-misty.jpg",
-      "medium": "Oil on canvas · 61 × 46 cm",
+      "title": "Hebden Ghyll - Misty Morning",
+      "image": "images/catalog/hebden-ghyll-misty-morning.jpg",
+      "medium": "Original oil painting · 61 × 46cm",
       "price": 700,
+      "stripe_link": ""
+    },
+    {
+      "slug": "gill-house",
+      "title": "Gill House",
+      "image": "images/catalog/gill-house.jpg",
+      "medium": "Original oil painting · 50 × 40cm",
+      "price": 500,
+      "stripe_link": ""
+    },
+    {
+      "slug": "sycamore-hebden-ghyll",
+      "title": "Sycamore - Hebden Ghyll",
+      "image": "images/catalog/sycamore-hebden-ghyll.jpg",
+      "medium": "Original oil painting · 40 × 50cm",
+      "price": 500,
+      "stripe_link": ""
+    },
+    {
+      "slug": "high-garnshaw-house",
+      "title": "High Garnshaw House",
+      "image": "images/catalog/high-garnshaw-house.jpg",
+      "medium": "Original oil painting · 48 × 30cm",
+      "price": 350,
       "stripe_link": ""
     }
   ]

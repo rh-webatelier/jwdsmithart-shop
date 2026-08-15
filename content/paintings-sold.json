@@ -1,65 +1,14 @@
 {
   "paintings": [
     {
-      "slug": "gill-house",
-      "title": "Gill House",
-      "image": "images/gill-house.jpg",
-      "medium": "Oil on canvas · 50 × 40 cm",
-      "price": 500
-    },
-    {
-      "slug": "hanging-wood-lane-thruscross",
-      "title": "Hanging Wood Lane, Thruscross",
-      "image": "images/hanging-wood-lane.jpg",
-      "medium": "Oil on canvas · 40.5 × 51 cm",
-      "price": 500
-    },
-    {
-      "slug": "woodland-clearing",
-      "title": "Woodland Clearing",
-      "image": "images/woodland-clearing.jpg",
-      "medium": "Oil on canvas · 50 × 40 cm",
-      "price": 500
-    },
-    {
       "slug": "byland-abbey",
       "title": "Byland Abbey",
       "image": "images/sold/byland-abbey.jpg"
     },
     {
-      "slug": "farnley-high-summer",
-      "title": "Farnley - High Summer",
-      "image": "images/sold/farnley-high-summer.jpg"
-    },
-    {
       "slug": "denton-moor-in-the-mist",
       "title": "Denton Moor in the Mist",
       "image": "images/sold/denton-moor-in-the-mist.jpg"
-    },
-    {
-      "slug": "gallows-hill-otley-spring",
-      "title": "Gallows Hill, Otley - Spring",
-      "image": "images/sold/gallows-hill-otley-spring.jpg"
-    },
-    {
-      "slug": "last-light-on-denton-moor",
-      "title": "Last Light on Denton Moor",
-      "image": "images/sold/last-light-on-denton-moor.jpg"
-    },
-    {
-      "slug": "holy-island-sands",
-      "title": "Holy Island Sands",
-      "image": "images/sold/holy-island-sands.jpg"
-    },
-    {
-      "slug": "northumbrian-dunes",
-      "title": "Northumbrian Dunes",
-      "image": "images/sold/northumbrian-dunes.jpg"
-    },
-    {
-      "slug": "red-gate-timble",
-      "title": "Red Gate - Timble",
-      "image": "images/sold/red-gate-timble.jpg"
     },
     {
       "slug": "dob-park-bridge",
@@ -72,9 +21,14 @@
       "image": "images/sold/evening-shore.jpg"
     },
     {
-      "slug": "the-beech-in-autumn",
-      "title": "The Beech in Autumn",
-      "image": "images/sold/the-beech-in-autumn.jpg"
+      "slug": "farnley-high-summer",
+      "title": "Farnley - High Summer",
+      "image": "images/sold/farnley-high-summer.jpg"
+    },
+    {
+      "slug": "gallows-hill-otley-spring",
+      "title": "Gallows Hill, Otley - Spring",
+      "image": "images/sold/gallows-hill-otley-spring.jpg"
     },
     {
       "slug": "gawk-hall-gate-from-the-east",
@@ -82,19 +36,9 @@
       "image": "images/sold/gawk-hall-gate-from-the-east.jpg"
     },
     {
-      "slug": "the-cairn-denton-moor",
-      "title": "The Cairn - Denton Moor",
-      "image": "images/sold/the-cairn-denton-moor.jpg"
-    },
-    {
-      "slug": "washburn-valley-in-winter",
-      "title": "Washburn Valley in Winter",
-      "image": "images/sold/washburn-valley-in-winter.jpg"
-    },
-    {
-      "slug": "the-shooting-lodge",
-      "title": "The Shooting Lodge",
-      "image": "images/sold/the-shooting-lodge.jpg"
+      "slug": "last-light-on-denton-moor",
+      "title": "Last Light on Denton Moor",
+      "image": "images/sold/last-light-on-denton-moor.jpg"
     },
     {
       "slug": "mist-clearing-on-denton-moor",
@@ -102,9 +46,9 @@
       "image": "images/sold/mist-clearing-on-denton-moor.jpg"
     },
     {
-      "slug": "snow-at-blubberhouses",
-      "title": "Snow at Blubberhouses",
-      "image": "images/sold/snow-at-blubberhouses.jpg"
+      "slug": "holy-island-sands",
+      "title": "Holy Island Sands",
+      "image": "images/sold/holy-island-sands.jpg"
     },
     {
       "slug": "morning-mist",
@@ -122,6 +66,21 @@
       "image": "images/sold/nature-study-3-dry-stone-wall.jpg"
     },
     {
+      "slug": "northumbrian-dunes",
+      "title": "Northumbrian Dunes",
+      "image": "images/sold/northumbrian-dunes.jpg"
+    },
+    {
+      "slug": "red-gate-timble",
+      "title": "Red Gate - Timble",
+      "image": "images/sold/red-gate-timble.jpg"
+    },
+    {
+      "slug": "snow-at-blubberhouses",
+      "title": "Snow at Blubberhouses",
+      "image": "images/sold/snow-at-blubberhouses.jpg"
+    },
+    {
       "slug": "snow-at-blubberhouses-2",
       "title": "Snow at Blubberhouses",
       "image": "images/sold/snow-at-blubberhouses-2.jpg"
@@ -137,6 +96,16 @@
       "image": "images/sold/sunrise-after-snow.jpg"
     },
     {
+      "slug": "the-beech-in-autumn",
+      "title": "The Beech in Autumn",
+      "image": "images/sold/the-beech-in-autumn.jpg"
+    },
+    {
+      "slug": "the-cairn-denton-moor",
+      "title": "The Cairn - Denton Moor",
+      "image": "images/sold/the-cairn-denton-moor.jpg"
+    },
+    {
       "slug": "the-channel-staveley",
       "title": "The Channel - Staveley",
       "image": "images/sold/the-channel-staveley.jpg"
@@ -147,6 +116,11 @@
       "image": "images/sold/the-iron-bridge.jpg"
     },
     {
+      "slug": "the-shooting-lodge",
+      "title": "The Shooting Lodge",
+      "image": "images/sold/the-shooting-lodge.jpg"
+    },
+    {
       "slug": "through-the-trees",
       "title": "Through The Trees",
       "image": "images/sold/through-the-trees.jpg"
@@ -155,6 +129,11 @@
       "slug": "timble-forest-boundary",
       "title": "Timble Forest Boundary",
       "image": "images/sold/timble-forest-boundary.jpg"
+    },
+    {
+      "slug": "washburn-valley-in-winter",
+      "title": "Washburn Valley in Winter",
+      "image": "images/sold/washburn-valley-in-winter.jpg"
     },
     {
       "slug": "willows",
@@ -177,9 +156,9 @@
       "image": "images/sold/misty-morning-otley.jpg"
     },
     {
-      "slug": "runswick-bay",
+      "slug": "runswick-bay-2",
       "title": "Runswick Bay",
-      "image": "images/sold/runswick-bay.jpg"
+      "image": "images/sold/runswick-bay-2.jpg"
     },
     {
       "slug": "long-dike-timble",
@@ -189,7 +168,8 @@
     {
       "slug": "cloud-study-thruscross",
       "title": "Cloud Study - Thruscross",
-      "image": "images/sold/cloud-study-thruscross.jpg"
+      "image": "images/sold/cloud-study-thruscross.jpg",
+      "medium": "Oil on canvas · 23.5 × 22.2 cm"
     },
     {
       "slug": "saltburn-towards-huntcliffe",
@@ -240,6 +220,30 @@
       "slug": "the-dying-ash",
       "title": "The Dying Ash",
       "image": "images/sold/the-dying-ash.jpg"
+    },
+    {
+      "slug": "summer-track",
+      "title": "Summer Track",
+      "image": "images/sold/summer-track.jpg",
+      "medium": "Original oil painting · 50 × 40cm"
+    },
+    {
+      "slug": "sunrise-winter",
+      "title": "Sunrise - Winter",
+      "image": "images/sold/sunrise-winter.jpg",
+      "medium": "Original oil painting on canvas · 61 × 46cm"
+    },
+    {
+      "slug": "misty-morning-at-knotford-nook",
+      "title": "Misty Morning at Knotford Nook",
+      "image": "images/sold/misty-morning-at-knotford-nook.jpg",
+      "medium": "Original oil painting on canvas board · 35.5 × 28cm"
+    },
+    {
+      "slug": "whitby-from-sandsend",
+      "title": "Whitby from Sandsend",
+      "image": "images/sold/whitby-from-sandsend.jpg",
+      "medium": "Original oil painting · 46 × 36cm"
     },
     {
       "slug": "dunstanburgh-castle-from-embleton",
