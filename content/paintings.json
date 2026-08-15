@@ -8,7 +8,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53402647,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Byland Abbey is often overlooked next to its more famous neighbour at Rievaulx but it is a beautiful and tranquil place, especially as the sun sets. This view is taken from the far side of the monastic fishponds, near the village of Wass"
     },
     {
       "slug": "derwentwater",
@@ -18,7 +19,8 @@
       "price": 250,
       "stripe_link": "",
       "product_id": 53393758,
-      "category": "The Lakes"
+      "category": "The Lakes",
+      "description": "This piece was painted plein air as a Wildcard for the 2025 series of Landscape Artist of the Year."
     },
     {
       "slug": "troller-s-ghyll",
@@ -28,7 +30,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393783,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Trollers Ghyll is a collapsed cavern in limestone country. It is a place of legend and is home to the Bargest - a huge, black dog with red saucer-sized eyes! This beast hunts down lost travellers to devour them and was the inspiration for The Hound of the Baskervilles by Conan Doyle."
     },
     {
       "slug": "the-boggle-holes-runswick-bay",
@@ -38,7 +41,8 @@
       "price": 450,
       "stripe_link": "",
       "product_id": 53393759,
-      "category": "Yorkshire Coast"
+      "category": "Yorkshire Coast",
+      "description": "The Boggle Holes were originally thought to have been created by trolls (or boggles) as places to live. Local children were no doubt kept in line with a threat of the boggles! In actual fact they were created by miners looking for jet"
     },
     {
       "slug": "timble-ings-sunrise",
@@ -48,7 +52,8 @@
       "price": 170,
       "stripe_link": "",
       "product_id": 53393793,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "This image is from the local woods of Timble Ings, in North Yorkshire. This area was once heavily forested but storms have decimated the trees and allow light to stream through. I was captured by the cloud formation and the gaunt, solitary trees, silhouetted against the brilliant sky."
     },
     {
       "slug": "the-sandbeds-otley",
@@ -58,7 +63,8 @@
       "price": 800,
       "stripe_link": "",
       "product_id": 53393756,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "The Sandbeds lie south of Otley, where the river Wharfe slows and creates wonderful reflections of the riverside trees and shrubs."
     },
     {
       "slug": "the-conifer-forest",
@@ -68,7 +74,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393776,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Oil painting inspired by the Russian 19th century painter Ivan Shishkin. Shishkin was a wonderful painter of the forests in Russia and I often carry his work around in my head. The layout of the trees in this work is actually based on a conifer plantation north of Otley, West Yorkshire, whilst the idea of the stream is from one of Shishkin's works. An amalgamation of the past and the present."
     },
     {
       "slug": "stag-rocks-from-bamburgh-castle",
@@ -78,7 +85,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53402646,
-      "category": "Northumberland"
+      "category": "Northumberland",
+      "description": "A summer's view from Bamburgh castle, across the dunes to Stag Rocks and, in the distance, Holy Island under a shower of rain"
     },
     {
       "slug": "last-of-the-snow",
@@ -88,7 +96,8 @@
       "price": 170,
       "stripe_link": "",
       "product_id": 53393795,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "An early morning view of Timble Woods, Otley, with the last of the snow cloaking the ground."
     },
     {
       "slug": "pockstones-moor",
@@ -98,7 +107,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393757,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "This beautiful moorland lies in the grounds of the Bolton Abbey estate. The tracks stretch for miles across open moorland and one can walk for miles with just the curlews and skylarks for company."
     },
     {
       "slug": "beech-tree-by-the-wharfe",
@@ -108,7 +118,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393786,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "One of a group of tree studies - this beech tree stands by the River Wharfe just outside Otley and is, in fact, two trees growing together. The remarkable sinuous nature of the trunks and roots are rather beautiful and grotesque."
     },
     {
       "slug": "runswick-bay",
@@ -118,7 +129,8 @@
       "price": 500,
       "stripe_link": "",
       "product_id": 53393760,
-      "category": "Yorkshire Coast"
+      "category": "Yorkshire Coast",
+      "description": "This bay is a beautiful and quiet respite from the hustle and bustle of Whitby. On a summer's day it sparkles."
     },
     {
       "slug": "harnessing-the-storm",
@@ -128,7 +140,8 @@
       "price": 800,
       "stripe_link": "",
       "product_id": 53393772,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "This is an actual storm I witnessed looking towards the wind turbines near Harrogate. I was enthralled by the changes of scale - the wind turbines are enormous when viewed close-up but are dwarfed by nature in all its majesty."
     },
     {
       "slug": "fountains-abbey",
@@ -138,7 +151,8 @@
       "price": 250,
       "stripe_link": "",
       "product_id": 53393767,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "The iconic and much painted ruins of Fountains Abbey, seen from a slightly different angle to the usual"
     },
     {
       "slug": "frost-morning",
@@ -148,7 +162,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393761,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "This scene was captured in the fields above my hometown of Otley. The town itself was shrouded in freezing fog but as I drove onto higher ground, the mist lifted and I was suddenly in beautiful, winter light."
     },
     {
       "slug": "sunrise-at-thruscross-reservoir",
@@ -158,7 +173,8 @@
       "price": 270,
       "stripe_link": "",
       "product_id": 53393797,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "A beautiful backlit set of pines caught my attention on this cold but gorgeous morning at Thruscross Reservoir"
     },
     {
       "slug": "east-lagoon-at-staveley",
@@ -168,7 +184,8 @@
       "price": 800,
       "stripe_link": "",
       "product_id": 53393788,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Staveley Nature Reserve lies near Harrogate, Yorkshire. Originally a gravel quarry, this is now a peaceful wildlife sanctuary. Here is the east lagoon on a summer's day."
     },
     {
       "slug": "beech-trees-at-thruscross",
@@ -178,7 +195,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393787,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Another of my tree studies - this time of a row of beech trees on the River Washburn, at Thruscross"
     },
     {
       "slug": "the-gathering-storm-wharfedale",
@@ -188,7 +206,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393765,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "This view was taken at the end of a long day dry-stone walling on the moors above Bolton Priory in Wharfedale, Yorkshire. The clouds loomed over me and I felt miniscule in the landscape."
     },
     {
       "slug": "still-winter-s-morning",
@@ -198,7 +217,8 @@
       "price": 500,
       "stripe_link": "",
       "product_id": 53445601,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "This view is from the nature reserve at Fairburn Ings. Once home to the largest slag heap in Europe (what a boast!) it has been transformed into a thriving and beautiful place by the RSPB. This area of the reserve is home to burgeoning silver birch and alder, thriving in the damp conditions."
     },
     {
       "slug": "lindisfarne-first-light",
@@ -208,7 +228,8 @@
       "price": 250,
       "stripe_link": "",
       "product_id": 53434883,
-      "category": "Northumberland"
+      "category": "Northumberland",
+      "description": "The iconic Lindisfarne castle bathed in the glow of a sunrise."
     },
     {
       "slug": "hanging-wood-lane-thruscross",
@@ -218,7 +239,8 @@
       "price": 500,
       "stripe_link": "",
       "product_id": 53440358,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Hanging Wood lane leads to the reservoir at Thruscross in the beautiful Washburn Valley, Yorkshire. The hillside to the left was heavily planted with conifers for commercial forestry. They were removed a year ago and left this pair of silver birches. Their shape was eye-catching as they had grown up in the shade of the light-hungry conifers and so their branches had stretched away and into the light over the lane."
     },
     {
       "slug": "respite-storm-eunice-from-snowden-crags",
@@ -228,7 +250,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393778,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "In early 2022, the UK was battered by a series of storms - it is estimated that some 8 million trees were destroyed. During storm Eunice, I ventured onto the moors and sketched this scene from my car during a lull - I raced back to begin the process of committing the scene to canvas."
     },
     {
       "slug": "covey-hall-farm",
@@ -238,7 +261,8 @@
       "price": 600,
       "stripe_link": "",
       "product_id": 53393773,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "This isolated farm lies on high ground near to my hometown of Otley, Yorkshire. On this particular day, the mist was heavy and tenacious, turning buildings into mere shapes, and turning the weather-battered hawthorn into strange forms."
     },
     {
       "slug": "saltburn-beach-in-winter",
@@ -248,7 +272,8 @@
       "price": 500,
       "stripe_link": "",
       "product_id": 53393790,
-      "category": "Yorkshire Coast"
+      "category": "Yorkshire Coast",
+      "description": "Another in the popular series of Saltburn paintings, this time showing the beach in winter."
     },
     {
       "slug": "woodland-clearing",
@@ -258,7 +283,8 @@
       "price": 500,
       "stripe_link": "",
       "product_id": 53393763,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "A gentle summer's day on the Farnley Estate, near Otley"
     },
     {
       "slug": "early-morning-rain-timble",
@@ -268,7 +294,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393764,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Timble is a wonderfully inspirational place for me - an area of mixed deciduous and conifer trees, with open moorland. It is very popular but if you leave the beaten track you can find quiet, reflective pools. This scene was early one morning as a gentle rain disturbed the surface of the water."
     },
     {
       "slug": "evening-light-at-marske",
@@ -278,7 +305,8 @@
       "price": 500,
       "stripe_link": "",
       "product_id": 53393766,
-      "category": "Yorkshire Coast"
+      "category": "Yorkshire Coast",
+      "description": "This is from a photograph that I took almost three years ago one evening whilst strolling up the beach to Marske, on the Yorkshire coast. The sky was stunning."
     },
     {
       "slug": "the-clearing",
@@ -288,7 +316,8 @@
       "price": 650,
       "stripe_link": "",
       "product_id": 53393768,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Original oil painting 65x50cm on canvas. The cool of the pine forest is depicted here, contrasting with the heat of the clearing. Painted at Timble Woods near Otley."
     },
     {
       "slug": "spring-light",
@@ -298,7 +327,8 @@
       "price": 600,
       "stripe_link": "",
       "product_id": 53393769,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "This scene, from the nature reserve at Staveley, near Harrogate, depicts that beautiful early spring light."
     },
     {
       "slug": "harvest-east-park-at-farnley",
@@ -308,7 +338,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393775,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "The summer of 2022 was one of the hottest in the UK, with temperatures reaching 40 degrees Celsius. This scene is just up the road from where I live, in one of the fields that belong to the Farnley estate, where JMW Turner spent many of his summers."
     },
     {
       "slug": "woodland-track-timble",
@@ -318,7 +349,8 @@
       "price": 800,
       "stripe_link": "",
       "product_id": 53393777,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Conifer plantations make for wonderful studies due to their density and their deep greens and shadows. Here is one such study from Timble forest near my home town of Otley."
     },
     {
       "slug": "winter-sunrise-at-staveley",
@@ -328,7 +360,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393784,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "The nature reserve at Staveley is a major source of inspiration, offering clear, flat views and large skies. Here the winter light is just rising by one of the many pools that fringe the reserve."
     },
     {
       "slug": "poplar-in-winter",
@@ -338,7 +371,8 @@
       "price": 300,
       "stripe_link": "",
       "product_id": 53393789,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "On a sketching trip around Wetherby, Yorkshire, I noticed this singular grouping of trees. Whilst all the other trees had lost their leaves, the poplar was hanging on to make the most of the daylight."
     },
     {
       "slug": "ripon-minster-from-studley-royal",
@@ -348,7 +382,8 @@
       "price": 300,
       "stripe_link": "",
       "product_id": 53393791,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "A distant view of the Minster at Ripon, from Studley Royal"
     },
     {
       "slug": "dunstanburgh-castle",
@@ -358,7 +393,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393792,
-      "category": "Northumberland"
+      "category": "Northumberland",
+      "description": "A distant view of the iconic Northumbrian castle."
     },
     {
       "slug": "a-quiet-evening",
@@ -368,7 +404,8 @@
       "price": 250,
       "stripe_link": "",
       "product_id": 53393796,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "A scene from Staveley Nature Reserve near Harrogate. The day had been stormy and unsettled but, as evening came on, the cloud began to break and a calmness settled over the lake and the willow trees."
     },
     {
       "slug": "fields-at-hambleton",
@@ -378,7 +415,8 @@
       "price": 250,
       "stripe_link": "",
       "product_id": 53434884,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Hambleton sits in the Vale of York, which offers expansive views. This image uses the verticals of tree and plant to break up the horizontals of the landscape."
     },
     {
       "slug": "wheatfields-at-hambleton",
@@ -388,7 +426,8 @@
       "price": 250,
       "stripe_link": "",
       "product_id": 53434885,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "A view of the Vale of York with a series of striking trees to break up the flatness of the landscape"
     },
     {
       "slug": "the-devil-s-arrows",
@@ -398,7 +437,8 @@
       "price": 250,
       "stripe_link": "",
       "product_id": 53434886,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "The Devil's Arrows are an impressive array of standing stones just outside of Boroughbridge. It is said the Devil hurled them at the town when the inhabitants displeased him!"
     },
     {
       "slug": "sunrise-on-thruscross-moor",
@@ -408,7 +448,8 @@
       "price": 250,
       "stripe_link": "",
       "product_id": 53434897,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "I was wandering the moor very early in the morning. The valley bottoms were shrouded in mist but on the moor, the rising sun provided a remarkable view"
     },
     {
       "slug": "country-lane-at-east-keswick",
@@ -418,7 +459,8 @@
       "price": 250,
       "stripe_link": "",
       "product_id": 53434908,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "A rather grey day threw the tree formations into a greeny-black, contrasting with the winter greens of the fields."
     },
     {
       "slug": "napes-hill-leathley",
@@ -428,7 +470,8 @@
       "price": 250,
       "stripe_link": "",
       "product_id": 53434909,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "A winter sunrise above the Napes Hill, overlooking Wharfedale"
     },
     {
       "slug": "sea-spray-at-saltburn",
@@ -438,7 +481,8 @@
       "price": 600,
       "stripe_link": "",
       "product_id": 53434910,
-      "category": "Yorkshire Coast"
+      "category": "Yorkshire Coast",
+      "description": "This view of the Huntcliffe at Saltburn, is from the top of the beach at Marske, The day was windy and the distant cliffs were beginning to disappear in the resultant sea spray"
     },
     {
       "slug": "barden-tower",
@@ -448,7 +492,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53479750,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "A summer's day in the Yorkshire Dales - Barden Tower shimmering in the afternoon sunlight"
     },
     {
       "slug": "hebden-ghyll-misty-morning",
@@ -458,7 +503,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53479751,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Hebden Ghyll is a lovely stream winding through the landscape near Grassington in the Yorkshire Dales, carrying with it a certain air of mystery when wrapped in mist."
     },
     {
       "slug": "gill-house",
@@ -468,7 +514,8 @@
       "price": 500,
       "stripe_link": "",
       "product_id": 53534425,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Gill House sits at the top of Conistone Moor in the Yorkshire Dales. It was abandoned in the 1960s as it has no running water, gas, electricity or even a road! The ruins now shelter under the beautiful trees"
     },
     {
       "slug": "sycamore-hebden-ghyll",
@@ -478,7 +525,8 @@
       "price": 500,
       "stripe_link": "",
       "product_id": 53534426,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "This venerable tree can be found on the road above Hebden in the Yorkshire Dales. In winter one would think it is dead but as spring progresses it burgeons into life"
     },
     {
       "slug": "high-garnshaw-house",
@@ -488,7 +536,8 @@
       "price": 350,
       "stripe_link": "",
       "product_id": 53534427,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Morning light streams across Wharfedale as the overnight rain lifts"
     },
     {
       "slug": "early-spring-morning-at-timble-ings",
@@ -498,7 +547,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393779,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Very early morning on a beautiful spring day"
     },
     {
       "slug": "farnley-park-early-autumn",
@@ -508,7 +558,8 @@
       "price": 700,
       "stripe_link": "",
       "product_id": 53393780,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "The autumn of 2023 was a very gentle affair, lacking the high colours that are sometimes seen. But the soft shift from green to orange was quite beautiful, and none more so than on this magnificent oak tree that stands in the grounds of Farnley Hall."
     },
     {
       "slug": "farnley-fields",
@@ -518,7 +569,8 @@
       "price": 600,
       "stripe_link": "",
       "product_id": 53393781,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "An exercise in tonality from the fields near Farnley Park."
     },
     {
       "slug": "home-farm-farnley-from-the-fields",
@@ -528,7 +580,8 @@
       "price": 250,
       "stripe_link": "",
       "product_id": 53393782,
-      "category": "Yorkshire Dales & Moors"
+      "category": "Yorkshire Dales & Moors",
+      "description": "Farnley Hall, near where I live, used to be the stomping ground of JMW Turner. He would spend most summers here, hunting and tramping around sketching. This scene looks back towards Home Farm, on the estate."
     },
     {
       "slug": "dales-view",
@@ -538,7 +591,8 @@
       "price": 75,
       "stripe_link": "",
       "product_id": 53100623,
-      "category": "Plein Air Sketches"
+      "category": "Plein Air Sketches",
+      "description": "Oil paint on board 30x21cm. A quick, expressive sketch looking towards the Dales."
     },
     {
       "slug": "alnwick-castle",
@@ -548,7 +602,8 @@
       "price": 60,
       "stripe_link": "",
       "product_id": 53394765,
-      "category": "Northumberland"
+      "category": "Northumberland",
+      "description": "The beautiful castle at Alnwick, seen from across the fields"
     },
     {
       "slug": "bamburgh-castle-from-the-wynd",
@@ -558,7 +613,8 @@
       "price": 60,
       "stripe_link": "",
       "product_id": 53394766,
-      "category": "Northumberland"
+      "category": "Northumberland",
+      "description": "A different view of Bamburgh Castle from the Wynd, an aptly named road that runs out to Stag Rocks"
     },
     {
       "slug": "lindisfarne-castle",
@@ -568,7 +624,8 @@
       "price": 60,
       "stripe_link": "",
       "product_id": 53394767,
-      "category": "Northumberland"
+      "category": "Northumberland",
+      "description": "The classic view of the iconic Northumbrian Castle"
     },
     {
       "slug": "nessend-holy-island",
@@ -578,7 +635,8 @@
       "price": 70,
       "stripe_link": "",
       "product_id": 53394768,
-      "category": "Northumberland"
+      "category": "Northumberland",
+      "description": "Whilst most visitors to Holy Island congregate around the castle and harbour, the dunes on the the far side offer wonderful scenery and incredible wildlife."
     }
   ]
 }

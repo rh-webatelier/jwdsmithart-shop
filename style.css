@@ -285,19 +285,31 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
 .faq-item__body a{color:var(--gold-600);text-decoration:underline;text-underline-offset:2px}
 
 /* lightbox */
-.lightbox{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;
+.lightbox{position:fixed;inset:0;z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;
   background:rgba(15,12,8,.95);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;padding:24px}
 .lightbox.is-open{opacity:1;visibility:visible}
-.lightbox img{max-width:min(92vw,1180px);max-height:82vh;border-radius:3px;box-shadow:0 30px 80px rgba(0,0,0,.6);
-  transform:scale(.96);transition:transform .3s}
-.lightbox.is-open img{transform:scale(1)}
-.lightbox__cap{position:absolute;left:0;right:0;bottom:26px;text-align:center;color:#fff;font-size:.95rem}
+.lightbox__stage{max-width:min(92vw,1180px);max-height:64vh;overflow:hidden;border-radius:3px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);position:relative;touch-action:pan-y}
+.lightbox__stage img{display:block;max-width:min(92vw,1180px);max-height:64vh;width:auto;height:auto;
+  transform:scale(.96);transition:transform .3s;cursor:zoom-in}
+.lightbox.is-open .lightbox__stage img{transform:scale(1)}
+.lightbox__stage img.is-zoomed{transform:scale(2.4);transition:transform .15s;cursor:zoom-out}
+.lightbox__zoom-hint{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);
+  background:rgba(0,0,0,.55);color:#fff;font-size:.72rem;padding:5px 12px;border-radius:999px;
+  pointer-events:none;opacity:0;transition:opacity .3s}
+.lightbox__stage:hover .lightbox__zoom-hint{opacity:1}
+@media(hover:none){.lightbox__zoom-hint{opacity:1}}
+.lightbox__stage img.is-zoomed ~ .lightbox__zoom-hint,
+.lightbox__stage:has(img.is-zoomed) .lightbox__zoom-hint{opacity:0}
+.lightbox__cap{max-width:min(92vw,640px);margin-top:16px;text-align:center;color:#fff;font-size:.95rem}
 .lightbox__cap b{font-family:var(--font-head);font-size:1.3rem;font-weight:600;display:block}
-.lightbox__cap span{color:rgba(255,255,255,.7);font-size:.85rem}
+.lightbox__cap .lightbox__meta{color:rgba(255,255,255,.7);font-size:.85rem;display:block;margin-top:2px}
+.lightbox__desc{color:rgba(255,255,255,.78);font-size:.88rem;line-height:1.5;margin:10px 0 0;max-height:14vh;overflow:auto}
+.lightbox__desc[hidden]{display:none}
 .lightbox__close{position:absolute;top:18px;right:22px;width:46px;height:46px;border:none;cursor:pointer;
-  background:rgba(255,255,255,.14);color:#fff;border-radius:50%;font-size:1.7rem;line-height:1}
+  background:rgba(255,255,255,.14);color:#fff;border-radius:50%;font-size:1.7rem;line-height:1;z-index:1}
 .lightbox__nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border:none;cursor:pointer;
-  background:rgba(255,255,255,.14);color:#fff;border-radius:50%;font-size:1.8rem;line-height:1}
+  background:rgba(255,255,255,.14);color:#fff;border-radius:50%;font-size:1.8rem;line-height:1;z-index:1}
 .lightbox__nav--prev{left:16px}.lightbox__nav--next{right:16px}
 
 /* reveal hero on load */

@@ -24,6 +24,7 @@ collections:
               { label: "Medium & size", name: "medium", widget: "string", hint: "e.g. Oil on canvas · 60 × 45 cm" },
               { label: "Price (£)", name: "price", widget: "number", value_type: "int" },
               { label: "Category", name: "category", widget: "string", required: false, hint: "Type any category name, e.g. \"Yorkshire Dales & Moors\" or \"Yorkshire Coast\". Visitors can filter by this on the site. Type a new name to create a new category, or leave blank for none. Spell it exactly the same across paintings you want grouped together." },
+              { label: "Description", name: "description", widget: "text", required: false, hint: "A sentence or two about the piece — shown when a visitor clicks to zoom in on the painting." },
               { label: "Stripe Buy Link", name: "stripe_link", widget: "string", required: false, hint: "Paste the Stripe Payment Link for this painting. Leave blank until Stripe is set up." }
             ] }
       - name: "paintings_sold"

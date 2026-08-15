@@ -89,15 +89,46 @@ function buildLightboxBox() {
   box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true');
   box.innerHTML = '<button class="lightbox__close" aria-label="Close">×</button>'
     + '<button class="lightbox__nav lightbox__nav--prev" aria-label="Previous">‹</button>'
-    + '<img alt=""><div class="lightbox__cap"></div>'
+    + '<div class="lightbox__stage"><img alt="" /><span class="lightbox__zoom-hint">Tap the painting to zoom in</span></div>'
+    + '<div class="lightbox__cap"><b></b><span class="lightbox__meta"></span><p class="lightbox__desc"></p></div>'
     + '<button class="lightbox__nav lightbox__nav--next" aria-label="Next">›</button>';
   document.body.appendChild(box);
+  var img = box.querySelector('img');
   box.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
   box.querySelector('.lightbox__nav--prev').addEventListener('click', function (e) { e.stopPropagation(); showLightbox(lightboxState.idx - 1); });
   box.querySelector('.lightbox__nav--next').addEventListener('click', function (e) { e.stopPropagation(); showLightbox(lightboxState.idx + 1); });
   box.addEventListener('click', function (e) { if (e.target === box) closeLightbox(); });
+
+  // Click/tap the painting to zoom in on that spot; the image then tracks the pointer
+  // so moving the mouse (or dragging a finger) pans around like a magnifying glass.
+  // Click/tap again to zoom back out.
+  function setZoomOrigin(clientX, clientY) {
+    var r = img.getBoundingClientRect();
+    var px = Math.max(0, Math.min(1, (clientX - r.left) / r.width)) * 100;
+    var py = Math.max(0, Math.min(1, (clientY - r.top) / r.height)) * 100;
+    img.style.transformOrigin = px + '% ' + py + '%';
+  }
+  img.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var zoomed = img.classList.toggle('is-zoomed');
+    if (zoomed) setZoomOrigin(e.clientX, e.clientY);
+    else img.style.transformOrigin = '';
+  });
+  img.addEventListener('mousemove', function (e) {
+    if (img.classList.contains('is-zoomed')) setZoomOrigin(e.clientX, e.clientY);
+  });
+  img.addEventListener('touchmove', function (e) {
+    if (img.classList.contains('is-zoomed') && e.touches[0]) {
+      setZoomOrigin(e.touches[0].clientX, e.touches[0].clientY);
+      e.preventDefault();
+    }
+  }, { passive: false });
+
   var x0 = null;
-  box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener('touchstart', function (e) {
+    if (img.classList.contains('is-zoomed')) return; // swiping pans while zoomed, not navigating
+    x0 = e.touches[0].clientX;
+  }, { passive: true });
   box.addEventListener('touchend', function (e) {
     if (x0 === null) return;
     var dx = e.changedTouches[0].clientX - x0;
@@ -118,9 +149,17 @@ function showLightbox(i) {
   lightboxState.idx = (i + frames.length) % frames.length;
   var f = frames[lightboxState.idx];
   var img = f.querySelector('img');
-  lightboxState.box.querySelector('img').src = img.getAttribute('src');
-  lightboxState.box.querySelector('.lightbox__cap').innerHTML =
-    '<b>' + (f.getAttribute('data-title') || '') + '</b><span>' + (f.getAttribute('data-meta') || '') + '</span>';
+  var box = lightboxState.box;
+  var lightboxImg = box.querySelector('img');
+  lightboxImg.classList.remove('is-zoomed');
+  lightboxImg.style.transformOrigin = '';
+  lightboxImg.src = img.getAttribute('src');
+  box.querySelector('.lightbox__cap b').textContent = f.getAttribute('data-title') || '';
+  box.querySelector('.lightbox__meta').textContent = f.getAttribute('data-meta') || '';
+  var desc = f.getAttribute('data-desc') || '';
+  var descEl = box.querySelector('.lightbox__desc');
+  descEl.textContent = desc;
+  descEl.hidden = !desc;
 }
 
 function openLightbox(frame) {
@@ -131,7 +170,11 @@ function openLightbox(frame) {
 }
 
 function closeLightbox() {
-  if (lightboxState.box) { lightboxState.box.classList.remove('is-open'); document.body.style.overflow = ''; }
+  if (lightboxState.box) {
+    lightboxState.box.classList.remove('is-open');
+    lightboxState.box.querySelector('img').classList.remove('is-zoomed');
+    document.body.style.overflow = '';
+  }
 }
 
 function initLightbox() {
@@ -266,7 +309,7 @@ function initGridToggle(grid, toggle, itemLabel) {
     var slug = p.slug || slugify(p.title || '');
     return (
       '<article class="work reveal">' +
-        '<div class="work__frame" data-lightbox data-title="' + title + '" data-meta="' + escapeHtml(meta) + '">' +
+        '<div class="work__frame" data-lightbox data-title="' + title + '" data-meta="' + escapeHtml(meta) + '" data-desc="' + escapeHtml(p.description || '') + '">' +
           '<img src="' + escapeHtml(p.image) + '" alt="' + title + ' — original oil painting by Jonathan Smith" loading="lazy" />' +
           '<span class="work__zoom" aria-hidden="true">&#9906;</span>' +
         '</div>' +
