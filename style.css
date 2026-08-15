@@ -255,6 +255,9 @@ h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.08;margin:0}
 .footer__brand{font-family:var(--font-head);font-size:1.3rem;color:var(--cream)}
 .footer__legal a{color:inherit;text-decoration:underline;text-underline-offset:2px;opacity:.85}
 .footer__legal a:hover{opacity:1;color:var(--gold)}
+.footer__social{display:flex;gap:18px}
+.footer__social a{color:inherit;opacity:.85;text-decoration:none}
+.footer__social a:hover{opacity:1;color:var(--gold)}
 
 .faq{max-width:760px;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);
   box-shadow:var(--shadow-sm);padding:6px 26px}
