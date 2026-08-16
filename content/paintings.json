@@ -342,6 +342,17 @@
       "description": "The summer of 2022 was one of the hottest in the UK, with temperatures reaching 40 degrees Celsius. This scene is just up the road from where I live, in one of the fields that belong to the Farnley estate, where JMW Turner spent many of his summers."
     },
     {
+      "slug": "harvest-at-farnley",
+      "title": "Harvest at Farnley",
+      "image": "images/catalog/harvest-at-farnley.jpg",
+      "medium": "Original oil on stretched canvas · 73 × 54 × 5cm",
+      "price": 700,
+      "stripe_link": "",
+      "product_id": 53534428,
+      "category": "Yorkshire Dales & Moors",
+      "description": "Harvest time during the hot summer of 2022 just outside Farnley Hall, North Yorkshire."
+    },
+    {
       "slug": "woodland-track-timble",
       "title": "Woodland Track - Timble",
       "image": "images/catalog/woodland-track-timble.jpg",

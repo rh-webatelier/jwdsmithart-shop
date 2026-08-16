@@ -1,11 +1,6 @@
 {
   "paintings": [
     {
-      "slug": "harvest-at-farnley",
-      "title": "Harvest at Farnley",
-      "image": "images/sold/harvest-at-farnley.jpg"
-    },
-    {
       "slug": "river-wharfe-at-burley",
       "title": "River Wharfe at Burley",
       "image": "images/sold/river-wharfe-at-burley.jpg"
