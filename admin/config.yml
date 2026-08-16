@@ -5,8 +5,8 @@ backend:
 media_folder: "images"
 public_folder: "images"
 
-site_url: https://whimsical-kashata-a78505.netlify.app
-display_url: https://whimsical-kashata-a78505.netlify.app
+site_url: https://jwdsmithart.co.uk
+display_url: https://jwdsmithart.co.uk
 
 collections:
   - name: "paintings"
