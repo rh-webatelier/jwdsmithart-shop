@@ -1,22 +1,6 @@
 {
   "paintings": [
     {
-      "slug": "harvest-at-farnley",
-      "title": "Harvest at Farnley",
-      "image": "images/sold/harvest-at-farnley.jpg"
-    },
-    {
-      "slug": "poplar-in-winter",
-      "title": "Poplar in Winter",
-      "image": "images/catalog/poplar-in-winter.jpg",
-      "medium": "Original oil on canvas · 61 × 46cm",
-      "price": 300,
-      "stripe_link": "",
-      "product_id": 53393789,
-      "category": "Yorkshire Dales & Moors",
-      "description": "On a sketching trip around Wetherby, Yorkshire, I noticed this singular grouping of trees. Whilst all the other trees had lost their leaves, the poplar was hanging on to make the most of the daylight."
-    },
-    {
       "slug": "byland-abbey-sunset",
       "title": "Byland Abbey - Sunset",
       "image": "images/catalog/byland-abbey-sunset.jpg",
@@ -26,17 +10,6 @@
       "product_id": 53402647,
       "category": "Yorkshire Dales & Moors",
       "description": "Byland Abbey is often overlooked next to its more famous neighbour at Rievaulx but it is a beautiful and tranquil place, especially as the sun sets. This view is taken from the far side of the monastic fishponds, near the village of Wass"
-    },
-    {
-      "slug": "alnwick-castle",
-      "title": "Alnwick Castle",
-      "image": "images/catalog/alnwick-castle.jpg",
-      "medium": "Oil on canvas · 42 × 30 cm",
-      "price": 60,
-      "stripe_link": "",
-      "product_id": 53394765,
-      "category": "Northumberland",
-      "description": "The beautiful castle at Alnwick, seen from across the fields"
     },
     {
       "slug": "derwentwater",
@@ -391,6 +364,17 @@
       "description": "The nature reserve at Staveley is a major source of inspiration, offering clear, flat views and large skies. Here the winter light is just rising by one of the many pools that fringe the reserve."
     },
     {
+      "slug": "poplar-in-winter",
+      "title": "Poplar in Winter",
+      "image": "images/catalog/poplar-in-winter.jpg",
+      "medium": "Original oil on canvas · 61 × 46cm",
+      "price": 300,
+      "stripe_link": "",
+      "product_id": 53393789,
+      "category": "Yorkshire Dales & Moors",
+      "description": "On a sketching trip around Wetherby, Yorkshire, I noticed this singular grouping of trees. Whilst all the other trees had lost their leaves, the poplar was hanging on to make the most of the daylight."
+    },
+    {
       "slug": "ripon-minster-from-studley-royal",
       "title": "Ripon Minster from Studley Royal",
       "image": "images/catalog/ripon-minster-from-studley-royal.jpg",
@@ -609,6 +593,17 @@
       "product_id": 53100623,
       "category": "Plein Air Sketches",
       "description": "Oil paint on board 30x21cm. A quick, expressive sketch looking towards the Dales."
+    },
+    {
+      "slug": "alnwick-castle",
+      "title": "Alnwick Castle",
+      "image": "images/catalog/alnwick-castle.jpg",
+      "medium": "Oil on canvas · 42 × 30 cm",
+      "price": 60,
+      "stripe_link": "",
+      "product_id": 53394765,
+      "category": "Northumberland",
+      "description": "The beautiful castle at Alnwick, seen from across the fields"
     },
     {
       "slug": "bamburgh-castle-from-the-wynd",
