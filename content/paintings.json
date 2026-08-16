@@ -1,6 +1,17 @@
 {
   "paintings": [
     {
+      "slug": "alnwick-castle",
+      "title": "Alnwick Castle",
+      "image": "images/catalog/alnwick-castle.jpg",
+      "medium": "Oil on canvas · 42 × 30 cm",
+      "price": 60,
+      "stripe_link": "",
+      "product_id": 53394765,
+      "category": "Northumberland",
+      "description": "The beautiful castle at Alnwick, seen from across the fields"
+    },
+    {
       "slug": "derwentwater",
       "title": "Derwentwater",
       "image": "images/catalog/derwentwater.jpg",
