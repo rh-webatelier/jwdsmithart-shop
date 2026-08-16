@@ -1,6 +1,17 @@
 {
   "paintings": [
     {
+      "slug": "byland-abbey-sunset",
+      "title": "Byland Abbey - Sunset",
+      "image": "images/catalog/byland-abbey-sunset.jpg",
+      "medium": "Original oil painting · 60 × 45cm",
+      "price": 700,
+      "stripe_link": "",
+      "product_id": 53402647,
+      "category": "Yorkshire Dales & Moors",
+      "description": "Byland Abbey is often overlooked next to its more famous neighbour at Rievaulx but it is a beautiful and tranquil place, especially as the sun sets. This view is taken from the far side of the monastic fishponds, near the village of Wass"
+    },
+    {
       "slug": "alnwick-castle",
       "title": "Alnwick Castle",
       "image": "images/catalog/alnwick-castle.jpg",
