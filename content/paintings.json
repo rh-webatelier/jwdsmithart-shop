@@ -648,6 +648,17 @@
       "image": "images/catalog/nessend-holy-island.jpg",
       "description": "Whilst most visitors to Holy Island congregate around the castle and harbour, the dunes on the the far side offer wonderful scenery and incredible wildlife.",
       "category": "Northumberland"
+    },
+    {
+      "slug": "zzz-test-payment-do-not-buy",
+      "title": "TEST — Do Not Buy",
+      "image": "images/catalog/dales-view.jpg",
+      "medium": "Test item — payment check only",
+      "price": 1,
+      "stripe_link": "",
+      "product_id": 53534429,
+      "category": "",
+      "description": "Internal test item to verify live Stripe payments are working. Not a real painting."
     }
   ]
 }
