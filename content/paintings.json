@@ -1,6 +1,11 @@
 {
   "paintings": [
     {
+      "slug": "harvest-at-farnley",
+      "title": "Harvest at Farnley",
+      "image": "images/sold/harvest-at-farnley.jpg"
+    },
+    {
       "slug": "poplar-in-winter",
       "title": "Poplar in Winter",
       "image": "images/catalog/poplar-in-winter.jpg",
