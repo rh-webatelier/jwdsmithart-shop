@@ -1,6 +1,17 @@
 {
   "paintings": [
     {
+      "slug": "poplar-in-winter",
+      "title": "Poplar in Winter",
+      "image": "images/catalog/poplar-in-winter.jpg",
+      "medium": "Original oil on canvas · 61 × 46cm",
+      "price": 300,
+      "stripe_link": "",
+      "product_id": 53393789,
+      "category": "Yorkshire Dales & Moors",
+      "description": "On a sketching trip around Wetherby, Yorkshire, I noticed this singular grouping of trees. Whilst all the other trees had lost their leaves, the poplar was hanging on to make the most of the daylight."
+    },
+    {
       "slug": "river-wharfe-at-burley",
       "title": "River Wharfe at Burley",
       "image": "images/sold/river-wharfe-at-burley.jpg"
