@@ -573,17 +573,6 @@
       "description": "Oil paint on board 30x21cm. A quick, expressive sketch looking towards the Dales."
     },
     {
-      "slug": "alnwick-castle",
-      "title": "Alnwick Castle",
-      "image": "images/catalog/alnwick-castle.jpg",
-      "medium": "Oil on canvas · 42 × 30 cm",
-      "price": 60,
-      "stripe_link": "",
-      "product_id": 53394765,
-      "category": "Northumberland",
-      "description": "The beautiful castle at Alnwick, seen from across the fields"
-    },
-    {
       "slug": "bamburgh-castle-from-the-wynd",
       "title": "Bamburgh Castle from the Wynd",
       "image": "images/catalog/bamburgh-castle-from-the-wynd.jpg",
