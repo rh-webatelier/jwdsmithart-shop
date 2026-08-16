@@ -1,6 +1,21 @@
 {
   "paintings": [
     {
+      "slug": "river-wharfe-at-burley",
+      "title": "River Wharfe at Burley",
+      "image": "images/sold/river-wharfe-at-burley.jpg"
+    },
+    {
+      "slug": "almscliffe-crag",
+      "title": "Almscliffe Crag",
+      "image": "images/sold/almscliffe-crag.jpg"
+    },
+    {
+      "slug": "harvest-at-farnley",
+      "title": "Harvest at Farnley",
+      "image": "images/sold/harvest-at-farnley.jpg"
+    },
+    {
       "slug": "byland-abbey",
       "title": "Byland Abbey",
       "image": "images/sold/byland-abbey.jpg",
