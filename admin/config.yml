@@ -15,14 +15,14 @@ collections:
       - name: "paintings"
         label: "Paintings for Sale"
         file: "content/paintings.json"
-        description: "Add, remove or reorder paintings that are currently available. When one sells through the site, it moves itself to Sold Works automatically. To mark one sold by hand, delete it here and add it under Sold Works instead."
+        description: "Add, remove or reorder paintings that are currently available. When one sells through the site, it moves itself to Sold Works automatically. To mark one sold by hand, use Manage Paintings (link at the top of the editor) instead of deleting it here — that keeps the price, photo and description together."
         fields:
-          - { label: "Paintings", name: "paintings", widget: "list", collapsed: true, summary: "{{title}} — £{{price}}", fields: [
+          - { label: "Paintings", name: "paintings", widget: "list", collapsed: true, summary: "{{title}} — £{{price}} ({{category}})", fields: [
               { label: "Title", name: "title", widget: "string" },
-              { label: "Slug (leave blank — fills in automatically)", name: "slug", widget: "string", required: false, hint: "Only needed if you want to rename a painting without breaking its Buy button — leave empty for new paintings." },
+              { label: "Slug (leave blank — fills in automatically)", name: "slug", widget: "string", required: false, pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Lowercase letters, numbers and single hyphens only, e.g. sunset-over-the-moors"], hint: "Only needed if you want to rename a painting without breaking its Buy button — leave empty for new paintings." },
               { label: "Photo", name: "image", widget: "image", hint: "Keep the file under ~1MB (resize to about 1600px wide) — very large phone photos can fail to upload." },
               { label: "Medium & size", name: "medium", widget: "string", hint: "e.g. Oil on canvas · 60 × 45 cm" },
-              { label: "Price (£)", name: "price", widget: "number", value_type: "int" },
+              { label: "Price (£)", name: "price", widget: "number", value_type: "int", min: 1, hint: "Must be at least £1 — a blank or £0 price will stop the Buy button from working." },
               { label: "Category", name: "category", widget: "string", required: false, hint: "Type any category name, e.g. \"Yorkshire Dales & Moors\" or \"Yorkshire Coast\". Visitors can filter by this on the site. Type a new name to create a new category, or leave blank for none. Spell it exactly the same across paintings you want grouped together." },
               { label: "Description", name: "description", widget: "text", required: false, hint: "A sentence or two about the piece — shown when a visitor clicks to zoom in on the painting." },
               { label: "Stripe Buy Link", name: "stripe_link", widget: "string", required: false, hint: "Paste the Stripe Payment Link for this painting. Leave blank until Stripe is set up." }
@@ -34,10 +34,10 @@ collections:
         fields:
           - { label: "Sold paintings", name: "paintings", widget: "list", collapsed: true, summary: "{{title}} — £{{price}}", fields: [
               { label: "Title", name: "title", widget: "string" },
-              { label: "Slug", name: "slug", widget: "string", required: false },
+              { label: "Slug", name: "slug", widget: "string", required: false, pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Lowercase letters, numbers and single hyphens only"] },
               { label: "Photo", name: "image", widget: "image" },
-              { label: "Medium & size", name: "medium", widget: "string" },
-              { label: "Price (£)", name: "price", widget: "number", value_type: "int" }
+              { label: "Medium & size", name: "medium", widget: "string", required: false },
+              { label: "Price (£)", name: "price", widget: "number", value_type: "int", required: false, min: 1 }
             ] }
 
   - name: "site_text"

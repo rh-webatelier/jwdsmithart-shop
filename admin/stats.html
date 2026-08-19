@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sales Stats — JWD Smith Art</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f7f3ea; color: #1b1915; margin: 0; padding: 24px 16px 64px; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    p.sub { color: #6c6353; font-size: 14px; margin: 0 0 28px; }
+    .top-bar { max-width: 640px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .edit-link { display: inline-block; background: #1b1915; color: #f7f3ea; font: 600 13px system-ui, sans-serif; padding: 9px 16px; border-radius: 5px; text-decoration: none; white-space: nowrap; }
+    .edit-link:hover { background: #2c2822; }
+    .col { max-width: 640px; margin: 0 auto 32px; }
+    .cards { display: flex; gap: 16px; flex-wrap: wrap; }
+    .card { flex: 1; min-width: 160px; background: #fff; border: 1px solid #e2d9c6; border-radius: 6px; padding: 18px 20px; }
+    .card .num { font-size: 28px; font-weight: bold; color: #a9762e; }
+    .card .label { font-size: 13px; color: #6c6353; text-transform: uppercase; letter-spacing: .04em; margin-top: 4px; }
+    .note { font-size: 13px; color: #6c6353; margin-top: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid #e2d9c6; font-size: 14px; }
+    th { color: #6c6353; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+    #gate { max-width: 400px; margin: 80px auto; text-align: center; }
+    #gate button { background: #1b1915; color: #f7f3ea; border: none; border-radius: 4px; padding: 12px 20px; font-size: 15px; cursor: pointer; }
+    #app { display: none; }
+  </style>
+</head>
+<body>
+  <div id="gate">
+    <h1>Sales Stats</h1>
+    <p class="sub">Log in with the same account you use for the site editor.</p>
+    <button onclick="netlifyIdentity.open('login')">Log in</button>
+  </div>
+
+  <div id="app">
+    <div class="top-bar">
+      <div>
+        <h1>Sales Stats</h1>
+        <p class="sub">A quick summary of what's sold. Figures below only count paintings that still have a price on record.</p>
+      </div>
+      <a class="edit-link" href="/admin/manage.html">Manage paintings →</a>
+    </div>
+
+    <div class="col">
+      <div class="cards">
+        <div class="card"><div class="num" id="stat-sold-count">—</div><div class="label">Sold total</div></div>
+        <div class="card"><div class="num" id="stat-revenue">—</div><div class="label">Revenue on record</div></div>
+        <div class="card"><div class="num" id="stat-for-sale-count">—</div><div class="label">Currently for sale</div></div>
+      </div>
+      <p class="note" id="revenue-note"></p>
+    </div>
+
+    <div class="col">
+      <h2 style="font-size:16px;text-transform:uppercase;letter-spacing:.06em;color:#6c6353;margin:0 0 8px;">Recently sold</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Price</th></tr></thead>
+        <tbody id="recent-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function fmtGBP(n) { return '£' + n.toLocaleString('en-GB'); }
+
+    async function loadStats() {
+      const [soldRes, forSaleRes] = await Promise.all([
+        fetch('/content/paintings-sold.json', { cache: 'no-cache' }),
+        fetch('/content/paintings.json', { cache: 'no-cache' }),
+      ]);
+      const sold = (await soldRes.json()).paintings || [];
+      const forSale = (await forSaleRes.json()).paintings || [];
+
+      const withPrice = sold.filter((p) => typeof p.price === 'number' && p.price > 0);
+      const revenue = withPrice.reduce((sum, p) => sum + p.price, 0);
+      const missingPriceCount = sold.length - withPrice.length;
+
+      document.getElementById('stat-sold-count').textContent = sold.length;
+      document.getElementById('stat-revenue').textContent = fmtGBP(revenue);
+      document.getElementById('stat-for-sale-count').textContent = forSale.length;
+      document.getElementById('revenue-note').textContent = missingPriceCount > 0
+        ? missingPriceCount + ' older sold ' + (missingPriceCount === 1 ? 'entry has' : 'entries have') + ' no price on record, so revenue above is a minimum, not the true total.'
+        : '';
+
+      const body = document.getElementById('recent-body');
+      body.innerHTML = '';
+      sold.slice(0, 15).forEach((p) => {
+        const tr = document.createElement('tr');
+        const priceText = typeof p.price === 'number' ? fmtGBP(p.price) : '—';
+        tr.innerHTML = '<td>' + p.title + '</td><td>' + priceText + '</td>';
+        body.appendChild(tr);
+      });
+    }
+
+    window.netlifyIdentity.on('init', function (user) {
+      if (user) {
+        document.getElementById('gate').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+        loadStats();
+      } else {
+        window.netlifyIdentity.on('login', function () { document.location.reload(); });
+      }
+    });
+  </script>
+</body>
+</html>
