@@ -12,6 +12,17 @@
       "category": "Yorkshire Dales & Moors"
     },
     {
+      "price": 800,
+      "product_id": 53393756,
+      "slug": "the-sandbeds-otley",
+      "stripe_link": "",
+      "medium": "Original oil painting · 80 × 60cm",
+      "title": "The Sandbeds, Otley",
+      "image": "images/catalog/the-sandbeds-otley.jpg",
+      "description": "The Sandbeds lie south of Otley, where the river Wharfe slows and creates wonderful reflections of the riverside trees and shrubs.",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
       "price": 250,
       "product_id": 53393758,
       "slug": "derwentwater",
@@ -53,17 +64,6 @@
       "title": "Timble Ings - Sunrise",
       "image": "images/catalog/timble-ings-sunrise.jpg",
       "description": "This image is from the local woods of Timble Ings, in North Yorkshire. This area was once heavily forested but storms have decimated the trees and allow light to stream through. I was captured by the cloud formation and the gaunt, solitary trees, silhouetted against the brilliant sky.",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 800,
-      "product_id": 53393756,
-      "slug": "the-sandbeds-otley",
-      "stripe_link": "",
-      "medium": "Original oil painting · 80 × 60cm",
-      "title": "The Sandbeds, Otley",
-      "image": "images/catalog/the-sandbeds-otley.jpg",
-      "description": "The Sandbeds lie south of Otley, where the river Wharfe slows and creates wonderful reflections of the riverside trees and shrubs.",
       "category": "Yorkshire Dales & Moors"
     },
     {
