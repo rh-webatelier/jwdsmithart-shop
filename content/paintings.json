@@ -34,6 +34,14 @@
       "category": "Yorkshire Dales & Moors"
     },
     {
+      "title": "Lindisfarne Castle",
+      "image": "images/lindisfarne-castle-50x40cm.jpg",
+      "medium": "Oil on board 50x40cm (20x16in)",
+      "price": 500,
+      "category": "Northumberland",
+      "description": "A view of the iconic Northumbrian castle on a windy summer's day"
+    },
+    {
       "price": 500,
       "product_id": 53534426,
       "slug": "sycamore-hebden-ghyll",
@@ -656,14 +664,6 @@
       "image": "images/catalog/nessend-holy-island.jpg",
       "description": "Whilst most visitors to Holy Island congregate around the castle and harbour, the dunes on the the far side offer wonderful scenery and incredible wildlife.",
       "category": "Northumberland"
-    },
-    {
-      "title": "Lindisfarne Castle",
-      "image": "images/lindisfarne-castle-50x40cm.jpg",
-      "medium": "Oil on board 50x40cm (20x16in)",
-      "price": 500,
-      "category": "Northumberland",
-      "description": "A view of the iconic Northumbrian castle on a windy summer's day"
     }
   ]
 }
