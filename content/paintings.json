@@ -12,6 +12,50 @@
       "category": "Yorkshire Dales & Moors"
     },
     {
+      "price": 700,
+      "product_id": 53479750,
+      "slug": "barden-tower",
+      "stripe_link": "",
+      "medium": "Original oil painting · 61 × 46cm",
+      "title": "Barden Tower",
+      "image": "images/catalog/barden-tower.jpg",
+      "description": "A summer's day in the Yorkshire Dales - Barden Tower shimmering in the afternoon sunlight",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
+      "price": 500,
+      "product_id": 53534425,
+      "slug": "gill-house",
+      "stripe_link": "",
+      "medium": "Original oil painting · 50 × 40cm",
+      "title": "Gill House",
+      "image": "images/catalog/gill-house.jpg",
+      "description": "Gill House sits at the top of Conistone Moor in the Yorkshire Dales. It was abandoned in the 1960s as it has no running water, gas, electricity or even a road! The ruins now shelter under the beautiful trees",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
+      "price": 500,
+      "product_id": 53534426,
+      "slug": "sycamore-hebden-ghyll",
+      "stripe_link": "",
+      "medium": "Original oil painting · 40 × 50cm",
+      "title": "Sycamore - Hebden Ghyll",
+      "image": "images/catalog/sycamore-hebden-ghyll.jpg",
+      "description": "This venerable tree can be found on the road above Hebden in the Yorkshire Dales. In winter one would think it is dead but as spring progresses it burgeons into life",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
+      "price": 700,
+      "product_id": 53402646,
+      "slug": "stag-rocks-from-bamburgh-castle",
+      "stripe_link": "",
+      "medium": "Original oil painting · 60 × 45cm",
+      "title": "Stag Rocks from Bamburgh Castle",
+      "image": "images/catalog/stag-rocks-from-bamburgh-castle.jpg",
+      "description": "A summer's view from Bamburgh castle, across the dunes to Stag Rocks and, in the distance, Holy Island under a shower of rain",
+      "category": "Northumberland"
+    },
+    {
       "price": 800,
       "product_id": 53393756,
       "slug": "the-sandbeds-otley",
@@ -20,6 +64,105 @@
       "title": "The Sandbeds, Otley",
       "image": "images/catalog/the-sandbeds-otley.jpg",
       "description": "The Sandbeds lie south of Otley, where the river Wharfe slows and creates wonderful reflections of the riverside trees and shrubs.",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
+      "price": 250,
+      "product_id": 53434883,
+      "slug": "lindisfarne-first-light",
+      "stripe_link": "",
+      "medium": "Original oil painting · 38 × 28cm",
+      "title": "Lindisfarne - First Light",
+      "image": "images/catalog/lindisfarne-first-light.jpg",
+      "description": "The iconic Lindisfarne castle bathed in the glow of a sunrise.",
+      "category": "Northumberland"
+    },
+    {
+      "price": 500,
+      "product_id": 53440358,
+      "slug": "hanging-wood-lane-thruscross",
+      "stripe_link": "",
+      "medium": "Original oil painting · 40.5 × 51cm",
+      "title": "Hanging Wood Lane, Thruscross",
+      "image": "images/catalog/hanging-wood-lane-thruscross.jpg",
+      "description": "Hanging Wood lane leads to the reservoir at Thruscross in the beautiful Washburn Valley, Yorkshire. The hillside to the left was heavily planted with conifers for commercial forestry. They were removed a year ago and left this pair of silver birches. Their shape was eye-catching as they had grown up in the shade of the light-hungry conifers and so their branches had stretched away and into the light over the lane.",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
+      "price": 500,
+      "product_id": 53445601,
+      "slug": "still-winter-s-morning",
+      "stripe_link": "",
+      "medium": "Original oil painting · 40 × 50cm",
+      "title": "Still Winter's Morning",
+      "image": "images/catalog/still-winter-s-morning.jpg",
+      "description": "This view is from the nature reserve at Fairburn Ings. Once home to the largest slag heap in Europe (what a boast!) it has been transformed into a thriving and beautiful place by the RSPB. This area of the reserve is home to burgeoning silver birch and alder, thriving in the damp conditions.",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
+      "price": 700,
+      "product_id": 53393757,
+      "slug": "pockstones-moor",
+      "stripe_link": "",
+      "medium": "Original oil painting · 80 × 40cm",
+      "title": "Pockstones Moor",
+      "image": "images/catalog/pockstones-moor.jpg",
+      "description": "This beautiful moorland lies in the grounds of the Bolton Abbey estate. The tracks stretch for miles across open moorland and one can walk for miles with just the curlews and skylarks for company.",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
+      "price": 250,
+      "product_id": 53393767,
+      "slug": "fountains-abbey",
+      "stripe_link": "",
+      "medium": "Original oil painting · 28 × 36cm",
+      "title": "Fountains Abbey",
+      "image": "images/catalog/fountains-abbey.jpg",
+      "description": "The iconic and much painted ruins of Fountains Abbey, seen from a slightly different angle to the usual",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
+      "price": 700,
+      "product_id": 53393786,
+      "slug": "beech-tree-by-the-wharfe",
+      "stripe_link": "",
+      "medium": "Original oil painting · 60 × 50cm",
+      "title": "Beech Tree by the Wharfe",
+      "image": "images/catalog/beech-tree-by-the-wharfe.jpg",
+      "description": "One of a group of tree studies - this beech tree stands by the River Wharfe just outside Otley and is, in fact, two trees growing together. The remarkable sinuous nature of the trunks and roots are rather beautiful and grotesque.",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
+      "price": 700,
+      "product_id": 53393787,
+      "slug": "beech-trees-at-thruscross",
+      "stripe_link": "",
+      "medium": "Original oil painting · 60 × 50cm",
+      "title": "Beech Trees at Thruscross",
+      "image": "images/catalog/beech-trees-at-thruscross.jpg",
+      "description": "Another of my tree studies - this time of a row of beech trees on the River Washburn, at Thruscross",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
+      "price": 300,
+      "product_id": 53393791,
+      "slug": "ripon-minster-from-studley-royal",
+      "stripe_link": "",
+      "medium": "Original oil painting · 50 × 40cm",
+      "title": "Ripon Minster from Studley Royal",
+      "image": "images/catalog/ripon-minster-from-studley-royal.jpg",
+      "description": "A distant view of the Minster at Ripon, from Studley Royal",
+      "category": "Yorkshire Dales & Moors"
+    },
+    {
+      "price": 650,
+      "product_id": 53393768,
+      "slug": "the-clearing",
+      "stripe_link": "",
+      "medium": "Oil on canvas · 65 × 50 cm",
+      "title": "The Clearing",
+      "image": "images/catalog/the-clearing.jpg",
+      "description": "Original oil painting 65x50cm on canvas. The cool of the pine forest is depicted here, contrasting with the heat of the clearing. Painted at Timble Woods near Otley.",
       "category": "Yorkshire Dales & Moors"
     },
     {
@@ -56,6 +199,17 @@
       "category": "Yorkshire Coast"
     },
     {
+      "price": 700,
+      "product_id": 53393792,
+      "slug": "dunstanburgh-castle",
+      "stripe_link": "",
+      "medium": "Original oil painting · 60 × 45cm",
+      "title": "Dunstanburgh Castle",
+      "image": "images/catalog/dunstanburgh-castle.jpg",
+      "description": "A distant view of the iconic Northumbrian castle.",
+      "category": "Northumberland"
+    },
+    {
       "price": 170,
       "product_id": 53393793,
       "slug": "timble-ings-sunrise",
@@ -78,17 +232,6 @@
       "category": "Yorkshire Dales & Moors"
     },
     {
-      "price": 700,
-      "product_id": 53402646,
-      "slug": "stag-rocks-from-bamburgh-castle",
-      "stripe_link": "",
-      "medium": "Original oil painting · 60 × 45cm",
-      "title": "Stag Rocks from Bamburgh Castle",
-      "image": "images/catalog/stag-rocks-from-bamburgh-castle.jpg",
-      "description": "A summer's view from Bamburgh castle, across the dunes to Stag Rocks and, in the distance, Holy Island under a shower of rain",
-      "category": "Northumberland"
-    },
-    {
       "price": 170,
       "product_id": 53393795,
       "slug": "last-of-the-snow",
@@ -97,28 +240,6 @@
       "title": "Last of the Snow",
       "image": "images/catalog/last-of-the-snow.jpg",
       "description": "An early morning view of Timble Woods, Otley, with the last of the snow cloaking the ground.",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 700,
-      "product_id": 53393757,
-      "slug": "pockstones-moor",
-      "stripe_link": "",
-      "medium": "Original oil painting · 80 × 40cm",
-      "title": "Pockstones Moor",
-      "image": "images/catalog/pockstones-moor.jpg",
-      "description": "This beautiful moorland lies in the grounds of the Bolton Abbey estate. The tracks stretch for miles across open moorland and one can walk for miles with just the curlews and skylarks for company.",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 700,
-      "product_id": 53393786,
-      "slug": "beech-tree-by-the-wharfe",
-      "stripe_link": "",
-      "medium": "Original oil painting · 60 × 50cm",
-      "title": "Beech Tree by the Wharfe",
-      "image": "images/catalog/beech-tree-by-the-wharfe.jpg",
-      "description": "One of a group of tree studies - this beech tree stands by the River Wharfe just outside Otley and is, in fact, two trees growing together. The remarkable sinuous nature of the trunks and roots are rather beautiful and grotesque.",
       "category": "Yorkshire Dales & Moors"
     },
     {
@@ -141,17 +262,6 @@
       "title": "Harnessing the Storm",
       "image": "images/catalog/harnessing-the-storm.jpg",
       "description": "This is an actual storm I witnessed looking towards the wind turbines near Harrogate. I was enthralled by the changes of scale - the wind turbines are enormous when viewed close-up but are dwarfed by nature in all its majesty.",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 250,
-      "product_id": 53393767,
-      "slug": "fountains-abbey",
-      "stripe_link": "",
-      "medium": "Original oil painting · 28 × 36cm",
-      "title": "Fountains Abbey",
-      "image": "images/catalog/fountains-abbey.jpg",
-      "description": "The iconic and much painted ruins of Fountains Abbey, seen from a slightly different angle to the usual",
       "category": "Yorkshire Dales & Moors"
     },
     {
@@ -189,17 +299,6 @@
     },
     {
       "price": 700,
-      "product_id": 53393787,
-      "slug": "beech-trees-at-thruscross",
-      "stripe_link": "",
-      "medium": "Original oil painting · 60 × 50cm",
-      "title": "Beech Trees at Thruscross",
-      "image": "images/catalog/beech-trees-at-thruscross.jpg",
-      "description": "Another of my tree studies - this time of a row of beech trees on the River Washburn, at Thruscross",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 700,
       "product_id": 53393765,
       "slug": "the-gathering-storm-wharfedale",
       "stripe_link": "",
@@ -207,39 +306,6 @@
       "title": "The Gathering  Storm - Wharfedale",
       "image": "images/catalog/the-gathering-storm-wharfedale.jpg",
       "description": "This view was taken at the end of a long day dry-stone walling on the moors above Bolton Priory in Wharfedale, Yorkshire. The clouds loomed over me and I felt miniscule in the landscape.",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 500,
-      "product_id": 53445601,
-      "slug": "still-winter-s-morning",
-      "stripe_link": "",
-      "medium": "Original oil painting · 40 × 50cm",
-      "title": "Still Winter's Morning",
-      "image": "images/catalog/still-winter-s-morning.jpg",
-      "description": "This view is from the nature reserve at Fairburn Ings. Once home to the largest slag heap in Europe (what a boast!) it has been transformed into a thriving and beautiful place by the RSPB. This area of the reserve is home to burgeoning silver birch and alder, thriving in the damp conditions.",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 250,
-      "product_id": 53434883,
-      "slug": "lindisfarne-first-light",
-      "stripe_link": "",
-      "medium": "Original oil painting · 38 × 28cm",
-      "title": "Lindisfarne - First Light",
-      "image": "images/catalog/lindisfarne-first-light.jpg",
-      "description": "The iconic Lindisfarne castle bathed in the glow of a sunrise.",
-      "category": "Northumberland"
-    },
-    {
-      "price": 500,
-      "product_id": 53440358,
-      "slug": "hanging-wood-lane-thruscross",
-      "stripe_link": "",
-      "medium": "Original oil painting · 40.5 × 51cm",
-      "title": "Hanging Wood Lane, Thruscross",
-      "image": "images/catalog/hanging-wood-lane-thruscross.jpg",
-      "description": "Hanging Wood lane leads to the reservoir at Thruscross in the beautiful Washburn Valley, Yorkshire. The hillside to the left was heavily planted with conifers for commercial forestry. They were removed a year ago and left this pair of silver birches. Their shape was eye-catching as they had grown up in the shade of the light-hungry conifers and so their branches had stretched away and into the light over the lane.",
       "category": "Yorkshire Dales & Moors"
     },
     {
@@ -309,17 +375,6 @@
       "category": "Yorkshire Coast"
     },
     {
-      "price": 650,
-      "product_id": 53393768,
-      "slug": "the-clearing",
-      "stripe_link": "",
-      "medium": "Oil on canvas · 65 × 50 cm",
-      "title": "The Clearing",
-      "image": "images/catalog/the-clearing.jpg",
-      "description": "Original oil painting 65x50cm on canvas. The cool of the pine forest is depicted here, contrasting with the heat of the clearing. Painted at Timble Woods near Otley.",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
       "price": 600,
       "product_id": 53393769,
       "slug": "spring-light",
@@ -384,28 +439,6 @@
       "image": "images/catalog/poplar-in-winter.jpg",
       "description": "On a sketching trip around Wetherby, Yorkshire, I noticed this singular grouping of trees. Whilst all the other trees had lost their leaves, the poplar was hanging on to make the most of the daylight.",
       "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 300,
-      "product_id": 53393791,
-      "slug": "ripon-minster-from-studley-royal",
-      "stripe_link": "",
-      "medium": "Original oil painting · 50 × 40cm",
-      "title": "Ripon Minster from Studley Royal",
-      "image": "images/catalog/ripon-minster-from-studley-royal.jpg",
-      "description": "A distant view of the Minster at Ripon, from Studley Royal",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 700,
-      "product_id": 53393792,
-      "slug": "dunstanburgh-castle",
-      "stripe_link": "",
-      "medium": "Original oil painting · 60 × 45cm",
-      "title": "Dunstanburgh Castle",
-      "image": "images/catalog/dunstanburgh-castle.jpg",
-      "description": "A distant view of the iconic Northumbrian castle.",
-      "category": "Northumberland"
     },
     {
       "price": 250,
@@ -497,17 +530,6 @@
     },
     {
       "price": 700,
-      "product_id": 53479750,
-      "slug": "barden-tower",
-      "stripe_link": "",
-      "medium": "Original oil painting · 61 × 46cm",
-      "title": "Barden Tower",
-      "image": "images/catalog/barden-tower.jpg",
-      "description": "A summer's day in the Yorkshire Dales - Barden Tower shimmering in the afternoon sunlight",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 700,
       "product_id": 53479751,
       "slug": "hebden-ghyll-misty-morning",
       "stripe_link": "",
@@ -515,28 +537,6 @@
       "title": "Hebden Ghyll - Misty Morning",
       "image": "images/catalog/hebden-ghyll-misty-morning.jpg",
       "description": "Hebden Ghyll is a lovely stream winding through the landscape near Grassington in the Yorkshire Dales, carrying with it a certain air of mystery when wrapped in mist.",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 500,
-      "product_id": 53534425,
-      "slug": "gill-house",
-      "stripe_link": "",
-      "medium": "Original oil painting · 50 × 40cm",
-      "title": "Gill House",
-      "image": "images/catalog/gill-house.jpg",
-      "description": "Gill House sits at the top of Conistone Moor in the Yorkshire Dales. It was abandoned in the 1960s as it has no running water, gas, electricity or even a road! The ruins now shelter under the beautiful trees",
-      "category": "Yorkshire Dales & Moors"
-    },
-    {
-      "price": 500,
-      "product_id": 53534426,
-      "slug": "sycamore-hebden-ghyll",
-      "stripe_link": "",
-      "medium": "Original oil painting · 40 × 50cm",
-      "title": "Sycamore - Hebden Ghyll",
-      "image": "images/catalog/sycamore-hebden-ghyll.jpg",
-      "description": "This venerable tree can be found on the road above Hebden in the Yorkshire Dales. In winter one would think it is dead but as spring progresses it burgeons into life",
       "category": "Yorkshire Dales & Moors"
     },
     {
