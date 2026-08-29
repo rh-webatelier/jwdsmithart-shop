@@ -325,6 +325,14 @@
       "category": "Yorkshire Dales & Moors"
     },
     {
+      "title": "Coquet Island",
+      "image": "images/coquet-island-36x28cm.jpg",
+      "medium": "Oil on board 36x28cm ",
+      "price": 250,
+      "category": "Northumberland",
+      "description": "A view across the choppy North Sea to the lighthouse and nature reserve of Coquet Island"
+    },
+    {
       "price": 700,
       "product_id": 53393778,
       "slug": "respite-storm-eunice-from-snowden-crags",
@@ -664,14 +672,6 @@
       "image": "images/catalog/nessend-holy-island.jpg",
       "description": "Whilst most visitors to Holy Island congregate around the castle and harbour, the dunes on the the far side offer wonderful scenery and incredible wildlife.",
       "category": "Northumberland"
-    },
-    {
-      "title": "Coquet Island",
-      "image": "images/coquet-island-36x28cm.jpg",
-      "medium": "Oil on board 36x28cm ",
-      "price": 250,
-      "category": "Northumberland",
-      "description": "A view across the choppy North Sea to the lighthouse and nature reserve of Coquet Island"
     }
   ]
 }
