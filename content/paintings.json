@@ -648,6 +648,14 @@
       "image": "images/catalog/nessend-holy-island.jpg",
       "description": "Whilst most visitors to Holy Island congregate around the castle and harbour, the dunes on the the far side offer wonderful scenery and incredible wildlife.",
       "category": "Northumberland"
+    },
+    {
+      "title": "Reflections at Sunrise",
+      "image": "images/reflections-at-sunrise-80x40cm.jpg",
+      "medium": "Oil on canvas 80x40cm",
+      "price": 700,
+      "category": "Yorkshire Dales & Moors",
+      "description": "The beautiful nature reserve at Staveley, bear Harrogate, as the sun rises over the west lagoon"
     }
   ]
 }
