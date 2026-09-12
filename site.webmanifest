@@ -1,0 +1,11 @@
+{
+  "name": "JWD Smith Art",
+  "short_name": "JWD Smith Art",
+  "icons": [
+    { "src": "/favicon-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#1b1915",
+  "background_color": "#f7f3ea",
+  "display": "standalone"
+}
