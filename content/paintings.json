@@ -661,6 +661,22 @@
       "image": "images/catalog/nessend-holy-island.jpg",
       "description": "Whilst most visitors to Holy Island congregate around the castle and harbour, the dunes on the the far side offer wonderful scenery and incredible wildlife.",
       "category": "Northumberland"
+    },
+    {
+      "title": "Grimwith - Rough Haw",
+      "image": "images/grimwith-with-rough-haw-61x45.7cm-24x18-.jpg",
+      "medium": "Oil on board. 61x45cm (24x18\")",
+      "price": 500,
+      "category": "Yorkshire Dales & Moors",
+      "description": "An early morning view of Rough Haw from the banks of Grimwith Reservoir in the Yorkshire Dales"
+    },
+    {
+      "title": "Three Mires, Grimwith - Barn Owl Hunting",
+      "image": "images/three-mires-grimwith-barn-owl-50.8x40.6cm-20x16-.jpg",
+      "medium": "Oil on board. 50.8x40.6cm (20x16\")",
+      "price": 500,
+      "category": "Yorkshire Dales & Moors",
+      "description": "The run down barn at Three Mires on the edge of Grimwith Reservoir, makes the perfect spot for a barn owl to raise his family."
     }
   ]
 }
